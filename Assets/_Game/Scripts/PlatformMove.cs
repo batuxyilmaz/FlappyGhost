@@ -35,10 +35,8 @@ public class PlatformMove : MonoBehaviour
             PlayerMovement.instance.hitEffect.Play();
             PlayerMovement.instance.hitEffect.transform.parent=null;
             collision.transform.parent.transform.GetChild(0).transform.DOScaleY(0.11f, 0.2f).SetEase(Ease.OutSine);
-            GameManager.instance.playerCam.Follow = null;
-            GameManager.instance.playerCam.LookAt = null;
-            collision.gameObject.GetComponent<Collider>().enabled = false;
-            collision.transform.parent.GetComponent<Collider>().enabled = false;
+            
+            StartCoroutine(FailDelay());
             StartCoroutine(EndDelay());
         }
     }
@@ -90,6 +88,17 @@ public class PlatformMove : MonoBehaviour
         yield return new WaitForSeconds(2);
         GameManager.instance.End();
     }
+    IEnumerator FailDelay()
+    {
+        yield return new WaitForSeconds(0.2f);
+        GameManager.instance.playerCam.Follow = null;
+        GameManager.instance.playerCam.LookAt = null;
+
+        yield return new WaitForSeconds(0.8f);
+        GameManager.instance.player.GetComponent<Collider>().enabled = false;
+        GameManager.instance.player.transform.GetChild(2).GetComponent<Collider>().enabled = false;
+    }
+      
     
    
 }
