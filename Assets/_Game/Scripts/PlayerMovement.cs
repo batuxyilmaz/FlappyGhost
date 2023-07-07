@@ -25,8 +25,11 @@ public class PlayerMovement : MonoBehaviour
     public bool groundControl;
     private float slidetimer;
     public GenerateObjects generateScript;
-    
+    public ParticleSystem hitEffect;
+    public GameObject screenBorder;
     public static PlayerMovement instance;
+    public int touchCount;
+    
     private void Awake()
     {
         instance = this;
@@ -34,10 +37,12 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
         value = 50;
-
+        
     }
     private void Update()
     {
+      
+      
         if (Input.GetMouseButtonDown(0)&&!GameManager.instance.failed)
         {
             Vector3 firstPos = Camera.main.ScreenToViewportPoint(Input.mousePosition);
@@ -84,7 +89,7 @@ public class PlayerMovement : MonoBehaviour
         if (!slideControl)
         {
             transform.GetChild(0).DOScaleY(0.11f, 0.1f).SetEase(Ease.OutSine).OnComplete(() => transform.GetChild(0).DOScaleY(0.37f, 0.1f).SetEase(Ease.OutSine));
-          
+            touchCount++;
             StartCoroutine(FallDelay());
             StartCoroutine(ForceDelay());
 
@@ -100,9 +105,13 @@ public class PlayerMovement : MonoBehaviour
     private IEnumerator ForceDelay()
     {
         yield return new WaitForSeconds(0.2f);
-        rb.AddForce(transform.up * forcePower);
+        //if (touchCount <= 3)
+        //{
+            rb.AddForce(transform.up * forcePower);
+        //}
+      
     }
-
+   
 
 }
 

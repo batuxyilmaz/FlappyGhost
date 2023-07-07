@@ -22,7 +22,7 @@ public class WallControl : MonoBehaviour
     }
     IEnumerator EndDelay()
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(0.5f);
         GameManager.instance.End();
     }
 }

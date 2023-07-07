@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI highScoreText;
     public GameObject player;
     public bool failed;
+  
     private void Awake()
     {
         instance = this;
@@ -30,7 +31,7 @@ public class GameManager : MonoBehaviour
     
     void Update()
     {
-        
+       
     }
    public enum GameState
     {

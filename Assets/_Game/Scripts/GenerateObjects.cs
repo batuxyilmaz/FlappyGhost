@@ -72,12 +72,7 @@ public class GenerateObjects : MonoBehaviour
 
         }
     }
-    private void OnBecameInvisible()
-    {
-        {
-            Destroy(platform);
-        }
-    }
+   
 
 }
 
