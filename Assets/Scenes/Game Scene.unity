@@ -827,7 +827,7 @@ MonoBehaviour:
   rb: {fileID: 919132148649758380}
   slideControl: 0
   delayTime: 1
-  forcePower: 300
+  forcePower: 10
   groundControl: 0
   generateScript: {fileID: 1192160751}
   hitEffect: {fileID: 747259044652480205}

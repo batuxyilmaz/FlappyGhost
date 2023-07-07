@@ -8,7 +8,7 @@ public class MoveCoin : MonoBehaviour
     
     void Start()
     {
-        speed = 0.2f;
+       
     }
 
     
