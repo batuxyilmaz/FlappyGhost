@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI highScoreText;
     public GameObject player;
     public bool failed;
+    public float speedObject;
   
     private void Awake()
     {

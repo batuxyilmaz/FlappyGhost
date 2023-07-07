@@ -15,8 +15,8 @@ public class PlatformMove : MonoBehaviour
     void Start()
     {
         col=GetComponent<Collider>();
-      
-      
+        speed = GameManager.instance.speedObject;
+
     }
 
     void Update()

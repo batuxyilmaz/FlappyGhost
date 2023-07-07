@@ -2104,6 +2104,7 @@ MonoBehaviour:
   highScoreText: {fileID: 1989642380}
   player: {fileID: 919132148649758378}
   failed: 0
+  speedObject: 1
 --- !u!114 &1192160751
 MonoBehaviour:
   m_ObjectHideFlags: 0

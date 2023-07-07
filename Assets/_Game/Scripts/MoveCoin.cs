@@ -8,7 +8,7 @@ public class MoveCoin : MonoBehaviour
     
     void Start()
     {
-       
+        speed = GameManager.instance.speedObject;
     }
 
     
