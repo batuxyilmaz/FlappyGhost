@@ -58,10 +58,14 @@ public class PlatformMove : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             StartCoroutine(ColliderOnOff());
-            GameManager.instance.playerCam.Follow = GameManager.instance.player.transform;
-            GameManager.instance.playerCam.LookAt = GameManager.instance.player.transform;
-            PlayerMovement.instance.screenBorder.transform.parent = GameManager.instance.player.transform;
-            PlayerMovement.instance.screenBorder.transform.localPosition = new Vector3(PlayerMovement.instance.screenBorder.transform.localPosition.x, -5.55f, PlayerMovement.instance.screenBorder.transform.localPosition.z);
+            if (!PlayerMovement.instance.groundControl)
+            {
+                GameManager.instance.playerCam.Follow = GameManager.instance.player.transform;
+                GameManager.instance.playerCam.LookAt = GameManager.instance.player.transform;
+                PlayerMovement.instance.screenBorder.transform.parent = GameManager.instance.player.transform;
+                PlayerMovement.instance.screenBorder.transform.localPosition = new Vector3(PlayerMovement.instance.screenBorder.transform.localPosition.x, -5.55f, PlayerMovement.instance.screenBorder.transform.localPosition.z);
+            }
+           
 
 
 
@@ -92,7 +96,7 @@ public class PlatformMove : MonoBehaviour
         yield return new WaitForSeconds(0.2f);
         GameManager.instance.playerCam.Follow = null;
         GameManager.instance.playerCam.LookAt = null;
-
+       
         yield return new WaitForSeconds(0.8f);
         GameManager.instance.player.GetComponent<Collider>().enabled = false;
         GameManager.instance.player.transform.GetChild(2).GetComponent<Collider>().enabled = false;
