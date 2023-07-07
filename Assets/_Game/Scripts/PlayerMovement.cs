@@ -107,9 +107,9 @@ public class PlayerMovement : MonoBehaviour
         yield return new WaitForSeconds(0.2f);
         //if (touchCount <= 3)
         //{
-            rb.AddForce(transform.up * forcePower);
+        rb.velocity = new Vector3(0, forcePower, 0);
         //}
-      
+
     }
    
 

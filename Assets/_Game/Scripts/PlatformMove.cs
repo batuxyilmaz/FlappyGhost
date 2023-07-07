@@ -15,8 +15,7 @@ public class PlatformMove : MonoBehaviour
     void Start()
     {
         col=GetComponent<Collider>();
-       
-        speed = 0.2f;
+      
       
     }
 
