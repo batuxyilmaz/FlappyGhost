@@ -32,6 +32,9 @@ public class PlayerMovement : MonoBehaviour
     public TextMeshPro playerHeightText;
     private int heightCount;
     public GameObject heightObject;
+
+    private float jumpTimer;
+
     private void Awake()
     {
         instance = this;
@@ -43,6 +46,15 @@ public class PlayerMovement : MonoBehaviour
     }
     private void Update()
     {
+        jumpTimer += Time.deltaTime;
+        if (jumpTimer >= 1.5f)
+        {
+
+            TapControl();
+            jumpTimer = 0f;
+        }
+
+
         heightCount = Mathf.RoundToInt(transform.position.y);
         if (heightCount <= 0)
         {
@@ -60,7 +72,7 @@ public class PlayerMovement : MonoBehaviour
         {
             Vector3 firstPos = Camera.main.ScreenToViewportPoint(Input.mousePosition);
             xValOffset = (firstPos.x - .5f) * multiplier - transform.position.x;
-            TapControl();
+            //TapControl();
         }
         if (Input.GetMouseButtonUp(0))
         {
@@ -99,22 +111,19 @@ public class PlayerMovement : MonoBehaviour
     }
     private void TapControl()
     {
-        if (!slideControl)
-        {
-            transform.GetChild(0).DOScaleY(0.11f, 0.1f).SetEase(Ease.OutSine).OnComplete(() => transform.GetChild(0).DOScaleY(0.37f, 0.1f).SetEase(Ease.OutSine));
-            touchCount++;
-            StartCoroutine(FallDelay());
-            StartCoroutine(ForceDelay());
+        //if (!slideControl)
+        //{
+        //    transform.GetChild(0).DOScaleY(0.11f, 0.1f).SetEase(Ease.OutSine).OnComplete(() => transform.GetChild(0).DOScaleY(0.37f, 0.1f).SetEase(Ease.OutSine));
+        //    touchCount++;
+        //    StartCoroutine(ForceDelay());
 
-        }
-       
+        //}
+        transform.GetChild(0).DOScaleY(0.11f, 0.1f).SetEase(Ease.OutSine).OnComplete(() => transform.GetChild(0).DOScaleY(0.37f, 0.1f).SetEase(Ease.OutSine));
+        touchCount++;
+        StartCoroutine(ForceDelay());
+
     }
- 
-    private IEnumerator FallDelay()
-    {
-        yield return new WaitForSeconds(0.5f);
-        //Time.timeScale = 0.5f;
-    }
+
     private IEnumerator ForceDelay()
     {
         yield return new WaitForSeconds(0.2f);
