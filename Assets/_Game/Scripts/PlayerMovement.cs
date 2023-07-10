@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using DG.Tweening;
 using EKTemplate;
-
+using TMPro;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -29,7 +29,9 @@ public class PlayerMovement : MonoBehaviour
     public GameObject screenBorder;
     public static PlayerMovement instance;
     public int touchCount;
-    
+    public TextMeshPro playerHeightText;
+    private int heightCount;
+    public GameObject heightObject;
     private void Awake()
     {
         instance = this;
@@ -41,8 +43,19 @@ public class PlayerMovement : MonoBehaviour
     }
     private void Update()
     {
-      
-      
+        heightCount = Mathf.RoundToInt(transform.position.y);
+        if (heightCount <= 0)
+        {
+            heightCount = 0;
+            playerHeightText.text = heightCount.ToString();
+        }
+        else
+        {
+            playerHeightText.text = heightCount.ToString();
+        }
+       
+        heightObject.transform.position = new Vector3(heightObject.transform.position.x, transform.position.y, heightObject.transform.position.z);
+
         if (Input.GetMouseButtonDown(0)&&!GameManager.instance.failed)
         {
             Vector3 firstPos = Camera.main.ScreenToViewportPoint(Input.mousePosition);

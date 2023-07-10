@@ -59,7 +59,7 @@ public class GenerateObjects : MonoBehaviour
             currentPlatform = Platform;
 
         }
-        Instantiate(spawnBorder, new Vector3(0, currentPlatforms[16].transform.position.y, currentPlatforms[16].transform.position.z), transform.rotation);
+        Instantiate(spawnBorder, new Vector3(0, currentPlatforms[14].transform.position.y, currentPlatforms[14].transform.position.z), transform.rotation);
         //Instantiate(deleteBorder, new Vector3(0, currentPlatforms[19].transform.position.y+2f, currentPlatforms[19].transform.position.z), transform.rotation);
 
     }

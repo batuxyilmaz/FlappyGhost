@@ -1,9 +1,7 @@
 using UnityEngine;
 using Cinemachine;
 
-/// <summary>
-/// An add-on module for Cinemachine Virtual Camera that locks the camera's Y co-ordinate
-/// </summary>
+
 [SaveDuringPlay]
 [AddComponentMenu("")] // Hide in menu
 public class LockCameraY : CinemachineExtension
