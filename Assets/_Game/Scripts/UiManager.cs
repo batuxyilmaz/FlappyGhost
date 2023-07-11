@@ -4,12 +4,21 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using DG.Tweening;
+using TMPro;
 
 public class UiManager : MonoBehaviour
 {
     public List<GameObject> panels;
     public List<Button> buttons;
-    
+    public static UiManager instance;
+    public GameObject clickedObject;
+    public int buyValue;
+    public TextMeshProUGUI buyText;
+    public List<GameObject> clickedObjects;
+    private void Awake()
+    {
+        instance = this;
+    }
     public void SelectCharacter()
     {
         panels[0].SetActive(true);
@@ -37,5 +46,29 @@ public class UiManager : MonoBehaviour
         buttons[0].transform.parent.transform.DOLocalMoveY(655f, 0.2f);
         buttons[1].transform.parent.transform.DOLocalMoveY(655f, 0.2f);
         buttons[2].transform.parent.transform.DOLocalMoveY(692f, 0.2f);
+    }
+    public void SelectModel()
+    {
+        
+        var button = EventSystem.current.currentSelectedGameObject;
+        clickedObject = button.GetComponent<SelectModel>().modelAssets.modelObject;
+        buyValue= button.GetComponent<SelectModel>().modelAssets.value;
+        buyText.text=buyValue.ToString();
+        GameObject currentObject= Instantiate(clickedObject);
+       
+        clickedObjects.Add(currentObject);
+        
+        if(clickedObjects.Count >= 2)
+        {
+            clickedObjects[0].SetActive(false);
+            clickedObjects.RemoveAt(0);
+        }
+    }
+    public void Buy()
+    {
+        if (GameManager.instance.point >= buyValue)
+        {
+            Debug.Log("buyed");
+        }
     }
 }
