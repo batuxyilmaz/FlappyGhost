@@ -3108,7 +3108,7 @@ MonoBehaviour:
   rb: {fileID: 919132148649758380}
   slideControl: 0
   delayTime: 1
-  forcePower: 0
+  forcePower: 10
   groundControl: 0
   generateScript: {fileID: 1192160751}
   hitEffect: {fileID: 747259044652480205}
@@ -5138,8 +5138,8 @@ MonoBehaviour:
   platform: {fileID: 1165921880}
   spawnBorder: {fileID: 2807504588528375115, guid: 9ec01631eb824d4469c7c7734a7d213c, type: 3}
   coin: {fileID: 8857370356323787081, guid: c08b51efc79afdf4c977f2f2aec439f8, type: 3}
-  randomMinX: -5.5
-  randomMaxX: 5.5
+  randomMinX: -5
+  randomMaxX: 5
   randomMinY: 4
   randomMaxY: 6
   currentPlatforms: []
@@ -28616,8 +28616,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.65231645, y: 0.788841, z: 0.96076536}
-  m_Center: {x: 0.0044604344, y: 0.03542952, z: 0.0598886}
+  m_Size: {x: 0.48302683, y: 0.6643337, z: 0.96076536}
+  m_Center: {x: -0.01666083, y: 0.09768319, z: 0.0598886}
 --- !u!54 &919132148649758380
 Rigidbody:
   m_ObjectHideFlags: 0

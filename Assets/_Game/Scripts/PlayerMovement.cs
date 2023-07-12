@@ -46,7 +46,11 @@ public class PlayerMovement : MonoBehaviour
     }
     private void Update()
     {
-        jumpTimer += Time.deltaTime;
+        if (!GameManager.instance.failed)
+        {
+            jumpTimer += Time.deltaTime;
+        }
+      
         if (jumpTimer >= 1.5f)
         {
 
