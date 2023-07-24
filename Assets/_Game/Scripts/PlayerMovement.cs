@@ -32,8 +32,10 @@ public class PlayerMovement : MonoBehaviour
     public TextMeshPro playerHeightText;
     private int heightCount;
     public GameObject heightObject;
-
+    public bool tap;
     private float jumpTimer;
+    private float jumpSpeed;
+
 
     private void Awake()
     {
@@ -42,20 +44,25 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
         value = 50;
-        
+        jumpSpeed = 1.6f;
     }
     private void Update()
     {
-        if (!GameManager.instance.failed)
+        if (tap)
         {
             jumpTimer += Time.deltaTime;
         }
       
-        if (jumpTimer >= 1.5f)
+        if (jumpTimer >= jumpSpeed)
         {
 
             TapControl();
             jumpTimer = 0f;
+            if (jumpSpeed >= 0.6f)
+            {
+                jumpSpeed -= 0.2f;
+            }
+          
         }
 
 
@@ -83,11 +90,17 @@ public class PlayerMovement : MonoBehaviour
             touched = false;
             slideControl = false;
             slidetimer = 0f;
+            tap = false;
+            jumpSpeed = 1.6f;
 
         }
         if (Input.GetMouseButton(0) && !GameManager.instance.failed)
         {
+            tap = true;
+          
             slidetimer += Time.deltaTime;
+            
+          
             if (slidetimer >= 0.2f)
             {
                 slideControl = true;
