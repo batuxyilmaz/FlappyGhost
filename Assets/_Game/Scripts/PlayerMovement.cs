@@ -90,6 +90,8 @@ public class PlayerMovement : MonoBehaviour
             xValOffset = (firstPos.x - .5f) * multiplier - transform.position.x;
             isFalling = false;
             tap = true;
+            screenBorder.transform.parent = GameManager.instance.player.transform;
+            screenBorder.transform.localPosition = new Vector3(screenBorder.transform.localPosition.x, -5.55f, screenBorder.transform.localPosition.z);
             //TapControl();
         }
         if (Input.GetMouseButtonUp(0))
@@ -100,6 +102,9 @@ public class PlayerMovement : MonoBehaviour
             tap = false;
             jumpSpeed = 1.6f;
             isFalling = true;
+            GameManager.instance.playerCam.Follow = null;
+            GameManager.instance.playerCam.LookAt = null;
+            screenBorder.transform.parent = null;
 
         }
         if (Input.GetMouseButton(0) && !GameManager.instance.failed)

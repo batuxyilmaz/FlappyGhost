@@ -58,4 +58,5 @@ public class GameManager : MonoBehaviour
         ingamePanel.SetActive(false);
         endgamePanel.SetActive(true);
     }
+  
 }

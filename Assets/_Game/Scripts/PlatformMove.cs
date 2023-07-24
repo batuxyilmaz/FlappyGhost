@@ -91,7 +91,7 @@ public class PlatformMove : MonoBehaviour
         GameManager.instance.playerCam.Follow = null;
         GameManager.instance.playerCam.LookAt = null;
         GameManager.instance.player.GetComponent<Collider>().enabled = false;
-        GameManager.instance.player.transform.GetChild(2).GetComponent<Collider>().enabled = false;
+        GameManager.instance.player.transform.GetChild(1).GetComponent<Collider>().enabled = false;
         yield return new WaitForSeconds(0.8f);
        
     }
