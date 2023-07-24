@@ -34,7 +34,7 @@ public class PlatformMove : MonoBehaviour
             GameManager.instance.failed = true;
             PlayerMovement.instance.hitEffect.Play();
             PlayerMovement.instance.hitEffect.transform.parent=null;
-            collision.transform.parent.transform.GetChild(0).transform.DOScaleY(0.11f, 0.2f).SetEase(Ease.OutSine);
+            //collision.transform.parent.transform.GetChild(0).transform.DOScaleY(0.11f, 0.2f).SetEase(Ease.OutSine);
             
             StartCoroutine(FailDelay());
             StartCoroutine(EndDelay());

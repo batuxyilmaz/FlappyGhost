@@ -31,11 +31,7 @@ public class GenerateObjects : MonoBehaviour
     }
 
     
-    void Update()
-    {
-        
-
-    }
+   
     public void GeneratePlatform(GameObject Platform)
     {
 
@@ -63,15 +59,7 @@ public class GenerateObjects : MonoBehaviour
         //Instantiate(deleteBorder, new Vector3(0, currentPlatforms[19].transform.position.y+2f, currentPlatforms[19].transform.position.z), transform.rotation);
 
     }
-    public void GenerateCoin()
-    {
-        for (int i = 0; i < 20; i++)
-        {
-            
-       
-
-        }
-    }
+   
    
 
 }
