@@ -21,7 +21,7 @@ public class PlayerMovement : MonoBehaviour
     public Rigidbody rb;
     public bool slideControl;
     public float delayTime;
-    public int forcePower;
+    public float forcePower;
     public bool groundControl;
     private float slidetimer;
     public GenerateObjects generateScript;
@@ -35,7 +35,7 @@ public class PlayerMovement : MonoBehaviour
     public bool tap;
     private float jumpTimer;
     private float jumpSpeed;
-
+    public bool isFalling;
 
     private void Awake()
     {
@@ -48,21 +48,26 @@ public class PlayerMovement : MonoBehaviour
     }
     private void Update()
     {
-        if (tap)
-        {
-            jumpTimer += Time.deltaTime;
-        }
-      
-        if (jumpTimer >= jumpSpeed)
-        {
 
-            TapControl();
-            jumpTimer = 0f;
-            if (jumpSpeed >= 0.6f)
-            {
-                jumpSpeed -= 0.2f;
-            }
-          
+        //if (tap)
+        //{
+        //    jumpTimer += Time.deltaTime;
+        //}
+
+        //if (jumpTimer >= jumpSpeed)
+        //{
+
+        //   // TapControl();
+        //    jumpTimer = 0f;
+        //    if (jumpSpeed >= 0.6f)
+        //    {
+        //        jumpSpeed -= 0.2f;
+        //    }
+
+        //}
+        if (isFalling)
+        {
+            transform.Translate(0, -forcePower / 2 * Time.deltaTime, 0); //Decent
         }
 
 
@@ -83,6 +88,8 @@ public class PlayerMovement : MonoBehaviour
         {
             Vector3 firstPos = Camera.main.ScreenToViewportPoint(Input.mousePosition);
             xValOffset = (firstPos.x - .5f) * multiplier - transform.position.x;
+            isFalling = false;
+            tap = true;
             //TapControl();
         }
         if (Input.GetMouseButtonUp(0))
@@ -92,14 +99,20 @@ public class PlayerMovement : MonoBehaviour
             slidetimer = 0f;
             tap = false;
             jumpSpeed = 1.6f;
+            isFalling = true;
 
         }
         if (Input.GetMouseButton(0) && !GameManager.instance.failed)
         {
-            tap = true;
+           
           
             slidetimer += Time.deltaTime;
             
+            if (!isFalling)
+            {
+                transform.Translate(0, forcePower * Time.deltaTime, 0); //Ascend
+            }
+
           
             if (slidetimer >= 0.2f)
             {
@@ -126,28 +139,33 @@ public class PlayerMovement : MonoBehaviour
         
 
     }
-    private void TapControl()
-    {
-        //if (!slideControl)
-        //{
-        //    transform.GetChild(0).DOScaleY(0.11f, 0.1f).SetEase(Ease.OutSine).OnComplete(() => transform.GetChild(0).DOScaleY(0.37f, 0.1f).SetEase(Ease.OutSine));
-        //    touchCount++;
-        //    StartCoroutine(ForceDelay());
+    //private void TapControl()
+    //{
+    //    //if (!slideControl)
+    //    //{
+    //    //    transform.GetChild(0).DOScaleY(0.11f, 0.1f).SetEase(Ease.OutSine).OnComplete(() => transform.GetChild(0).DOScaleY(0.37f, 0.1f).SetEase(Ease.OutSine));
+    //    //    touchCount++;
+    //    //    StartCoroutine(ForceDelay());
 
-        //}
-        transform.GetChild(0).DOScaleY(0.11f, 0.1f).SetEase(Ease.OutSine).OnComplete(() => transform.GetChild(0).DOScaleY(0.37f, 0.1f).SetEase(Ease.OutSine));
-        touchCount++;
-        StartCoroutine(ForceDelay());
+    //    //}
+    //   // transform.GetChild(0).DOScaleY(0.11f, 0.1f).SetEase(Ease.OutSine).OnComplete(() => transform.GetChild(0).DOScaleY(0.45f, 0.1f).SetEase(Ease.OutSine));
+    //    touchCount++;
+    //    StartCoroutine(ForceDelay());
 
-    }
+    //}
 
-    private IEnumerator ForceDelay()
-    {
-        yield return new WaitForSeconds(0.2f);
-        rb.velocity = new Vector3(0, forcePower, 0);
+    //private IEnumerator ForceDelay()
+    //{
+    //    yield return new WaitForSeconds(0.2f);
+    //    move = true;
+    //    yield return new WaitForSeconds(0.2f);
+    //    move = false;
+    //    forcePower += 0.2f;
+    //    //rb.velocity = new Vector3(0, forcePower, 0);
+        
        
 
-    }
+    //}
    
 
 }

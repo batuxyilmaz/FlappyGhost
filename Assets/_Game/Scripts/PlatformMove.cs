@@ -49,6 +49,7 @@ public class PlatformMove : MonoBehaviour
             GameManager.instance.playerCam.Follow = null;
             GameManager.instance.playerCam.LookAt = null;
             PlayerMovement.instance.screenBorder.transform.parent = null;
+            PlayerMovement.instance.isFalling = false; 
 
         }
 
