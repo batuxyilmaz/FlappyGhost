@@ -89,6 +89,8 @@ public class PlayerMovement : MonoBehaviour
         {
             Vector3 firstPos = Camera.main.ScreenToViewportPoint(Input.mousePosition);
             xValOffset = (firstPos.x - .5f) * multiplier - transform.position.x;
+          
+         
             isFalling = false;
             tap = true;
             screenBorder.transform.parent = GameManager.instance.player.transform;
@@ -141,13 +143,12 @@ public class PlayerMovement : MonoBehaviour
     {
         touched = true;
 
-        Vector3 currentPos= Camera.main.ScreenToViewportPoint(Input.mousePosition);
-        transform.position = Vector3.Lerp(transform.position, new Vector3((currentPos.x - .5f) * multiplier - xValOffset, transform.position.y, transform.position.z), value * Time.deltaTime);
+        Vector3 currentPos = Camera.main.ScreenToViewportPoint(Input.mousePosition);
+        transform.position = Vector3.Lerp(transform.position, new Vector3((currentPos.x - 0.5f) * multiplier - xValOffset, transform.position.y, transform.position.z), value * Time.deltaTime);
         Vector3 pos = transform.position;
         offsetX = Mathf.Clamp(pos.x, ground.bounds.min.x + 0.5f, ground.bounds.max.x - 0.5f);
         pos.x = offsetX;
         
-
     }
     //private void TapControl()
     //{
