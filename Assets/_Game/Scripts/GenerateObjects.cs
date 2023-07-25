@@ -17,7 +17,7 @@ public class GenerateObjects : MonoBehaviour
     public float randomMinY;
     public float randomMaxY;
     private int platformLevel;
-    
+    private int spawnIndex;
 
     //ARRAYS
 
@@ -27,7 +27,8 @@ public class GenerateObjects : MonoBehaviour
     void Start()
     {
         currentPlatform = platform;
-        GeneratePlatform(platform);     
+        GeneratePlatform(platform);
+        spawnIndex = 14;
     }
 
     
@@ -45,7 +46,7 @@ public class GenerateObjects : MonoBehaviour
             if(randomCount == 0) 
             {
                 int randomSugar=Random.Range(0,2);
-                GameObject Sugar = Instantiate(sugars[randomSugar], new Vector3(Platform.transform.position.x, Platform.transform.position.y + 1f, Platform.transform.position.z), transform.rotation);
+                GameObject Sugar = Instantiate(sugars[randomSugar], new Vector3(Platform.transform.position.x, Platform.transform.position.y + 1.5f, Platform.transform.position.z), transform.rotation);
                 currentCoins.Add(Sugar);
                 Sugar.GetComponent<MoveCoin>().speed += 0.2f;
             }
@@ -56,7 +57,8 @@ public class GenerateObjects : MonoBehaviour
             currentPlatform = Platform;
 
         }
-        Instantiate(spawnBorder, new Vector3(0, currentPlatforms[14].transform.position.y, currentPlatforms[14].transform.position.z), transform.rotation);
+        Instantiate(spawnBorder, new Vector3(0, currentPlatforms[spawnIndex].transform.position.y, currentPlatforms[14].transform.position.z), transform.rotation);
+        spawnIndex += 14;
         //Instantiate(deleteBorder, new Vector3(0, currentPlatforms[19].transform.position.y+2f, currentPlatforms[19].transform.position.z), transform.rotation);
 
     }

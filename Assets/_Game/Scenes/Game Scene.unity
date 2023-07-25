@@ -5157,11 +5157,11 @@ MonoBehaviour:
   platform: {fileID: 1165921880}
   spawnBorder: {fileID: 2807504588528375115, guid: 9ec01631eb824d4469c7c7734a7d213c, type: 3}
   sugars:
-  - {fileID: 8857370356323787081, guid: c08b51efc79afdf4c977f2f2aec439f8, type: 3}
-  - {fileID: 8857370356323787081, guid: e184111bb90746342918f4613f82f599, type: 3}
-  - {fileID: 8857370356323787081, guid: df12802240fb94f4284a0b5ac9d83de3, type: 3}
-  randomMinX: -7
-  randomMaxX: 7
+  - {fileID: 1303787632859040709, guid: c08b51efc79afdf4c977f2f2aec439f8, type: 3}
+  - {fileID: 2693267016161833999, guid: e184111bb90746342918f4613f82f599, type: 3}
+  - {fileID: 2062349745231434792, guid: df12802240fb94f4284a0b5ac9d83de3, type: 3}
+  randomMinX: -5
+  randomMaxX: 5
   randomMinY: 4
   randomMaxY: 6
   currentPlatforms: []
