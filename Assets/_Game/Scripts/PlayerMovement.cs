@@ -50,22 +50,7 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
 
-        //if (tap)
-        //{
-        //    jumpTimer += Time.deltaTime;
-        //}
-
-        //if (jumpTimer >= jumpSpeed)
-        //{
-
-        //   // TapControl();
-        //    jumpTimer = 0f;
-        //    if (jumpSpeed >= 0.6f)
-        //    {
-        //        jumpSpeed -= 0.2f;
-        //    }
-
-        //}
+    
         if (isFalling)
         {
             transform.Translate(0, -forcePower / 2 * Time.deltaTime, 0); //Decent
@@ -95,10 +80,13 @@ public class PlayerMovement : MonoBehaviour
             tap = true;
             screenBorder.transform.parent = GameManager.instance.player.transform;
             screenBorder.transform.localPosition = new Vector3(screenBorder.transform.localPosition.x, -5.55f, screenBorder.transform.localPosition.z);
+         
+            GameManager.instance.playerCam.gameObject.SetActive(true);
             GameManager.instance.playerCam.Follow = GameManager.instance.player.transform;
             GameManager.instance.playerCam.LookAt = GameManager.instance.player.transform;
+
             playerAnim.SetBool("Falling",false);
-            //TapControl();
+          
         }
         if (Input.GetMouseButtonUp(0))
         {
@@ -108,6 +96,8 @@ public class PlayerMovement : MonoBehaviour
             tap = false;
             jumpSpeed = 1.6f;
             isFalling = true;
+          
+            GameManager.instance.playerCam.gameObject.SetActive(false);
             GameManager.instance.playerCam.Follow = null;
             GameManager.instance.playerCam.LookAt = null;
             screenBorder.transform.parent = null;
@@ -150,35 +140,7 @@ public class PlayerMovement : MonoBehaviour
         pos.x = offsetX;
         
     }
-    //private void TapControl()
-    //{
-    //    //if (!slideControl)
-    //    //{
-    //    //    transform.GetChild(0).DOScaleY(0.11f, 0.1f).SetEase(Ease.OutSine).OnComplete(() => transform.GetChild(0).DOScaleY(0.37f, 0.1f).SetEase(Ease.OutSine));
-    //    //    touchCount++;
-    //    //    StartCoroutine(ForceDelay());
-
-    //    //}
-    //   // transform.GetChild(0).DOScaleY(0.11f, 0.1f).SetEase(Ease.OutSine).OnComplete(() => transform.GetChild(0).DOScaleY(0.45f, 0.1f).SetEase(Ease.OutSine));
-    //    touchCount++;
-    //    StartCoroutine(ForceDelay());
-
-    //}
-
-    //private IEnumerator ForceDelay()
-    //{
-    //    yield return new WaitForSeconds(0.2f);
-    //    move = true;
-    //    yield return new WaitForSeconds(0.2f);
-    //    move = false;
-    //    forcePower += 0.2f;
-    //    //rb.velocity = new Vector3(0, forcePower, 0);
-        
-       
-
-    //}
    
-
 }
 
 
