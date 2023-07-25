@@ -12,8 +12,7 @@ public class WallControl : MonoBehaviour
         {
             GameManager.instance.failed = true;
 
-            GameManager.instance.playerCam.Follow = null;
-            GameManager.instance.playerCam.LookAt = null;
+         
             other.gameObject.GetComponent<Collider>().enabled = false;
             other.GetComponent<Collider>().enabled = false;
             StartCoroutine(EndDelay());

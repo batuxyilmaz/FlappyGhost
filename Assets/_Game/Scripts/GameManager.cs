@@ -13,7 +13,6 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI endcoinText;
     public GameObject ingamePanel;
     public GameObject endgamePanel;
-    public CinemachineVirtualCamera playerCam;
     public int highScore;
     public TextMeshProUGUI highScoreText;
     public GameObject player;

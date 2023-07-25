@@ -46,8 +46,7 @@ public class PlatformMove : MonoBehaviour
         {
             collision.gameObject.transform.parent = gameObject.transform;
             StartCoroutine(ColliderOnOff());
-            GameManager.instance.playerCam.Follow = null;
-            GameManager.instance.playerCam.LookAt = null;
+            PlayerMovement.instance.stopped = true;
             PlayerMovement.instance.screenBorder.transform.parent = null;
             PlayerMovement.instance.isFalling = false; 
 
@@ -61,8 +60,7 @@ public class PlatformMove : MonoBehaviour
         {
             StartCoroutine(ColliderOnOff());
             collision.gameObject.transform.parent = null;
-            GameManager.instance.playerCam.Follow = GameManager.instance.player.transform;
-            GameManager.instance.playerCam.LookAt = GameManager.instance.player.transform;
+            PlayerMovement.instance.stopped = false;
             PlayerMovement.instance.screenBorder.transform.parent = GameManager.instance.player.transform;
             PlayerMovement.instance.screenBorder.transform.localPosition = new Vector3(PlayerMovement.instance.screenBorder.transform.localPosition.x, -5.55f, PlayerMovement.instance.screenBorder.transform.localPosition.z);
 
@@ -88,8 +86,7 @@ public class PlatformMove : MonoBehaviour
     IEnumerator FailDelay()
     {
         yield return new WaitForSeconds(0.2f);
-        GameManager.instance.playerCam.Follow = null;
-        GameManager.instance.playerCam.LookAt = null;
+       
         GameManager.instance.player.GetComponent<Collider>().enabled = false;
         GameManager.instance.player.transform.GetChild(1).GetComponent<Collider>().enabled = false;
         yield return new WaitForSeconds(0.8f);
