@@ -36,6 +36,7 @@ public class PlayerMovement : MonoBehaviour
     private float jumpTimer;
     private float jumpSpeed;
     public bool isFalling;
+    public Animator playerAnim;
 
     private void Awake()
     {
@@ -92,6 +93,9 @@ public class PlayerMovement : MonoBehaviour
             tap = true;
             screenBorder.transform.parent = GameManager.instance.player.transform;
             screenBorder.transform.localPosition = new Vector3(screenBorder.transform.localPosition.x, -5.55f, screenBorder.transform.localPosition.z);
+            GameManager.instance.playerCam.Follow = GameManager.instance.player.transform;
+            GameManager.instance.playerCam.LookAt = GameManager.instance.player.transform;
+            playerAnim.SetBool("Falling",false);
             //TapControl();
         }
         if (Input.GetMouseButtonUp(0))
@@ -105,6 +109,7 @@ public class PlayerMovement : MonoBehaviour
             GameManager.instance.playerCam.Follow = null;
             GameManager.instance.playerCam.LookAt = null;
             screenBorder.transform.parent = null;
+            playerAnim.SetBool("Falling",true);
 
         }
         if (Input.GetMouseButton(0) && !GameManager.instance.failed)

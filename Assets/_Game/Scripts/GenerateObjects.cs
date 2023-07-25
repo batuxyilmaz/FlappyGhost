@@ -10,7 +10,7 @@ public class GenerateObjects : MonoBehaviour
     private GameObject currentPlatform;
     public GameObject spawnBorder;
     //public GameObject deleteBorder;
-    public GameObject coin;
+    public List<GameObject> sugars;
     //VALUES
     public float randomMinX;
     public float randomMaxX;
@@ -44,9 +44,10 @@ public class GenerateObjects : MonoBehaviour
             int randomCount = Random.Range(0, 2);
             if(randomCount == 0) 
             {
-                GameObject Coin = Instantiate(coin, new Vector3(Platform.transform.position.x, Platform.transform.position.y + 1f, Platform.transform.position.z), transform.rotation);
-                currentCoins.Add(Coin);
-                Coin.GetComponent<MoveCoin>().speed += 0.2f;
+                int randomSugar=Random.Range(0,2);
+                GameObject Sugar = Instantiate(sugars[randomSugar], new Vector3(Platform.transform.position.x, Platform.transform.position.y + 1f, Platform.transform.position.z), transform.rotation);
+                currentCoins.Add(Sugar);
+                Sugar.GetComponent<MoveCoin>().speed += 0.2f;
             }
           
           
