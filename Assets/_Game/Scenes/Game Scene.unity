@@ -5132,8 +5132,8 @@ MonoBehaviour:
   - {fileID: 8857370356323787081, guid: c08b51efc79afdf4c977f2f2aec439f8, type: 3}
   - {fileID: 8857370356323787081, guid: e184111bb90746342918f4613f82f599, type: 3}
   - {fileID: 8857370356323787081, guid: df12802240fb94f4284a0b5ac9d83de3, type: 3}
-  randomMinX: -5
-  randomMaxX: 5
+  randomMinX: -7
+  randomMaxX: 7
   randomMinY: 4
   randomMaxY: 6
   currentPlatforms: []
@@ -8555,8 +8555,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.54066193, y: 0.23946397, z: 0.24378711}
-  m_Center: {x: -0.0050958595, y: 0.5474271, z: 0.021569699}
+  m_Size: {x: 0.72773886, y: 0.83240175, z: 0.24378711}
+  m_Center: {x: -0.01619355, y: 0.20656776, z: 0.021569699}
 --- !u!54 &2021723544
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -28725,8 +28725,8 @@ BoxCollider:
   m_ProvidesContacts: 1
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.48302683, y: 0.6643337, z: 0.96076536}
-  m_Center: {x: -0.01666083, y: 0.09768319, z: 0.0598886}
+  m_Size: {x: 0.76205814, y: 0.8704357, z: 0.96076536}
+  m_Center: {x: 0.0023637614, y: 0.07390189, z: 0.0598886}
 --- !u!54 &919132148649758380
 Rigidbody:
   m_ObjectHideFlags: 0
