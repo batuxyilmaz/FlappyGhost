@@ -20,7 +20,8 @@ public class PlayerMovement : MonoBehaviour
     public static PlayerMovement instance;
     public GameObject heightObject;
     public Animator playerAnim;
-    public TextMeshPro playerHeightText;
+    public TextMeshProUGUI playerHeightText;
+    public GameObject trail;
 
     private float xValOffset;
     public float multiplier;
@@ -37,7 +38,8 @@ public class PlayerMovement : MonoBehaviour
     public bool tap;
     public bool isFalling;
     public bool stopped;
-
+    public bool changed;
+   
     private void Awake()
     {
         instance = this;
@@ -49,7 +51,7 @@ public class PlayerMovement : MonoBehaviour
     }
     private void Update()
     {
-
+        ChangeLocation(offsetX, -7f, 7f);
         if(heightCount%50==0)
         {
             generateScript.GenerateBg();
@@ -71,10 +73,10 @@ public class PlayerMovement : MonoBehaviour
         {
             playerHeightText.text = heightCount.ToString();
         }
-        if (GameManager.instance.gamestate == GameManager.GameState.start)
-        {
-            heightObject.transform.position = new Vector3(heightObject.transform.position.x, transform.position.y, heightObject.transform.position.z);
-        }
+        //if (GameManager.instance.gamestate == GameManager.GameState.start)
+        //{
+        //    heightObject.transform.position = new Vector3(heightObject.transform.position.x, transform.position.y, heightObject.transform.position.z);
+        //}
     
 
         if (Input.GetMouseButtonDown(0))
@@ -141,14 +143,40 @@ public class PlayerMovement : MonoBehaviour
     private float offsetX = 0f;
     private void SlideControl()
     {
+        if(!changed)
+        {
+            Vector3 currentPos = Camera.main.ScreenToViewportPoint(Input.mousePosition);
+            transform.position = Vector3.Lerp(transform.position, new Vector3((currentPos.x - 0.5f) * multiplier - xValOffset, transform.position.y, transform.position.z), value * Time.deltaTime);
+            Vector3 pos = transform.position;
+            offsetX = Mathf.Clamp(pos.x, ground.bounds.min.x + 0.5f, ground.bounds.max.x - 0.5f);
+            pos.x = offsetX;
+        }
       
-
-        Vector3 currentPos = Camera.main.ScreenToViewportPoint(Input.mousePosition);
-        transform.position = Vector3.Lerp(transform.position, new Vector3((currentPos.x - 0.5f) * multiplier - xValOffset, transform.position.y, transform.position.z), value * Time.deltaTime);
-        Vector3 pos = transform.position;
-        offsetX = Mathf.Clamp(pos.x, ground.bounds.min.x + 0.5f, ground.bounds.max.x - 0.5f);
-        pos.x = offsetX;
      
+    }
+    private void ChangeLocation(float positionX,float leftPos,float rightPos)
+    {
+        
+        positionX = transform.position.x;
+
+        if (positionX <= -9f)
+        {
+            StartCoroutine(ChangeChange());
+            transform.position = new Vector3(rightPos, transform.position.y, transform.position.z);
+        }
+        if (positionX >= 9f)
+        {
+            StartCoroutine(ChangeChange());
+            transform.position = new Vector3(leftPos, transform.position.y, transform.position.z);
+        }
+    }
+    IEnumerator ChangeChange()
+    {
+        changed=true;
+        trail.GetComponent<ParticleSystem>().Stop();
+        yield return new WaitForSeconds(0.5f);
+        changed=false;
+        trail.GetComponent<ParticleSystem>().Play();
     }
    
 }
