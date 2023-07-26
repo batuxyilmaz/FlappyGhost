@@ -9,6 +9,7 @@ public class BorderCollision : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             PlayerMovement.instance.generateScript.GeneratePlatform(PlayerMovement.instance.generateScript.platform);
+            PlayerMovement.instance.generateScript.GenerateBg();
         }
        
     }

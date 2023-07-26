@@ -56,7 +56,7 @@ public class GenerateObjects : MonoBehaviour
 
         }
         Instantiate(spawnBorder, new Vector3(0, currentPlatforms[spawnIndex].transform.position.y, currentPlatforms[14].transform.position.z), transform.rotation);
-        GenerateBg();
+     
         spawnIndex += 14;
        
     }
