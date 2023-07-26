@@ -11,6 +11,5 @@ public class BorderCollision : MonoBehaviour
             PlayerMovement.instance.generateScript.GeneratePlatform(PlayerMovement.instance.generateScript.platform);
         }
        
-      
     }
 }

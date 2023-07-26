@@ -10,9 +10,9 @@ public class WallControl : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            GameManager.instance.failed = true;
+            GameManager.instance.gamestate = GameManager.GameState.pause;
 
-         
+
             other.gameObject.GetComponent<Collider>().enabled = false;
             other.GetComponent<Collider>().enabled = false;
             StartCoroutine(EndDelay());

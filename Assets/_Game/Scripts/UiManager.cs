@@ -7,17 +7,29 @@ using DG.Tweening;
 using TMPro;
 
 public class UiManager : MonoBehaviour
-{
+{   
+    
+    public static UiManager instance;
+
     public List<GameObject> panels;
     public List<Button> buttons;
-    public static UiManager instance;
+    public List<GameObject> clickedObjects;
+
     public GameObject clickedObject;
+    public GameObject startPanel;
+
     public int buyValue;
     public TextMeshProUGUI buyText;
-    public List<GameObject> clickedObjects;
+   
+ 
     private void Awake()
     {
         instance = this;
+    }
+    public void StartGame()
+    {
+        GameManager.instance.gamestate = GameManager.GameState.start;
+        startPanel.SetActive(false);
     }
     public void SelectCharacter()
     {

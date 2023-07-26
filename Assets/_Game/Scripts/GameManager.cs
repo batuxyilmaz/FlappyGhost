@@ -7,31 +7,24 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     public GameState gamestate;
-    public int point;
+  
     public TextMeshProUGUI coinText;
     public TextMeshProUGUI endcoinText;
+    public TextMeshProUGUI highScoreText;
+
     public GameObject ingamePanel;
     public GameObject endgamePanel;
-    public int highScore;
-    public TextMeshProUGUI highScoreText;
     public GameObject player;
-    public bool failed;
+
+    public int highScore;
+    public int point;
     public float speedObject;
   
     private void Awake()
     {
         instance = this;
     }
-    void Start()
-    {
-        
-    }
-
-    
-    void Update()
-    {
-       
-    }
+  
    public enum GameState
     {
         start,
@@ -56,5 +49,5 @@ public class GameManager : MonoBehaviour
         ingamePanel.SetActive(false);
         endgamePanel.SetActive(true);
     }
-  
+   
 }

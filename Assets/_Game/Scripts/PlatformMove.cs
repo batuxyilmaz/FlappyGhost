@@ -1,18 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using DG.Tweening;
-using Unity.VisualScripting;
 
 public class PlatformMove : MonoBehaviour
 {
    
     public float speed;
     private Collider col;
-    private int hitCount;
-   
   
-    
     void Start()
     {
         col=GetComponent<Collider>();
@@ -22,16 +17,19 @@ public class PlatformMove : MonoBehaviour
 
     void Update()
     {
-    
-        transform.Translate(0, -speed * Time.deltaTime, 0);
-      
+
+        if (GameManager.instance.gamestate == GameManager.GameState.start)
+        {
+            transform.Translate(0, -speed * Time.deltaTime, 0);
+        }
+   
          
     }
     private void OnTriggerEnter(Collider collision)
     {
         if (collision.gameObject.CompareTag("Head"))
         {
-            GameManager.instance.failed = true;
+            GameManager.instance.gamestate = GameManager.GameState.pause;
             PlayerMovement.instance.hitEffect.Play();
             PlayerMovement.instance.hitEffect.transform.parent=null;
             //collision.transform.parent.transform.GetChild(0).transform.DOScaleY(0.11f, 0.2f).SetEase(Ease.OutSine);
@@ -52,7 +50,6 @@ public class PlatformMove : MonoBehaviour
 
         }
 
-
     }
     private void OnCollisionExit(Collision collision)
     {
@@ -66,9 +63,7 @@ public class PlatformMove : MonoBehaviour
 
         }
 
-
     }
-
 
     IEnumerator ColliderOnOff()
     {
@@ -93,6 +88,5 @@ public class PlatformMove : MonoBehaviour
        
     }
       
-    
    
 }

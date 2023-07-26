@@ -9,17 +9,16 @@ public class GenerateObjects : MonoBehaviour
     public GameObject platform;
     private GameObject currentPlatform;
     public GameObject spawnBorder;
-    //public GameObject deleteBorder;
+    public GameObject bg;
     public List<GameObject> sugars;
-    //VALUES
+ 
     public float randomMinX;
     public float randomMaxX;
     public float randomMinY;
     public float randomMaxY;
     private int platformLevel;
     private int spawnIndex;
-
-    //ARRAYS
+    private float spawnHeight;
 
     public List<GameObject> currentPlatforms;
     public List<GameObject> currentCoins;
@@ -32,7 +31,6 @@ public class GenerateObjects : MonoBehaviour
     }
 
     
-   
     public void GeneratePlatform(GameObject Platform)
     {
 
@@ -46,7 +44,7 @@ public class GenerateObjects : MonoBehaviour
             if(randomCount == 0) 
             {
                 int randomSugar=Random.Range(0,2);
-                GameObject Sugar = Instantiate(sugars[randomSugar], new Vector3(Platform.transform.position.x, Platform.transform.position.y + 1.5f, Platform.transform.position.z), transform.rotation);
+                GameObject Sugar = Instantiate(sugars[randomSugar], new Vector3(Platform.transform.position.x, Platform.transform.position.y + 5f, Platform.transform.position.z), transform.rotation);
                 currentCoins.Add(Sugar);
                 Sugar.GetComponent<MoveCoin>().speed += 0.2f;
             }
@@ -58,9 +56,15 @@ public class GenerateObjects : MonoBehaviour
 
         }
         Instantiate(spawnBorder, new Vector3(0, currentPlatforms[spawnIndex].transform.position.y, currentPlatforms[14].transform.position.z), transform.rotation);
+        GenerateBg();
         spawnIndex += 14;
-        //Instantiate(deleteBorder, new Vector3(0, currentPlatforms[19].transform.position.y+2f, currentPlatforms[19].transform.position.z), transform.rotation);
-
+       
+    }
+    public void GenerateBg()
+    {  
+     
+        GameObject BG=Instantiate(bg,new Vector3(bg.transform.position.x,bg.transform.position.y+spawnHeight,bg.transform.position.z),Quaternion.identity);
+        spawnHeight += 41.5f;
     }
    
    

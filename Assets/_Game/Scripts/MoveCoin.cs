@@ -14,6 +14,10 @@ public class MoveCoin : MonoBehaviour
     
     void Update()
     {
-         transform.Translate(0, -speed * Time.deltaTime, 0);
+        if(GameManager.instance.gamestate==GameManager.GameState.start)
+        {
+            transform.Translate(0, -speed * Time.deltaTime, 0);
+        }
+      
     }
 }
