@@ -15,5 +15,9 @@ public class CoinCollision : MonoBehaviour
             coinEffect.Play();
             transform.gameObject.SetActive(false);
         }
+        if (other.gameObject.CompareTag("Platform"))
+        {
+            gameObject.SetActive(false);
+        }
     }
 }

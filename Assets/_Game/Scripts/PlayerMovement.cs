@@ -50,7 +50,11 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
 
-    
+        if(heightCount%50==0)
+        {
+            generateScript.GenerateBg();
+     
+        }
         if (isFalling)
         {
             transform.Translate(0, -forcePower / 2 * Time.deltaTime, 0); //Decent
@@ -90,15 +94,18 @@ public class PlayerMovement : MonoBehaviour
         }
         if (Input.GetMouseButtonUp(0))
         {
-           
-            slideControl = false;
-            slidetimer = 0f;
-            tap = false;
-         
-            isFalling = true;
-    
-            screenBorder.transform.parent = null;
-            playerAnim.SetBool("Falling",true);
+            if (GameManager.instance.gamestate == GameManager.GameState.start)
+            {
+                slideControl = false;
+                slidetimer = 0f;
+                tap = false;
+
+                isFalling = true;
+
+                screenBorder.transform.parent = null;
+                playerAnim.SetBool("Falling", true);
+            }
+            
 
         }
         if (Input.GetMouseButton(0))
