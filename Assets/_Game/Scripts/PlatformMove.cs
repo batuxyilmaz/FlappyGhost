@@ -32,8 +32,10 @@ public class PlatformMove : MonoBehaviour
             GameManager.instance.gamestate = GameManager.GameState.pause;
             PlayerMovement.instance.hitEffect.Play();
             PlayerMovement.instance.hitEffect.transform.parent=null;
+            collision.gameObject.GetComponent<Collider>().enabled = false;
+            collision.gameObject.GetComponentInParent<Collider>().enabled = false;
             //collision.transform.parent.transform.GetChild(0).transform.DOScaleY(0.11f, 0.2f).SetEase(Ease.OutSine);
-            
+            PlayerMovement.instance.isFalling = true;
             StartCoroutine(FailDelay());
             StartCoroutine(EndDelay());
         }

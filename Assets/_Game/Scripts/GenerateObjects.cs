@@ -43,8 +43,8 @@ public class GenerateObjects : MonoBehaviour
             int randomCount = Random.Range(0, 2);
             if(randomCount == 0) 
             {
-                int randomSugar=Random.Range(0,2);
-                GameObject Sugar = Instantiate(sugars[randomSugar], new Vector3(Platform.transform.position.x, Platform.transform.position.y + 5f, Platform.transform.position.z), transform.rotation);
+               
+                GameObject Sugar = Instantiate(sugars[0], new Vector3(Platform.transform.position.x, Platform.transform.position.y + 5f, Platform.transform.position.z), transform.rotation);
                 currentCoins.Add(Sugar);
                 Sugar.GetComponent<MoveCoin>().speed += 0.2f;
             }

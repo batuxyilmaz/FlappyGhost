@@ -71,8 +71,11 @@ public class PlayerMovement : MonoBehaviour
         {
             playerHeightText.text = heightCount.ToString();
         }
-       
-        heightObject.transform.position = new Vector3(heightObject.transform.position.x, transform.position.y, heightObject.transform.position.z);
+        if (GameManager.instance.gamestate == GameManager.GameState.start)
+        {
+            heightObject.transform.position = new Vector3(heightObject.transform.position.x, transform.position.y, heightObject.transform.position.z);
+        }
+    
 
         if (Input.GetMouseButtonDown(0))
         {
