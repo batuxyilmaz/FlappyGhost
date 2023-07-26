@@ -18,7 +18,6 @@ public class PlayerMovement : MonoBehaviour
     public ParticleSystem hitEffect;
     public GameObject screenBorder;
     public static PlayerMovement instance;
-    public GameObject heightObject;
     public Animator playerAnim;
     public TextMeshProUGUI playerHeightText;
     public GameObject trail;
@@ -53,7 +52,8 @@ public class PlayerMovement : MonoBehaviour
     {
         ChangeLocation(offsetX, -7f, 7f);
         if(heightCount%50==0)
-        {
+        { 
+
             generateScript.GenerateBg();
      
         }
@@ -73,11 +73,7 @@ public class PlayerMovement : MonoBehaviour
         {
             playerHeightText.text = heightCount.ToString();
         }
-        //if (GameManager.instance.gamestate == GameManager.GameState.start)
-        //{
-        //    heightObject.transform.position = new Vector3(heightObject.transform.position.x, transform.position.y, heightObject.transform.position.z);
-        //}
-    
+      
 
         if (Input.GetMouseButtonDown(0))
         {
