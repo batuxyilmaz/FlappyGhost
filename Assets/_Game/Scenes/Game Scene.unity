@@ -5791,8 +5791,8 @@ MonoBehaviour:
   - {fileID: 1303787632859040709, guid: c08b51efc79afdf4c977f2f2aec439f8, type: 3}
   - {fileID: 2693267016161833999, guid: e184111bb90746342918f4613f82f599, type: 3}
   - {fileID: 2062349745231434792, guid: df12802240fb94f4284a0b5ac9d83de3, type: 3}
-  randomMinX: -5.2
-  randomMaxX: 5.2
+  randomMinX: -6.7
+  randomMaxX: 6.7
   randomMinY: 4
   randomMaxY: 6
   currentCoins: []
