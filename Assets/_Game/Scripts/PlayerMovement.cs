@@ -45,22 +45,27 @@ public class PlayerMovement : MonoBehaviour
     }
     private void Start()
     {
+        
         value = 50;
        
     }
     private void Update()
     {
         ChangeLocation(offsetX, -7f, 7f);
-        if(heightCount%50==0)
-        { 
-
-            generateScript.GenerateBg();
-     
-        }
-        if (heightCount % 200 == 0)
+        if (heightCount >= 1)
         {
-            GameManager.instance.speedObject += 0.2f;
+            if (heightCount % 50 == 0)
+            {
+                Debug.Log("dad");
+                generateScript.GenerateBg();
+
+            }
+            if (heightCount % 200 == 0)
+            {
+                GameManager.instance.speedObject += 0.2f;
+            }
         }
+   
         if (isFalling)
         {
             transform.Translate(0, -forcePower / 2 * Time.deltaTime, 0); //Decent
