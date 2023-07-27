@@ -25,30 +25,12 @@ public class PlatformMove : MonoBehaviour
    
          
     }
-    private void OnTriggerEnter(Collider collision)
-    {
-        if (collision.gameObject.CompareTag("Head"))
-        {
-            GameManager.instance.gamestate = GameManager.GameState.pause;
-            PlayerMovement.instance.hitEffect.Play();
-            PlayerMovement.instance.hitEffect.transform.parent=null;
-            collision.gameObject.GetComponent<Collider>().enabled = false;
-            collision.gameObject.GetComponentInParent<Collider>().enabled = false;
-            //collision.transform.parent.transform.GetChild(0).transform.DOScaleY(0.11f, 0.2f).SetEase(Ease.OutSine);
-            PlayerMovement.instance.isFalling = true;
-            for (int i = 0; i < GameManager.instance.closedThings.Count; i++)
-            {
-                GameManager.instance.closedThings[i].SetActive(false);
-            }
-            GameManager.instance.openObject.SetActive(true);
-            StartCoroutine(FailDelay());
-            StartCoroutine(EndDelay());
-        }
-    }
+   
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+         
             collision.gameObject.transform.parent = gameObject.transform;
             StartCoroutine(ColliderOnOff());
             PlayerMovement.instance.stopped = true;
@@ -66,7 +48,7 @@ public class PlatformMove : MonoBehaviour
             collision.gameObject.transform.parent = null;
             PlayerMovement.instance.stopped = false;
             PlayerMovement.instance.screenBorder.transform.parent = GameManager.instance.player.transform;
-            PlayerMovement.instance.screenBorder.transform.localPosition = new Vector3(PlayerMovement.instance.screenBorder.transform.localPosition.x, -5.55f, PlayerMovement.instance.screenBorder.transform.localPosition.z);
+            PlayerMovement.instance.screenBorder.transform.localPosition = new Vector3(PlayerMovement.instance.screenBorder.transform.localPosition.x, -9f, PlayerMovement.instance.screenBorder.transform.localPosition.z);
 
         }
 
@@ -80,20 +62,7 @@ public class PlatformMove : MonoBehaviour
         PlayerMovement.instance.groundControl = false;
         //col.enabled= true;
     }
-    IEnumerator EndDelay()
-    {
-        yield return new WaitForSeconds(2);
-        GameManager.instance.End();
-    }
-    IEnumerator FailDelay()
-    {
-        yield return new WaitForSeconds(0.2f);
-       
-        GameManager.instance.player.GetComponent<Collider>().enabled = false;
-        GameManager.instance.player.transform.GetChild(1).GetComponent<Collider>().enabled = false;
-        yield return new WaitForSeconds(0.8f);
-       
-    }
+   
       
    
 }

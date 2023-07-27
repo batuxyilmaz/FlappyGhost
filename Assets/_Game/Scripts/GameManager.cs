@@ -58,7 +58,11 @@ public class GameManager : MonoBehaviour
             highScoreText.text = highScore.ToString();
         }
        
-        endcoinText.text =point.ToString();
+        endcoinText.text=point.ToString();
+      
+    }
+    public void OpenEndGame()
+    {
         ingamePanel.SetActive(false);
         endgamePanel.SetActive(true);
     }

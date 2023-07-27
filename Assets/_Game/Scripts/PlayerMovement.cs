@@ -57,6 +57,10 @@ public class PlayerMovement : MonoBehaviour
             generateScript.GenerateBg();
      
         }
+        if (heightCount % 200 == 0)
+        {
+            GameManager.instance.speedObject += 0.2f;
+        }
         if (isFalling)
         {
             transform.Translate(0, -forcePower / 2 * Time.deltaTime, 0); //Decent
@@ -86,7 +90,7 @@ public class PlayerMovement : MonoBehaviour
                 isFalling = false;
                 tap = true;
                 screenBorder.transform.parent = GameManager.instance.player.transform;
-                screenBorder.transform.localPosition = new Vector3(screenBorder.transform.localPosition.x, -5.55f, screenBorder.transform.localPosition.z);
+                screenBorder.transform.localPosition = new Vector3(screenBorder.transform.localPosition.x,-9f, screenBorder.transform.localPosition.z);
 
                 playerAnim.SetBool("Falling", false);
 
@@ -148,7 +152,6 @@ public class PlayerMovement : MonoBehaviour
             pos.x = offsetX;
         }
       
-     
     }
     private void ChangeLocation(float positionX,float leftPos,float rightPos)
     {

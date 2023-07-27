@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 6180331328009996507}
   - component: {fileID: 8143717261632592585}
   - component: {fileID: 1518909540680809652}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Sugar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -243,8 +243,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.92642426, y: 0.65308523, z: 0.79333925}
-  m_Center: {x: 0.012053072, y: 0.0059844255, z: -0.0059427023}
+  m_Size: {x: 1.8502982, y: 0.65308523, z: 1.8018448}
+  m_Center: {x: 0.044100136, y: 0.0059844255, z: -0.008947611}
 --- !u!54 &1518909540680809652
 Rigidbody:
   m_ObjectHideFlags: 0

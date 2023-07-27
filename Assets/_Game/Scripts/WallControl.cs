@@ -12,7 +12,7 @@ public class WallControl : MonoBehaviour
         {
             GameManager.instance.gamestate = GameManager.GameState.pause;
 
-
+            GameManager.instance.End();
             other.gameObject.GetComponent<Collider>().enabled = false;
             other.GetComponent<Collider>().enabled = false;
             StartCoroutine(EndDelay());
@@ -22,6 +22,6 @@ public class WallControl : MonoBehaviour
     IEnumerator EndDelay()
     {
         yield return new WaitForSeconds(0.5f);
-        GameManager.instance.End();
+        GameManager.instance.OpenEndGame();
     }
 }
