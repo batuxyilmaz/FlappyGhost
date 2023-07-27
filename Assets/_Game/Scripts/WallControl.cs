@@ -18,6 +18,14 @@ public class WallControl : MonoBehaviour
             StartCoroutine(EndDelay());
 
         }
+        if (other.gameObject.CompareTag("Platform"))
+        {
+            Destroy(other.gameObject);
+        }
+        if (other.gameObject.CompareTag("Sugar"))
+        {
+            Destroy(other.gameObject);
+        }
     }
     IEnumerator EndDelay()
     {

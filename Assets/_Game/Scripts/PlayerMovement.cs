@@ -38,6 +38,7 @@ public class PlayerMovement : MonoBehaviour
     public bool isFalling;
     public bool stopped;
     public bool changed;
+    private bool onOff;
    
     private void Awake()
     {
@@ -54,16 +55,21 @@ public class PlayerMovement : MonoBehaviour
         ChangeLocation(offsetX, -7f, 7f);
         if (heightCount >= 1)
         {
-            if (heightCount % 50 == 0)
+            if (heightCount % 20 == 0 && !onOff)
             {
-                Debug.Log("dad");
+             
                 generateScript.GenerateBg();
+                generateScript.GeneratePlatform(generateScript.platform);
+                StartCoroutine(Delay());
+            }
+            if (heightCount % 200 == 0&& !onOff)
+            {
+              
+                GameManager.instance.speedObject += 0.2f;
+                StartCoroutine(Delay());
 
             }
-            if (heightCount % 200 == 0)
-            {
-                GameManager.instance.speedObject += 0.2f;
-            }
+           
         }
    
         if (isFalling)
@@ -181,6 +187,12 @@ public class PlayerMovement : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         changed=false;
         trail.GetComponent<ParticleSystem>().Play();
+    }
+    IEnumerator Delay()
+    {
+        onOff = true;
+        yield return new WaitForSeconds(0.5f);
+        onOff = false;
     }
    
 }

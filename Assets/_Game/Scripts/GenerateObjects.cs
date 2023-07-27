@@ -8,7 +8,6 @@ public class GenerateObjects : MonoBehaviour
 {
     public GameObject platform;
     private GameObject currentPlatform;
-    public GameObject spawnBorder;
     public GameObject bg;
     public List<GameObject> sugars;
  
@@ -17,24 +16,22 @@ public class GenerateObjects : MonoBehaviour
     public float randomMinY;
     public float randomMaxY;
     private int platformLevel;
-    private int spawnIndex;
     private float spawnHeight;
 
-    public List<GameObject> currentPlatforms;
     public List<GameObject> currentCoins;
 
     void Start()
     {
         currentPlatform = platform;
         GeneratePlatform(platform);
-        spawnIndex = 14;
+      
     }
 
     
     public void GeneratePlatform(GameObject Platform)
     {
 
-        for (int i = 0; i < 20; i++)
+        for (int i = 0; i < 10; i++)
         {
             float randomPosX = Random.Range(randomMinX, randomMaxX);
             float randomPosY = Random.Range(randomMinY, randomMaxY);
@@ -51,14 +48,10 @@ public class GenerateObjects : MonoBehaviour
           
           
             Platform.GetComponent<PlatformMove>().speed += 0.2f;
-            currentPlatforms.Add(Platform);
             currentPlatform = Platform;
 
         }
-        Instantiate(spawnBorder, new Vector3(0, currentPlatforms[spawnIndex].transform.position.y, currentPlatforms[14].transform.position.z), transform.rotation);
-     
-        spawnIndex += 14;
-       
+           
     }
     public void GenerateBg()
     {  

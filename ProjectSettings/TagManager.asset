@@ -13,6 +13,7 @@ TagManager:
   - Border
   - Head
   - Fall
+  - Sugar
   layers:
   - Default
   - TransparentFX
