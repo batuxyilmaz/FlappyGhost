@@ -75,7 +75,7 @@ public class PlayerMovement : MonoBehaviour
             changeValue.text = level.ToString();
            
         }
-        ChangeLocation(offsetX, -7f, 7f);
+        ChangeLocation(offsetX, -6f, 6f);
         if (heightCount >= 1)
         {
             if (heightCount % 20 == 0 && !onOff)
@@ -195,9 +195,9 @@ public class PlayerMovement : MonoBehaviour
         }
       
     }
-    private void ChangeLocation(float positionX,float leftPos,float rightPos)
+    private void ChangeLocation(float positionX, float leftPos, float rightPos)
     {
-        
+
         positionX = transform.position.x;
 
         if (positionX <= -9f)
@@ -213,10 +213,10 @@ public class PlayerMovement : MonoBehaviour
     }
     IEnumerator ChangeChange()
     {
-        changed=true;
+        changed = true;
         trail.GetComponent<ParticleSystem>().Stop();
         yield return new WaitForSeconds(0.5f);
-        changed=false;
+        changed = false;
         trail.GetComponent<ParticleSystem>().Play();
     }
     IEnumerator Delay()

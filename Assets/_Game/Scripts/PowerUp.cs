@@ -55,7 +55,7 @@ public class PowerUp : MonoBehaviour
                     effect.Play();
                     effect.gameObject.transform.parent = null;
                     other.gameObject.GetComponent<PlayerEvents>().speedActive = true;
-                    PlayerMovement.instance.forcePower = 12;
+                    PlayerMovement.instance.forcePower = 30;
                     UiManager.instance.images[1].gameObject.SetActive(true);
                     DOTween.Restart("Speed");
                     break;

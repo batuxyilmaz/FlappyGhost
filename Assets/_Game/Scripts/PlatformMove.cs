@@ -30,12 +30,16 @@ public class PlatformMove : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-         
-            collision.gameObject.transform.parent = gameObject.transform;
-            StartCoroutine(ColliderOnOff());
-            PlayerMovement.instance.stopped = true;
-            PlayerMovement.instance.screenBorder.transform.parent = null;
-            PlayerMovement.instance.isFalling = false; 
+            if (!GameManager.instance.playerEvents.speedActive)
+            {
+                collision.gameObject.transform.parent = gameObject.transform;
+                StartCoroutine(ColliderOnOff());
+                PlayerMovement.instance.stopped = true;
+                PlayerMovement.instance.screenBorder.transform.parent = null;
+                PlayerMovement.instance.isFalling = false;
+            }
+           
+          
 
         }
 
@@ -44,11 +48,14 @@ public class PlatformMove : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            StartCoroutine(ColliderOnOff());
-            collision.gameObject.transform.parent = null;
-            PlayerMovement.instance.stopped = false;
-            PlayerMovement.instance.screenBorder.transform.parent = GameManager.instance.player.transform;
-            PlayerMovement.instance.screenBorder.transform.localPosition = new Vector3(PlayerMovement.instance.screenBorder.transform.localPosition.x, -9f, PlayerMovement.instance.screenBorder.transform.localPosition.z);
+            if (!GameManager.instance.playerEvents.speedActive)
+            {
+                StartCoroutine(ColliderOnOff());
+                collision.gameObject.transform.parent = null;
+                PlayerMovement.instance.stopped = false;
+                PlayerMovement.instance.screenBorder.transform.parent = GameManager.instance.player.transform;
+                PlayerMovement.instance.screenBorder.transform.localPosition = new Vector3(PlayerMovement.instance.screenBorder.transform.localPosition.x, -9f, PlayerMovement.instance.screenBorder.transform.localPosition.z);
+            }
 
         }
 

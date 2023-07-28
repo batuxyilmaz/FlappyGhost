@@ -8,22 +8,25 @@ public class Death : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Head"))
         {
-           
-            collision.gameObject.GetComponent<Collider>().enabled = false;
-            collision.gameObject.GetComponentInParent<Collider>().enabled = false;
-            GameManager.instance.gamestate = GameManager.GameState.pause;
-            PlayerMovement.instance.hitEffect.Play();
-            PlayerMovement.instance.hitEffect.transform.parent = null;
-            GameManager.instance.End();
-            //collision.transform.parent.transform.GetChild(0).transform.DOScaleY(0.11f, 0.2f).SetEase(Ease.OutSine);
-            PlayerMovement.instance.isFalling = true;
-            for (int i = 0; i < GameManager.instance.closedThings.Count; i++)
+           if(!GameManager.instance.playerEvents.speedActive)
             {
-                GameManager.instance.closedThings[i].SetActive(false);
+                collision.gameObject.GetComponent<Collider>().enabled = false;
+                collision.gameObject.GetComponentInParent<Collider>().enabled = false;
+                GameManager.instance.gamestate = GameManager.GameState.pause;
+                PlayerMovement.instance.hitEffect.Play();
+                PlayerMovement.instance.hitEffect.transform.parent = null;
+                GameManager.instance.End();
+                //collision.transform.parent.transform.GetChild(0).transform.DOScaleY(0.11f, 0.2f).SetEase(Ease.OutSine);
+                PlayerMovement.instance.isFalling = true;
+                for (int i = 0; i < GameManager.instance.closedThings.Count; i++)
+                {
+                    GameManager.instance.closedThings[i].SetActive(false);
+                }
+                GameManager.instance.openObject.SetActive(true);
+                StartCoroutine(FailDelay());
+                StartCoroutine(EndDelay());
             }
-            GameManager.instance.openObject.SetActive(true);
-            StartCoroutine(FailDelay());
-            StartCoroutine(EndDelay());
+         
         }
     }
     IEnumerator EndDelay()

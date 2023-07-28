@@ -65,12 +65,18 @@ public class GenerateObjects : MonoBehaviour
     {
         int randomObject=Random.Range(0,2);
         float randomPosX = Random.Range(randomMinX, randomMaxX);
-     
-        GameObject PowerUp = Instantiate(powerUps[randomObject],new Vector3(randomPosX,GameManager.instance.player.transform.position.y+20f,0), Quaternion.identity);
-
+        Debug.Log(randomObject);
+        switch (randomObject)
+        {
+            case 0:
+                Instantiate(powerUps[0], new Vector3(randomPosX, GameManager.instance.player.transform.position.y + 20f, 0), Quaternion.identity);
+                break;
+            case 1:
+                Instantiate(powerUps[1], new Vector3(randomPosX, GameManager.instance.player.transform.position.y + 20f, 0), Quaternion.identity);
+                break;
+        }
+      
     }
-   
-   
-
+  
 }
 

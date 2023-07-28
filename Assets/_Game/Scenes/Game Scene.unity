@@ -1762,7 +1762,7 @@ MonoBehaviour:
   autoPlay: 0
   useTargetAsV3: 0
   endValueFloat: 0
-  endValueV3: {x: -111, y: -172, z: 0}
+  endValueV3: {x: -111, y: -348, z: 0}
   endValueV2: {x: 0, y: 0}
   endValueColor: {r: 1, g: 1, b: 1, a: 1}
   endValueString: 
@@ -1805,7 +1805,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 73, y: -172}
+  m_AnchoredPosition: {x: 73, y: -348}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &149027233
@@ -1897,7 +1897,7 @@ MonoBehaviour:
   autoPlay: 0
   useTargetAsV3: 0
   endValueFloat: 0
-  endValueV3: {x: 73, y: -172, z: 0}
+  endValueV3: {x: 73, y: -348, z: 0}
   endValueV2: {x: 0, y: 0}
   endValueColor: {r: 1, g: 1, b: 1, a: 1}
   endValueString: 
@@ -2288,7 +2288,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -101}
+  m_AnchoredPosition: {x: 0, y: -134}
   m_SizeDelta: {x: 500, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &235851857
@@ -5844,6 +5844,67 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1146653190}
   m_CullTransparentMesh: 1
+--- !u!1001 &1154279329
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1478757495097557090, guid: 21d4e2444da9f564fae12bcf2d7f8fc5, type: 3}
+      propertyPath: m_Name
+      value: Speed
+      objectReference: {fileID: 0}
+    - target: {fileID: 9089171369146343123, guid: 21d4e2444da9f564fae12bcf2d7f8fc5, type: 3}
+      propertyPath: m_RootOrder
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 9089171369146343123, guid: 21d4e2444da9f564fae12bcf2d7f8fc5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9089171369146343123, guid: 21d4e2444da9f564fae12bcf2d7f8fc5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 108.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 9089171369146343123, guid: 21d4e2444da9f564fae12bcf2d7f8fc5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9089171369146343123, guid: 21d4e2444da9f564fae12bcf2d7f8fc5, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9089171369146343123, guid: 21d4e2444da9f564fae12bcf2d7f8fc5, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9089171369146343123, guid: 21d4e2444da9f564fae12bcf2d7f8fc5, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9089171369146343123, guid: 21d4e2444da9f564fae12bcf2d7f8fc5, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9089171369146343123, guid: 21d4e2444da9f564fae12bcf2d7f8fc5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9089171369146343123, guid: 21d4e2444da9f564fae12bcf2d7f8fc5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9089171369146343123, guid: 21d4e2444da9f564fae12bcf2d7f8fc5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 21d4e2444da9f564fae12bcf2d7f8fc5, type: 3}
 --- !u!1 &1167421276
 GameObject:
   m_ObjectHideFlags: 0
@@ -6383,7 +6444,7 @@ MonoBehaviour:
   - {fileID: 2062349745231434792, guid: df12802240fb94f4284a0b5ac9d83de3, type: 3}
   powerUps:
   - {fileID: 1478757495097557090, guid: 009a1f79f9e9b524b867f3244a2d902e, type: 3}
-  - {fileID: 1478757495097557090, guid: 009a1f79f9e9b524b867f3244a2d902e, type: 3}
+  - {fileID: 1478757495097557090, guid: 21d4e2444da9f564fae12bcf2d7f8fc5, type: 3}
   randomMinX: -6.7
   randomMaxX: 6.7
   randomMinY: 4
@@ -6556,7 +6617,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -50, y: -50}
+  m_AnchoredPosition: {x: -50, y: -119}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1228186656
@@ -7898,7 +7959,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 178, y: -96}
+  m_AnchoredPosition: {x: 178, y: -145.3}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1398145109
@@ -8607,7 +8668,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 200.31805, y: -47.5}
+  m_AnchoredPosition: {x: 200.31805, y: -96.80005}
   m_SizeDelta: {x: 317.4362, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1496716981
@@ -8749,7 +8810,7 @@ MonoBehaviour:
   autoPlay: 0
   useTargetAsV3: 0
   endValueFloat: 0
-  endValueV3: {x: -111, y: -172, z: 0}
+  endValueV3: {x: -111, y: -231, z: 0}
   endValueV2: {x: 0, y: 0}
   endValueColor: {r: 1, g: 1, b: 1, a: 1}
   endValueString: 
@@ -8792,7 +8853,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 73, y: -172}
+  m_AnchoredPosition: {x: 73, y: -231}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1496716986
@@ -8884,7 +8945,7 @@ MonoBehaviour:
   autoPlay: 0
   useTargetAsV3: 0
   endValueFloat: 0
-  endValueV3: {x: 73, y: -172, z: 0}
+  endValueV3: {x: 73, y: -231, z: 0}
   endValueV2: {x: 0, y: 0}
   endValueColor: {r: 1, g: 1, b: 1, a: 1}
   endValueString: 
