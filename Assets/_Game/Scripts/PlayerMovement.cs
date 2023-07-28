@@ -58,6 +58,10 @@ public class PlayerMovement : MonoBehaviour
     }
     private void Update()
     {
+        if (GameManager.instance.playerEvents.speedActive)
+        {
+            transform.Translate(0, forcePower * Time.deltaTime, 0);
+        }
         if (UiManager.instance.barImage.fillAmount >= 1)
         {
             UiManager.instance.barImage.fillAmount = 0f;
@@ -104,8 +108,11 @@ public class PlayerMovement : MonoBehaviour
    
         if (isFalling)
         {
-            transform.Translate(0, -forcePower / 2 * Time.deltaTime, 0); //Decent
-            UiManager.instance.barImage.fillAmount -= Time.deltaTime / 20;
+            if (!GameManager.instance.playerEvents.speedActive)
+            {
+                transform.Translate(0, -forcePower / 2 * Time.deltaTime, 0); //Decent
+                UiManager.instance.barImage.fillAmount -= Time.deltaTime / 20;
+            }
         }
 
 
@@ -146,8 +153,11 @@ public class PlayerMovement : MonoBehaviour
                 slideControl = false;
                 slidetimer = 0f;
                 tap = false;
+                if (!GameManager.instance.playerEvents.speedActive)
+                {
+                    isFalling = true;
 
-                isFalling = true;
+                }
 
                 screenBorder.transform.parent = null;
                 playerAnim.SetBool("Falling", true);
@@ -161,10 +171,21 @@ public class PlayerMovement : MonoBehaviour
             if (GameManager.instance.gamestate==GameManager.GameState.start)
             {
                 slidetimer += Time.deltaTime;
-                UiManager.instance.barImage.fillAmount += Time.deltaTime / 20;
+                if(GameManager.instance.playerEvents.speedActive)
+                {
+                    UiManager.instance.barImage.fillAmount += Time.deltaTime / 20*3;
+                }
+                else
+                {
+                    UiManager.instance.barImage.fillAmount += Time.deltaTime / 20;
+                }
+              
                 if (!isFalling)
                 {
-                    transform.Translate(0, forcePower * Time.deltaTime, 0); //Ascend
+                    if (!GameManager.instance.playerEvents.speedActive)
+                    {
+                        transform.Translate(0, forcePower * Time.deltaTime, 0); //Ascend
+                    }
                 }
 
 
