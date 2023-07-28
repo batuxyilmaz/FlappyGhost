@@ -20,6 +20,10 @@ public class PlayerMovement : MonoBehaviour
     public static PlayerMovement instance;
     public Animator playerAnim;
     public TextMeshProUGUI playerHeightText;
+    public TextMeshProUGUI changeValue;
+    public TextMeshProUGUI secondchangeValue;
+    public int level;
+    public int secondLevel;
     public GameObject trail;
 
     private float xValOffset;
@@ -48,10 +52,29 @@ public class PlayerMovement : MonoBehaviour
     {
         
         value = 50;
+        level = 1;
+        secondLevel = 1;
        
     }
     private void Update()
     {
+        if (UiManager.instance.barImage.fillAmount >= 1)
+        {
+            UiManager.instance.barImage.fillAmount = 0f;
+            if (level <= 8)
+            {
+                level++;
+            }
+            else
+            {
+                level = 1;
+                secondLevel++;
+                secondchangeValue.text = secondLevel.ToString();
+            }
+              
+            changeValue.text = level.ToString();
+           
+        }
         ChangeLocation(offsetX, -7f, 7f);
         if (heightCount >= 1)
         {
@@ -65,9 +88,16 @@ public class PlayerMovement : MonoBehaviour
             if (heightCount % 200 == 0&& !onOff)
             {
               
-                GameManager.instance.speedObject += 0.2f;
+                GameManager.instance.speedObject += 0.5f;
                 StartCoroutine(Delay());
 
+            }
+            if(heightCount % 155 == 0&& !onOff)
+            {
+                Debug.Log("geldi");
+                generateScript.GeneratePowerUp();
+                StartCoroutine(Delay());
+           
             }
            
         }
@@ -75,6 +105,7 @@ public class PlayerMovement : MonoBehaviour
         if (isFalling)
         {
             transform.Translate(0, -forcePower / 2 * Time.deltaTime, 0); //Decent
+            UiManager.instance.barImage.fillAmount -= Time.deltaTime / 20;
         }
 
 
@@ -126,11 +157,11 @@ public class PlayerMovement : MonoBehaviour
         }
         if (Input.GetMouseButton(0))
         {
-           
-            if(GameManager.instance.gamestate==GameManager.GameState.start)
+        
+            if (GameManager.instance.gamestate==GameManager.GameState.start)
             {
                 slidetimer += Time.deltaTime;
-
+                UiManager.instance.barImage.fillAmount += Time.deltaTime / 20;
                 if (!isFalling)
                 {
                     transform.Translate(0, forcePower * Time.deltaTime, 0); //Ascend

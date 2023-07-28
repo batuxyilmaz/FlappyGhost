@@ -1,10 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
+using static ToonyColorsPro.ShaderGenerator.Enums;
 
 public class CoinCollision : MonoBehaviour
 {
     public ParticleSystem coinEffect;
+    private bool isTaken;
+   
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
@@ -17,7 +21,21 @@ public class CoinCollision : MonoBehaviour
         }
         if (other.gameObject.CompareTag("Platform"))
         {
-            gameObject.SetActive(false);
+            if (!isTaken)
+            {
+                gameObject.SetActive(false);
+            }
+           
+        }
+      
+    }
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.CompareTag("Magnet"))
+        {
+            isTaken = true;
+            transform.DOMove(other.gameObject.transform.position, 0.2f).SetEase(Ease.OutSine);
+           
         }
     }
 }

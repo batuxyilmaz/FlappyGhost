@@ -6,6 +6,7 @@ using UnityEngine.UI;
 using DG.Tweening;
 using TMPro;
 
+
 public class UiManager : MonoBehaviour
 {   
     
@@ -14,6 +15,8 @@ public class UiManager : MonoBehaviour
     public List<GameObject> panels;
     public List<Button> buttons;
     public List<GameObject> clickedObjects;
+    public List<Image> images;
+    public Image barImage;
 
     public GameObject clickedObject;
     public GameObject startPanel;

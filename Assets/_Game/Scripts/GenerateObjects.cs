@@ -10,6 +10,7 @@ public class GenerateObjects : MonoBehaviour
     private GameObject currentPlatform;
     public GameObject bg;
     public List<GameObject> sugars;
+    public List<GameObject> powerUps;
  
     public float randomMinX;
     public float randomMaxX;
@@ -57,7 +58,16 @@ public class GenerateObjects : MonoBehaviour
     {  
      
         GameObject BG=Instantiate(bg,new Vector3(bg.transform.position.x,bg.transform.position.y+spawnHeight,bg.transform.position.z),Quaternion.identity);
-        spawnHeight += 59f;
+        spawnHeight += 48f;
+        
+    }
+    public void GeneratePowerUp()
+    {
+        int randomObject=Random.Range(0,2);
+        float randomPosX = Random.Range(randomMinX, randomMaxX);
+     
+        GameObject PowerUp = Instantiate(powerUps[randomObject],new Vector3(randomPosX,GameManager.instance.player.transform.position.y+20f,0), Quaternion.identity);
+
     }
    
    
