@@ -90,11 +90,14 @@ public class PlayerMovement : MonoBehaviour
                 generateScript.GeneratePlatform(generateScript.platform);
                 StartCoroutine(Delay());
             }
-            if (heightCount % 200 == 0&& !onOff)
+            if (heightCount % 500 == 0&& !onOff)
             {
-              
-                GameManager.instance.speedObject += 0.5f;
-                StartCoroutine(Delay());
+                if (forcePower < 20f)
+                {
+                    forcePower += 0.5f;
+                    StartCoroutine(Delay());
+
+                }
 
             }
             if(heightCount % 155 == 0&& !onOff)

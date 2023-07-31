@@ -62,8 +62,7 @@ public class GameManager : MonoBehaviour
     }
     public void End()
     {
-        //highscore
-
+      
         mainHighscore=PlayerPrefs.GetInt("MainHighScore");
         blurPanel.SetActive(true);
         highScore = Mathf.RoundToInt(player.transform.position.y);
