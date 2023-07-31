@@ -18,14 +18,20 @@ public class GameManager : MonoBehaviour
     public GameObject endgamePanel;
     public GameObject player;
     public GameObject blurPanel;
+    public GameObject tutorial;
+    public List<GameObject> closedThings;
+    public GameObject openObject;
 
+    public int tutId;
     public int highScore;
     public int point;
     public float speedObject;
     public int mainHighscore;
-    public List<GameObject> closedThings;
-    public GameObject openObject;
+
+    private bool tutPassed;
     public PlayerEvents playerEvents;
+    public ParticleSystem magnetEffect;
+    
     private void Awake()
     {
         instance = this;
@@ -33,6 +39,15 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         playerEvents=GameObject.FindWithTag("Player").GetComponent<PlayerEvents>();
+        tutId = PlayerPrefs.GetInt("TutId");
+        if (tutId >= 1)
+        {
+            tutPassed = true;
+        }
+        if(tutPassed)
+        {
+            tutorial.SetActive(false);
+        }
     }
 
     public enum GameState
@@ -72,5 +87,6 @@ public class GameManager : MonoBehaviour
         ingamePanel.SetActive(false);
         endgamePanel.SetActive(true);
     }
+ 
    
 }

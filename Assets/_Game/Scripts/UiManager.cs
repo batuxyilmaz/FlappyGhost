@@ -15,9 +15,8 @@ public class UiManager : MonoBehaviour
     public List<GameObject> panels;
     public List<Button> buttons;
     public List<GameObject> clickedObjects;
-    public List<Image> images;
     public Image barImage;
-
+    public Image ghostImage;
     public GameObject clickedObject;
     public GameObject startPanel;
 
@@ -34,6 +33,11 @@ public class UiManager : MonoBehaviour
         DOTween.Restart("Click");
         GameManager.instance.gamestate = GameManager.GameState.start;
         startPanel.SetActive(false);
+        if(GameManager.instance.tutId<=0)
+        {
+            StartCoroutine(TutorialOpen());
+        }
+      
     }
     public void SelectCharacter()
     {
@@ -86,5 +90,10 @@ public class UiManager : MonoBehaviour
         {
             Debug.Log("buyed");
         }
+    }
+    IEnumerator TutorialOpen()
+    {
+        yield return new WaitForSeconds(0.5f);
+        GameManager.instance.tutorial.SetActive(true);
     }
 }

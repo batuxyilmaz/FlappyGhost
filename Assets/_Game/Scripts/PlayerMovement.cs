@@ -65,6 +65,7 @@ public class PlayerMovement : MonoBehaviour
         if (UiManager.instance.barImage.fillAmount >= 1)
         {
             UiManager.instance.barImage.fillAmount = 0f;
+            UiManager.instance.ghostImage.rectTransform.anchoredPosition = new Vector3(-62f, -234f,0f); 
             if (level <= 8)
             {
                 level++;
@@ -112,6 +113,11 @@ public class PlayerMovement : MonoBehaviour
             {
                 transform.Translate(0, -forcePower / 2 * Time.deltaTime, 0); //Decent
                 UiManager.instance.barImage.fillAmount -= Time.deltaTime / 20;
+                if (UiManager.instance.ghostImage.rectTransform.anchoredPosition.y >= -234f)
+                {
+                    UiManager.instance.ghostImage.rectTransform.Translate(-24 * Time.deltaTime, 0, 0);
+                }
+          
             }
         }
 
@@ -174,10 +180,12 @@ public class PlayerMovement : MonoBehaviour
                 if(GameManager.instance.playerEvents.speedActive)
                 {
                     UiManager.instance.barImage.fillAmount += Time.deltaTime / 20*3;
+                    UiManager.instance.ghostImage.rectTransform.Translate(72 * Time.deltaTime, 0, 0);
                 }
                 else
                 {
                     UiManager.instance.barImage.fillAmount += Time.deltaTime / 20;
+                    UiManager.instance.ghostImage.rectTransform.Translate(24 * Time.deltaTime, 0, 0);
                 }
               
                 if (!isFalling)
@@ -213,6 +221,18 @@ public class PlayerMovement : MonoBehaviour
             Vector3 pos = transform.position;
             offsetX = Mathf.Clamp(pos.x, ground.bounds.min.x + 0.5f, ground.bounds.max.x - 0.5f);
             pos.x = offsetX;
+
+            if (GameManager.instance.tutorial.activeSelf)
+            {
+                if(transform.position.x>=3f || transform.position.x <= -3f)
+                {
+                    GameManager.instance.tutId = 1;
+                    PlayerPrefs.SetInt("TutId", GameManager.instance.tutId);
+
+                    GameManager.instance.tutorial.SetActive(false);
+                }
+      
+            }
         }
       
     }

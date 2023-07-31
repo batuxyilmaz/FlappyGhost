@@ -46,18 +46,18 @@ public class PowerUp : MonoBehaviour
                     effect.Play();
                     effect.gameObject.transform.parent = null;
                     other.gameObject.GetComponent<PlayerEvents>().magnetActive = true;
+                    other.gameObject.GetComponent<PlayerEvents>().magnetTimer = 0f;
                     other.gameObject.GetComponent<PlayerEvents>().magnetCol.SetActive(true);
-                    UiManager.instance.images[0].gameObject.SetActive(true);
-                    DOTween.Restart("Magnet");
+                    GameManager.instance.magnetEffect.Play();
 
                     break;
                 case 1:
                     effect.Play();
                     effect.gameObject.transform.parent = null;
                     other.gameObject.GetComponent<PlayerEvents>().speedActive = true;
-                    PlayerMovement.instance.forcePower = 30;
-                    UiManager.instance.images[1].gameObject.SetActive(true);
-                    DOTween.Restart("Speed");
+                    other.gameObject.GetComponent<PlayerEvents>().speedTimer = 0f;
+                    PlayerMovement.instance.forcePower = 40;
+                  
                     break;
             }
            
