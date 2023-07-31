@@ -96,7 +96,7 @@ public class PlayerMovement : MonoBehaviour
                 {
                     forcePower += 0.5f;
                     StartCoroutine(Delay());
-
+  
                 }
 
             }
