@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using System.Drawing;
 
 
 public class CoinCollision : MonoBehaviour
@@ -15,6 +16,7 @@ public class CoinCollision : MonoBehaviour
         {
             GameManager.instance.point += 10;
             GameManager.instance.coinText.text = GameManager.instance.point.ToString();
+            PlayerPrefs.SetInt("Point", GameManager.instance.point);
             coinEffect.transform.parent = null;
             coinEffect.Play();
             transform.gameObject.SetActive(false);

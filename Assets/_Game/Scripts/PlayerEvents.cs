@@ -15,8 +15,49 @@ public class PlayerEvents : MonoBehaviour
     private bool fadeActive;
     private float fadeValue;
     private float speedDecreasetimeValue;
+    public float speedTime;
+    public float magnetTime;
+
+    public int magnetId;
+    public int speedId;
+    public bool magnetUpgraded;
+    public bool speedUpgraded;
+    private void Awake()
+    {
+        magnetId = PlayerPrefs.GetInt("MagnetId");
+        speedId = PlayerPrefs.GetInt("SpeedId");
+        if (magnetId >= 1)
+        {
+            magnetUpgraded = true;
+        }
+        if (speedId >= 1)
+        {
+            speedUpgraded = true;
+        }
+    }
     private void Start()
     {
+      
+       
+        if(magnetUpgraded)
+        {
+            magnetTime = PlayerPrefs.GetFloat("MagnetTime");
+        }
+        else
+        {
+            magnetTime = 5f;
+        }
+      
+        if (speedUpgraded)
+        {
+            speedTime = PlayerPrefs.GetFloat("SpeedTime");
+        }
+        else
+        {
+            speedTime = 5f;
+        }
+    
+       
         fadeValue = 0.2f;
         speedDecreasetimeValue = 0.05f;
     }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System.Runtime.InteropServices;
 
 public class GameManager : MonoBehaviour
 {
@@ -35,10 +36,13 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
+        playerEvents = GameObject.FindWithTag("Player").GetComponent<PlayerEvents>();
+        point = PlayerPrefs.GetInt("Point");
+        coinText.text = point.ToString();
     }
     private void Start()
     {
-        playerEvents=GameObject.FindWithTag("Player").GetComponent<PlayerEvents>();
+       
         tutId = PlayerPrefs.GetInt("TutId");
         if (tutId >= 1)
         {
@@ -49,6 +53,7 @@ public class GameManager : MonoBehaviour
             tutorial.SetActive(false);
         }
     }
+    
 
     public enum GameState
     {
