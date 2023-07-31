@@ -8,7 +8,7 @@ public class Death : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Head"))
         {
-           if(!GameManager.instance.playerEvents.speedActive)
+           if(!GameManager.instance.playerEvents.speedActive&&!GameManager.instance.playerEvents.immunity)
             {
                 collision.gameObject.GetComponent<Collider>().enabled = false;
                 collision.gameObject.GetComponentInParent<Collider>().enabled = false;
@@ -43,4 +43,5 @@ public class Death : MonoBehaviour
         yield return new WaitForSeconds(0.8f);
 
     }
+ 
 }

@@ -33,8 +33,9 @@ public class CoinCollision : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Magnet"))
         {
+           // transform.Translate(other.gameObject.transform.position*2f*Time.deltaTime);
             isTaken = true;
-            transform.DOMove(other.gameObject.transform.position, 0.2f).SetEase(Ease.OutSine);
+            transform.DOMove(other.gameObject.transform.position, 0.1f).SetEase(Ease.Linear);
            
         }
     }

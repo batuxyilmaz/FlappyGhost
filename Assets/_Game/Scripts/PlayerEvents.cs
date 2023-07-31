@@ -11,7 +11,7 @@ public class PlayerEvents : MonoBehaviour
 
     public bool speedActive;
     public float speedTimer;
-
+    public bool immunity;
     private bool fadeActive;
     private float fadeValue;
     private float speedDecreasetimeValue;
@@ -66,6 +66,7 @@ public class PlayerEvents : MonoBehaviour
             fadeActive = false;
             speedActive = false;
             speedTimer = 0f;
+            StartCoroutine(ImmunityDealy());
             StartCoroutine(SpeedDecrease());
         
         }
@@ -105,5 +106,10 @@ public class PlayerEvents : MonoBehaviour
         PlayerMovement.instance.forcePower -= 5f;
        
 
+    }
+    private IEnumerator ImmunityDealy()
+    {
+        yield return new WaitForSeconds(1f);
+        immunity = false;
     }
 }

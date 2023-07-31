@@ -65,7 +65,7 @@ public class PlayerMovement : MonoBehaviour
         if (UiManager.instance.barImage.fillAmount >= 1)
         {
             UiManager.instance.barImage.fillAmount = 0f;
-            UiManager.instance.ghostImage.rectTransform.anchoredPosition = new Vector3(-62f, -234f,0f); 
+            UiManager.instance.ghostImage.rectTransform.anchoredPosition = new Vector3(-6.1f, -234f,0f); 
             if (level <= 8)
             {
                 level++;

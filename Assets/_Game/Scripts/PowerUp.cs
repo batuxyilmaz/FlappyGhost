@@ -56,6 +56,7 @@ public class PowerUp : MonoBehaviour
                     effect.gameObject.transform.parent = null;
                     other.gameObject.GetComponent<PlayerEvents>().speedActive = true;
                     other.gameObject.GetComponent<PlayerEvents>().speedTimer = 0f;
+                    GameManager.instance.playerEvents.immunity = true;
                     PlayerMovement.instance.forcePower = 40;
                   
                     break;
