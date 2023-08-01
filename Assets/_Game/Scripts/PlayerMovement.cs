@@ -46,6 +46,7 @@ public class PlayerMovement : MonoBehaviour
     private float speedIncreaseValue;
     public float newSpeed;
     public float oldSpeed;
+    public int changeCount;
     
     private void Awake()
     {
@@ -58,6 +59,7 @@ public class PlayerMovement : MonoBehaviour
         level = 1;
         secondLevel = 1;
         speedIncreaseValue = 0.5f;
+        changeCount = 260;
        
     }
     private void Update()
@@ -121,12 +123,13 @@ public class PlayerMovement : MonoBehaviour
                 generateScript.platformCount=0;
 
             }
-            if (heightCount % 260 == 0 && !onOff)
+            if (heightCount % changeCount == 0 && !onOff)
             {
              
                 StartCoroutine(Delay());
                 generateScript.bgsCurrentCount++;
                 generateScript.platformCount++;
+                changeCount += 260;
             
             }
             if (heightCount % 100 == 0 && !onOff)
