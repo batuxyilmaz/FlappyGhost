@@ -128,6 +128,12 @@ public class PlayerMovement : MonoBehaviour
                 generateScript.bgsCurrentCount++;
                 generateScript.platformCount++;
             
+            }
+            if (heightCount % 100 == 0 && !onOff)
+            {
+                StartCoroutine(Delay());
+                generateScript.GenerateGif();
+             
 
             }
 

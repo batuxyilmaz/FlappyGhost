@@ -12,6 +12,7 @@ public class GenerateObjects : MonoBehaviour
     public List<GameObject> bgs;
     public List<GameObject> sugars;
     public List<GameObject> powerUps;
+    public GameObject gif;
  
     public float randomMinX;
     public float randomMaxX;
@@ -44,7 +45,10 @@ public class GenerateObjects : MonoBehaviour
             GameObject Sugar = Instantiate(sugars[0], new Vector3(Platform.transform.position.x, Platform.transform.position.y + 5f, Platform.transform.position.z), transform.rotation);
             currentCoins.Add(Sugar);
             Sugar.GetComponent<MoveCoin>().speed += 0.2f;
-               
+         
+       
+           
+
             Platform.GetComponent<PlatformMove>().speed += 0.2f;
             currentPlatform = Platform;
 
@@ -81,6 +85,14 @@ public class GenerateObjects : MonoBehaviour
         }
       
     }
+    public void GenerateGif() 
+
+    {
+        float randomPosX = Random.Range(randomMinX, randomMaxX);
+        GameObject Gif = Instantiate(gif, new Vector3(randomPosX, GameManager.instance.player.transform.position.y + 20f, 0), Quaternion.identity);
+      
+    }
+   
   
 }
 

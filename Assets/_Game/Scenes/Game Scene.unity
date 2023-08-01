@@ -16558,6 +16558,7 @@ MonoBehaviour:
   powerUps:
   - {fileID: 1478757495097557090, guid: 009a1f79f9e9b524b867f3244a2d902e, type: 3}
   - {fileID: 1478757495097557090, guid: 009a1f79f9e9b524b867f3244a2d902e, type: 3}
+  gif: {fileID: 8525075202383812502, guid: bcf4eb3996f5dc3489e78dea3f75a8f6, type: 3}
   randomMinX: -6.7
   randomMaxX: 6.7
   randomMinY: 5
