@@ -118,7 +118,7 @@ public class PlayerEvents : MonoBehaviour
         {
             if (PlayerMovement.instance.currentSpeed > PlayerMovement.instance.oldSpeed)
             {
-                PlayerMovement.instance.currentSpeed -= Time.deltaTime * 25;
+                PlayerMovement.instance.currentSpeed -= Time.deltaTime * 40;
             }
             else
             {

@@ -3430,7 +3430,7 @@ MonoBehaviour:
   multiplier: 15
   speedVal: 0
   delayTime: 1
-  currentSpeed: 10
+  currentSpeed: 12
   touchCount: 0
   slideControl: 0
   groundControl: 0

@@ -107,7 +107,7 @@ public class PlayerMovement : MonoBehaviour
 
             }
 
-            if(heightCount % 155 == 0&& !onOff)
+            if(heightCount % 40 == 0&& !onOff)
             {
               
                 generateScript.GeneratePowerUp();
