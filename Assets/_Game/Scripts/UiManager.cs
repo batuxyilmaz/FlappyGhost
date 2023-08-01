@@ -17,6 +17,7 @@ public class UiManager : MonoBehaviour
     public List<GameObject> clickedObjects;
     public Image barImage;
     public Image ghostImage;
+    public Image speedbarImage;
     public GameObject clickedObject;
     public GameObject startPanel;
 

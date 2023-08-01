@@ -53,18 +53,18 @@ public class PowerUp : MonoBehaviour
 
                     break;
                 case 1:
-                    effect.Play();
-                    effect.gameObject.transform.parent = null;
-                    other.gameObject.GetComponent<PlayerEvents>().speedActive = true;
-                    other.gameObject.GetComponent<PlayerEvents>().speedTimer = 0f;
-                    PlayerMovement.instance.oldSpeed = PlayerMovement.instance.currentSpeed;
-                    GameManager.instance.playerEvents.immunity = true;
-                    PlayerMovement.instance.currentSpeed = increaseValue;
-                    PlayerMovement.instance.newSpeed = PlayerMovement.instance.currentSpeed;
-                    if (PlayerMovement.instance.currentSpeed >= 20)
-                    {
-                        increaseValue = 60;
-                    }   
+                    //effect.Play();
+                    //effect.gameObject.transform.parent = null;
+                    //other.gameObject.GetComponent<PlayerEvents>().speedActive = true;
+                    //other.gameObject.GetComponent<PlayerEvents>().speedTimer = 0f;
+                    //PlayerMovement.instance.oldSpeed = PlayerMovement.instance.currentSpeed;
+                    //GameManager.instance.playerEvents.immunity = true;
+                    //PlayerMovement.instance.currentSpeed = increaseValue;
+                    //PlayerMovement.instance.newSpeed = PlayerMovement.instance.currentSpeed;
+                    //if (PlayerMovement.instance.currentSpeed >= 20)
+                    //{
+                    //    increaseValue = 60;
+                    //}   
                     break;
             }
            

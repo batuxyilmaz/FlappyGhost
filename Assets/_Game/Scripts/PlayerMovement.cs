@@ -46,7 +46,7 @@ public class PlayerMovement : MonoBehaviour
     private float speedIncreaseValue;
     public float newSpeed;
     public float oldSpeed;
-
+    
     private void Awake()
     {
         instance = this;
@@ -91,7 +91,7 @@ public class PlayerMovement : MonoBehaviour
             {
              
                 generateScript.GenerateBg();
-                generateScript.GeneratePlatform(generateScript.platform);
+                generateScript.GeneratePlatform(generateScript.platforms[generateScript.platformCount]);
                 StartCoroutine(Delay());
             }
             if (heightCount % 200 == 0&& !onOff)
@@ -118,12 +118,15 @@ public class PlayerMovement : MonoBehaviour
             {
                 StartCoroutine(Delay());
                 generateScript.bgsCurrentCount = 0;
+                generateScript.platformCount=0;
 
             }
-            if (heightCount % 270 == 0 && !onOff)
+            if (heightCount % 260 == 0 && !onOff)
             {
+                Debug.Log("oldu");
                 StartCoroutine(Delay());
                 generateScript.bgsCurrentCount++;
+                generateScript.platformCount++;
             
 
             }
@@ -174,6 +177,7 @@ public class PlayerMovement : MonoBehaviour
                 playerAnim.SetBool("Falling", false);
 
             }
+         
 
         }
         if (Input.GetMouseButtonUp(0))

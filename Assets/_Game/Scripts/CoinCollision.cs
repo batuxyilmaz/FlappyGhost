@@ -14,6 +14,8 @@ public class CoinCollision : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            Debug.Log("dasda");
+            GameManager.instance.playerEvents.isTaken = true;
             GameManager.instance.point += 10;
             GameManager.instance.coinText.text = GameManager.instance.point.ToString();
             PlayerPrefs.SetInt("Point", GameManager.instance.point);
@@ -41,4 +43,5 @@ public class CoinCollision : MonoBehaviour
            
         }
     }
+   
 }

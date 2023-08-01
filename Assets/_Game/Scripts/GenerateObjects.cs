@@ -6,7 +6,7 @@ using UnityEngine.Lumin;
 
 public class GenerateObjects : MonoBehaviour
 {
-    public GameObject platform;
+    public List<GameObject> platforms;
     private GameObject currentPlatform;
     public GameObject bg;
     public List<GameObject> bgs;
@@ -22,11 +22,12 @@ public class GenerateObjects : MonoBehaviour
     public int spawnCount;
     public int bgsCurrentCount;
     public List<GameObject> currentCoins;
+    public int platformCount;
 
     void Start()
     {
-        currentPlatform = platform;
-        GeneratePlatform(platform);
+        currentPlatform = platforms[platformCount];
+        GeneratePlatform(platforms[platformCount]);
         bgsCurrentCount = 0;
       
     }
@@ -39,7 +40,7 @@ public class GenerateObjects : MonoBehaviour
         {
             float randomPosX = Random.Range(randomMinX, randomMaxX);
             float randomPosY = Random.Range(randomMinY, randomMaxY);
-            Platform = Instantiate(platform, new Vector3(randomPosX, currentPlatform.transform.position.y + randomPosY, platform.transform.position.z), transform.rotation);
+            Platform = Instantiate(platforms[platformCount], new Vector3(randomPosX, currentPlatform.transform.position.y + randomPosY, platforms[platformCount].transform.position.z), transform.rotation);
 
             int randomCount = Random.Range(0, 2);
             if(randomCount == 0) 
