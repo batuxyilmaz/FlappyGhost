@@ -28,7 +28,7 @@ public class PlayerEvents : MonoBehaviour
     public bool speedUpgraded;
     private bool startDecrease;
     public bool isTaken;
-    public bool isDecreasing;
+    
     public ParticleSystem effect;
     private int increaseValue;
     private void Awake()
@@ -73,26 +73,11 @@ public class PlayerEvents : MonoBehaviour
     }
     void Update()
     {
-        if(isDecreasing)
-        {
-            decreaseTimer += Time.deltaTime;
-        }
-        if (decreaseTimer > 0.2f)
-        {
-            UiManager.instance.speedbarImage.fillAmount -= 0.05f;
-            if (UiManager.instance.speedbarImage.fillAmount <= 0)
-            {
-                isDecreasing = false;
-            }
-            decreaseTimer = 0;
-        }
+       
         if (isTaken)
         {
-            if (!isDecreasing)
-            {
-                StartCoroutine(BarFill());
-            }
-           
+
+            StartCoroutine(BarFill());
             isTaken = false;
         }
         if (magnetActive)
@@ -185,16 +170,21 @@ public class PlayerEvents : MonoBehaviour
     }
     public IEnumerator BarFill()
     {
+      
         for (int i = 0; i < 5; i++)
         {
             UiManager.instance.speedbarImage.fillAmount += 0.01f;
+            
             yield return new WaitForSeconds(0.005f);
         }
+       // BarColorChange();
         if (UiManager.instance.speedbarImage.fillAmount >= 0.99f)
         {
+            DOTween.Restart("BarFinish");
+            yield return new WaitForSeconds(1.5f);
             effect.Play();
             effect.gameObject.transform.parent = null;
-           
+            DOTween.Kill("BarFinish");
             speedTimer = 0f;
             PlayerMovement.instance.oldSpeed = PlayerMovement.instance.currentSpeed;
             GameManager.instance.playerEvents.immunity = true;
@@ -205,9 +195,22 @@ public class PlayerEvents : MonoBehaviour
                 increaseValue = 60;
             }
             speedActive = true;
-            isDecreasing = true;
+            UiManager.instance.speedbarImage.fillAmount= 0f;
         }
        
     }
+    //private void BarColorChange()
+    //{
+    //    if (UiManager.instance.speedbarImage.fillAmount >= 0.5f && UiManager.instance.speedbarImage.fillAmount < 0.69f)
+    //    {
+    //        DOTween.Restart("BarYellow");
+    //    }
+    //    if (UiManager.instance.speedbarImage.fillAmount >= 0.7f)
+    //    {
+    //        DOTween.Restart("BarGreen");
+    //    }
+
+
+    //}
     
 }
