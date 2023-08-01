@@ -123,7 +123,7 @@ public class PlayerMovement : MonoBehaviour
             }
             if (heightCount % 260 == 0 && !onOff)
             {
-                Debug.Log("oldu");
+             
                 StartCoroutine(Delay());
                 generateScript.bgsCurrentCount++;
                 generateScript.platformCount++;
