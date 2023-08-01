@@ -12,7 +12,7 @@ public class CoinCollision : MonoBehaviour
    
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Gather"))
         {
             Debug.Log("dasda");
             GameManager.instance.playerEvents.isTaken = true;
@@ -39,7 +39,7 @@ public class CoinCollision : MonoBehaviour
         {
            // transform.Translate(other.gameObject.transform.position*2f*Time.deltaTime);
             isTaken = true;
-            transform.DOMove(other.gameObject.transform.position, 0.1f).SetEase(Ease.Linear);
+            transform.DOMove(other.gameObject.transform.position, 0.2f).SetEase(Ease.Linear);
            
         }
     }
