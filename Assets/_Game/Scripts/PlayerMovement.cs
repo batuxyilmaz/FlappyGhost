@@ -31,7 +31,7 @@ public class PlayerMovement : MonoBehaviour
     public float speedVal;
     private int value;
     public float delayTime;
-    public float forcePower;
+    public float currentSpeed;
     private float slidetimer;
     public int touchCount;
     private int heightCount;
@@ -43,7 +43,10 @@ public class PlayerMovement : MonoBehaviour
     public bool stopped;
     public bool changed;
     private bool onOff;
-   
+    private float speedIncreaseValue;
+    public float newSpeed;
+    public float oldSpeed;
+
     private void Awake()
     {
         instance = this;
@@ -54,13 +57,14 @@ public class PlayerMovement : MonoBehaviour
         value = 50;
         level = 1;
         secondLevel = 1;
+        speedIncreaseValue = 0.5f;
        
     }
     private void Update()
     {
         if (GameManager.instance.playerEvents.speedActive)
         {
-            transform.Translate(0, forcePower * Time.deltaTime, 0);
+            transform.Translate(0, currentSpeed * Time.deltaTime, 0);
         }
         if (UiManager.instance.barImage.fillAmount >= 1)
         {
@@ -90,13 +94,13 @@ public class PlayerMovement : MonoBehaviour
                 generateScript.GeneratePlatform(generateScript.platform);
                 StartCoroutine(Delay());
             }
-            if (heightCount % 500 == 0&& !onOff)
+            if (heightCount % 200 == 0&& !onOff)
             {
                
-                if (forcePower < 20f)
+                if (currentSpeed < 20f)
                 {
                     
-                    forcePower += 0.5f;
+                    currentSpeed += speedIncreaseValue;
                     StartCoroutine(Delay());
                    
                 }
@@ -120,7 +124,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 StartCoroutine(Delay());
                 generateScript.bgsCurrentCount++;
-                Debug.Log("oldu");
+            
 
             }
 
@@ -131,7 +135,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if (!GameManager.instance.playerEvents.speedActive)
             {
-                transform.Translate(0, -forcePower / 2 * Time.deltaTime, 0); //Decent
+                transform.Translate(0, -currentSpeed / 2 * Time.deltaTime, 0); //Decent
                 UiManager.instance.barImage.fillAmount -= Time.deltaTime / 20;
                 if (UiManager.instance.ghostImage.rectTransform.anchoredPosition.y >= -234f)
                 {
@@ -199,8 +203,17 @@ public class PlayerMovement : MonoBehaviour
                 slidetimer += Time.deltaTime;
                 if(GameManager.instance.playerEvents.speedActive)
                 {
-                    UiManager.instance.barImage.fillAmount += Time.deltaTime / 20*3;
-                    UiManager.instance.ghostImage.rectTransform.Translate(72 * Time.deltaTime, 0, 0);
+                    if (currentSpeed >= 20)
+                    {
+                        UiManager.instance.barImage.fillAmount += Time.deltaTime / 20 * 5;
+                        UiManager.instance.ghostImage.rectTransform.Translate(120 * Time.deltaTime, 0, 0);
+                    }
+                    else
+                    {
+                        UiManager.instance.barImage.fillAmount += Time.deltaTime / 20 * 3;
+                        UiManager.instance.ghostImage.rectTransform.Translate(72 * Time.deltaTime, 0, 0);
+                    }
+                  
                 }
                 else
                 {
@@ -212,7 +225,7 @@ public class PlayerMovement : MonoBehaviour
                 {
                     if (!GameManager.instance.playerEvents.speedActive)
                     {
-                        transform.Translate(0, forcePower * Time.deltaTime, 0); //Ascend
+                        transform.Translate(0, currentSpeed * Time.deltaTime, 0); //Ascend
                     }
                 }
 

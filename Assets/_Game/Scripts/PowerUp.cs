@@ -11,10 +11,11 @@ public class PowerUp : MonoBehaviour
     public PowerUps powerUpState;
     private int id;
     public ParticleSystem effect;
+    private int increaseValue;
     void Start()
     {
         speed = GameManager.instance.speedObject;
-
+        increaseValue = 60;
         switch (powerUpState)
         {
             case PowerUps.magnet:
@@ -56,9 +57,14 @@ public class PowerUp : MonoBehaviour
                     effect.gameObject.transform.parent = null;
                     other.gameObject.GetComponent<PlayerEvents>().speedActive = true;
                     other.gameObject.GetComponent<PlayerEvents>().speedTimer = 0f;
+                    PlayerMovement.instance.oldSpeed = PlayerMovement.instance.currentSpeed;
                     GameManager.instance.playerEvents.immunity = true;
-                    PlayerMovement.instance.forcePower = 40;
-                  
+                    PlayerMovement.instance.currentSpeed = increaseValue;
+                    PlayerMovement.instance.newSpeed = PlayerMovement.instance.currentSpeed;
+                    if (PlayerMovement.instance.currentSpeed >= 20)
+                    {
+                        increaseValue = 60;
+                    }   
                     break;
             }
            

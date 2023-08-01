@@ -2,7 +2,7 @@ using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using DG.Tweening;
 public class PlayerEvents : MonoBehaviour
 {
     public bool magnetActive;
@@ -17,11 +17,13 @@ public class PlayerEvents : MonoBehaviour
     private float speedDecreasetimeValue;
     public float speedTime;
     public float magnetTime;
+    private float speedDecrease;
 
     public int magnetId;
     public int speedId;
     public bool magnetUpgraded;
     public bool speedUpgraded;
+    private bool startDecrease;
     private void Awake()
     {
         magnetId = PlayerPrefs.GetInt("MagnetId");
@@ -60,6 +62,7 @@ public class PlayerEvents : MonoBehaviour
        
         fadeValue = 0.2f;
         speedDecreasetimeValue = 0.05f;
+        speedDecrease = 0.5f;
     }
     void Update()
     {
@@ -108,8 +111,21 @@ public class PlayerEvents : MonoBehaviour
             speedActive = false;
             speedTimer = 0f;
             StartCoroutine(ImmunityDealy());
-            StartCoroutine(SpeedDecrease());
+            startDecrease = true;
         
+        }
+        if(startDecrease)
+        {
+            if (PlayerMovement.instance.currentSpeed > PlayerMovement.instance.oldSpeed)
+            {
+                PlayerMovement.instance.currentSpeed -= Time.deltaTime * 25;
+            }
+            else
+            {
+                startDecrease=false;
+            }
+           
+
         }
     }
     private IEnumerator Fade()
@@ -132,22 +148,7 @@ public class PlayerEvents : MonoBehaviour
         transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
 
     }
-    private IEnumerator SpeedDecrease()
-    {
-        PlayerMovement.instance.forcePower -= 5f;
-        yield return new WaitForSeconds(speedDecreasetimeValue);
-        PlayerMovement.instance.forcePower -= 5f;
-        yield return new WaitForSeconds(speedDecreasetimeValue);
-        PlayerMovement.instance.forcePower -= 5f;
-        yield return new WaitForSeconds(speedDecreasetimeValue);
-        PlayerMovement.instance.forcePower -= 5f;
-        yield return new WaitForSeconds(speedDecreasetimeValue);
-        PlayerMovement.instance.forcePower -= 5f;
-        yield return new WaitForSeconds(speedDecreasetimeValue);
-        PlayerMovement.instance.forcePower -= 5f;
-       
-
-    }
+  
     private IEnumerator ImmunityDealy()
     {
         yield return new WaitForSeconds(1f);
