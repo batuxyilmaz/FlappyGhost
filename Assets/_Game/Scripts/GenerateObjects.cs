@@ -9,6 +9,7 @@ public class GenerateObjects : MonoBehaviour
     public GameObject platform;
     private GameObject currentPlatform;
     public GameObject bg;
+    public List<GameObject> bgs;
     public List<GameObject> sugars;
     public List<GameObject> powerUps;
  
@@ -18,13 +19,15 @@ public class GenerateObjects : MonoBehaviour
     public float randomMaxY;
     private int platformLevel;
     private float spawnHeight;
-
+    public int spawnCount;
+    public int bgsCurrentCount;
     public List<GameObject> currentCoins;
 
     void Start()
     {
         currentPlatform = platform;
         GeneratePlatform(platform);
+        bgsCurrentCount = 0;
       
     }
 
@@ -55,10 +58,17 @@ public class GenerateObjects : MonoBehaviour
            
     }
     public void GenerateBg()
-    {  
-     
-        GameObject BG=Instantiate(bg,new Vector3(bg.transform.position.x,bg.transform.position.y+spawnHeight,bg.transform.position.z),Quaternion.identity);
-        spawnHeight += 48f;
+    {
+        if (spawnCount >= 2)
+        {
+            GameObject BGs = Instantiate(bgs[bgsCurrentCount], new Vector3(bg.transform.position.x, bg.transform.position.y + spawnHeight, bg.transform.position.z), Quaternion.identity);
+        }
+        else
+        {
+            GameObject BG = Instantiate(bg, new Vector3(bg.transform.position.x, bg.transform.position.y + spawnHeight, bg.transform.position.z), Quaternion.identity);
+        }
+        spawnCount++; 
+        spawnHeight += 55f;
         
     }
     public void GeneratePowerUp()

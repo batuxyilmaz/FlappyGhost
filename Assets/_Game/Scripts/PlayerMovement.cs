@@ -83,7 +83,7 @@ public class PlayerMovement : MonoBehaviour
         ChangeLocation(offsetX, -6f, 6f);
         if (heightCount >= 1)
         {
-            if (heightCount % 20 == 0 && !onOff)
+            if (heightCount % 30 == 0 && !onOff)
             {
              
                 generateScript.GenerateBg();
@@ -92,24 +92,41 @@ public class PlayerMovement : MonoBehaviour
             }
             if (heightCount % 500 == 0&& !onOff)
             {
+               
                 if (forcePower < 20f)
                 {
+                    
                     forcePower += 0.5f;
                     StartCoroutine(Delay());
-  
+                   
                 }
 
             }
+
             if(heightCount % 155 == 0&& !onOff)
             {
-                Debug.Log("geldi");
+              
                 generateScript.GeneratePowerUp();
                 StartCoroutine(Delay());
            
             }
-           
+            if (heightCount % 860 == 0 && !onOff)
+            {
+                StartCoroutine(Delay());
+                generateScript.bgsCurrentCount = 0;
+
+            }
+            if (heightCount % 280 == 0 && !onOff)
+            {
+                StartCoroutine(Delay());
+                generateScript.bgsCurrentCount++;
+                Debug.Log("oldu");
+
+            }
+
+
         }
-   
+
         if (isFalling)
         {
             if (!GameManager.instance.playerEvents.speedActive)
