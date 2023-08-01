@@ -110,13 +110,13 @@ public class PlayerMovement : MonoBehaviour
                 StartCoroutine(Delay());
            
             }
-            if (heightCount % 860 == 0 && !onOff)
+            if (heightCount % 820 == 0 && !onOff)
             {
                 StartCoroutine(Delay());
                 generateScript.bgsCurrentCount = 0;
 
             }
-            if (heightCount % 280 == 0 && !onOff)
+            if (heightCount % 270 == 0 && !onOff)
             {
                 StartCoroutine(Delay());
                 generateScript.bgsCurrentCount++;
