@@ -167,11 +167,11 @@ public class PlayerMovement : MonoBehaviour
         if (heightCount <= 0)
         {
             heightCount = 0;
-            playerHeightText.text = heightCount.ToString();
+            playerHeightText.text = (heightCount.ToString()+"M");
         }
         else
         {
-            playerHeightText.text = heightCount.ToString();
+            playerHeightText.text = (heightCount.ToString() + "M");
         }
       
 

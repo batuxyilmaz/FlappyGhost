@@ -39,7 +39,7 @@ public class PowerUp : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player") && !GameManager.instance.playerEvents.speedActive)
         {
             switch (id)
             {

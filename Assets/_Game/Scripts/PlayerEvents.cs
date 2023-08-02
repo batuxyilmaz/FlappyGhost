@@ -132,7 +132,7 @@ public class PlayerEvents : MonoBehaviour
             waitBoost = false;
             PlayerMovement.instance.currentSpeed = 10;
             lightningTrail.SetActive(false);
-            GameManager.instance.boostSound.Stop();
+          
 
         }
         if(startDecrease)
@@ -188,7 +188,7 @@ public class PlayerEvents : MonoBehaviour
         {
             if (UiManager.instance.speedbarImage.fillAmount >= 0.99f)
             {
-                GameManager.instance.boostSound.Play();
+          
                 UiManager.instance.fadeText.SetActive(true);
                 GameObject FadeText=Instantiate(UiManager.instance.fadeText, spawnPos.transform.position, Quaternion.identity);
                 FadeText.transform.parent = spawnPos.transform;
@@ -214,10 +214,9 @@ public class PlayerEvents : MonoBehaviour
                     increaseValue = 60;
                 }
                
-
             }
         }
-             
+     
        
     }
     

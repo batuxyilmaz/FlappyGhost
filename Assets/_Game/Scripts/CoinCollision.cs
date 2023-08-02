@@ -12,7 +12,7 @@ public class CoinCollision : MonoBehaviour
    
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Gather"))
+        if (other.gameObject.CompareTag("Gather") &&!GameManager.instance.playerEvents.speedActive)
         {
             GameManager.instance.collectSound.Play();
             GameManager.instance.playerEvents.isTaken = true;
