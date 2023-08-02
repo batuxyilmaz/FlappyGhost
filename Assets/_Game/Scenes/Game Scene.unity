@@ -190,6 +190,10 @@ PrefabInstance:
       propertyPath: lightningTrail
       value: 
       objectReference: {fileID: 1571125782}
+    - target: {fileID: 1889660257308862046, guid: b59c71a42b91dcf4090bcaa52f0f7ab1, type: 3}
+      propertyPath: barIncreaseValue
+      value: 0.01
+      objectReference: {fileID: 0}
     - target: {fileID: 2019324183270764066, guid: b59c71a42b91dcf4090bcaa52f0f7ab1, type: 3}
       propertyPath: m_BlendShapeWeights.Array.data[4]
       value: 100

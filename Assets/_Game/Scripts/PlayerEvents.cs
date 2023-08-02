@@ -1,6 +1,7 @@
 using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
+using System.Net.Http;
 using UnityEngine;
 
 
@@ -31,6 +32,7 @@ public class PlayerEvents : MonoBehaviour
 
     public GameObject lightningTrail;
     private int increaseValue;
+    public float barIncreaseValue;
     private void Awake()
     {
         magnetId = PlayerPrefs.GetInt("MagnetId");
@@ -176,7 +178,7 @@ public class PlayerEvents : MonoBehaviour
       
         for (int i = 0; i < 5; i++)
         {
-            UiManager.instance.speedbarImage.fillAmount += 0.01f;
+            UiManager.instance.speedbarImage.fillAmount += barIncreaseValue;
             
             yield return new WaitForSeconds(0.005f);
         }
@@ -184,6 +186,7 @@ public class PlayerEvents : MonoBehaviour
         {
             if (UiManager.instance.speedbarImage.fillAmount >= 0.99f)
             {
+                barIncreaseValue -= 0.005f;
                 speedActive = true;
                 waitBoost = true;
                 DOTween.Restart("BarFinish");
