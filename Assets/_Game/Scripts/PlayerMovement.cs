@@ -66,6 +66,7 @@ public class PlayerMovement : MonoBehaviour
     }
     private void Update()
     {
+        DeathControl();
         if (holding)
         {
             holdTimer += Time.deltaTime;
@@ -102,7 +103,7 @@ public class PlayerMovement : MonoBehaviour
             changeValue.text = level.ToString();
            
         }
-        ChangeLocation(offsetX, -6f, 6f);
+       // ChangeLocation(offsetX, -6f, 6f);
         if (heightCount >= 1)
         {
             if (heightCount % 30 == 0 && !onOff)
@@ -119,7 +120,7 @@ public class PlayerMovement : MonoBehaviour
             
             }
 
-            if (heightCount % 820 == 0 && !onOff)
+            if (heightCount % 2500 == 0 && !onOff)
             {
                 StartCoroutine(Delay());
                 generateScript.bgsCurrentCount = 0;
@@ -171,7 +172,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            playerHeightText.text = (heightCount.ToString() + "M");
+            playerHeightText.text = (heightCount.ToString()+"M");
         }
       
 
@@ -293,37 +294,60 @@ public class PlayerMovement : MonoBehaviour
         }
       
     }
-    private void ChangeLocation(float positionX, float leftPos, float rightPos)
-    {
+    //private void ChangeLocation(float positionX, float leftPos, float rightPos)
+    //{
 
-        positionX = transform.position.x;
+    //    positionX = transform.position.x;
 
-        if (positionX <= -9f)
-        {
-            StartCoroutine(ChangeChange());
-            transform.position = new Vector3(rightPos, transform.position.y, transform.position.z);
-        }
-        if (positionX >= 9f)
-        {
-            StartCoroutine(ChangeChange());
-            transform.position = new Vector3(leftPos, transform.position.y, transform.position.z);
-        }
-    }
-    IEnumerator ChangeChange()
-    {
-        changed = true;
-        trail.GetComponent<ParticleSystem>().Stop();
-        yield return new WaitForSeconds(0.5f);
-        changed = false;
-        trail.GetComponent<ParticleSystem>().Play();
-    }
+    //    if (positionX <= -9f)
+    //    {
+    //        StartCoroutine(ChangeChange());
+    //        transform.position = new Vector3(rightPos, transform.position.y, transform.position.z);
+    //    }
+    //    if (positionX >= 9f)
+    //    {
+    //        StartCoroutine(ChangeChange());
+    //        transform.position = new Vector3(leftPos, transform.position.y, transform.position.z);
+    //    }
+    //}
+    //IEnumerator ChangeChange()
+    //{
+    //    changed = true;
+    //    trail.GetComponent<ParticleSystem>().Stop();
+    //    yield return new WaitForSeconds(0.5f);
+    //    changed = false;
+    //    trail.GetComponent<ParticleSystem>().Play();
+    //}
     IEnumerator Delay()
     {
         onOff = true;
         yield return new WaitForSeconds(0.5f);
         onOff = false;
     }
-   
+    private void DeathControl()
+    {
+        if (transform.position.x >= 9.2f || transform.position.x<=-9.2f)
+        {
+            GameManager.instance.End();
+            StartCoroutine(EndDelay());
+            StartCoroutine(FailDelay());
+            GameManager.instance.gamestate = GameManager.GameState.pause;
+        }
+    }
+    IEnumerator EndDelay()
+    {
+        yield return new WaitForSeconds(0.5f);
+        GameManager.instance.OpenEndGame();
+    }
+    IEnumerator FailDelay()
+    {
+        yield return new WaitForSeconds(0.2f);
+
+        GameManager.instance.player.GetComponent<Collider>().enabled = false;
+        GameManager.instance.player.transform.GetChild(1).GetComponent<Collider>().enabled = false;
+        yield return new WaitForSeconds(0.8f);
+
+    }
 }
 
 

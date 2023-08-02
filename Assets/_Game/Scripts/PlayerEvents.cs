@@ -26,7 +26,7 @@ public class PlayerEvents : MonoBehaviour
     public int speedId;
     public bool magnetUpgraded;
     public bool speedUpgraded;
-    private bool startDecrease;
+    public bool startDecrease;
     public bool isTaken;
     public bool waitBoost;
 
