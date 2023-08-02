@@ -326,6 +326,14 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0.045
       objectReference: {fileID: 0}
+    - target: {fileID: 7149391062262270191, guid: b59c71a42b91dcf4090bcaa52f0f7ab1, type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[4]
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7149391062262270191, guid: b59c71a42b91dcf4090bcaa52f0f7ab1, type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[5]
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 7435029955376803652, guid: b59c71a42b91dcf4090bcaa52f0f7ab1, type: 3}
       propertyPath: trail
       value: 
@@ -354,6 +362,10 @@ PrefabInstance:
       propertyPath: secondchangeValue
       value: 
       objectReference: {fileID: 1550007169}
+    - target: {fileID: 9111705336504615394, guid: b59c71a42b91dcf4090bcaa52f0f7ab1, type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[4]
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2878,7 +2890,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 1
-  m_FillAmount: 1
+  m_FillAmount: 0
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
