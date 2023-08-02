@@ -2,7 +2,6 @@ using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using DG.Tweening;
 
 
 public class PlayerEvents : MonoBehaviour
@@ -16,11 +15,11 @@ public class PlayerEvents : MonoBehaviour
     public bool immunity;
     private bool fadeActive;
     private float fadeValue;
-    private float speedDecreasetimeValue;
+    
     public float speedTime;
     public float magnetTime;
-    private float speedDecrease;
-    private float decreaseTimer;
+    
+   
 
     public int magnetId;
     public int speedId;
@@ -69,8 +68,8 @@ public class PlayerEvents : MonoBehaviour
     
        
         fadeValue = 0.2f;
-        speedDecreasetimeValue = 0.05f;
-        speedDecrease = 0.5f;
+      
+       
     }
     void Update()
     {
@@ -128,6 +127,7 @@ public class PlayerEvents : MonoBehaviour
             StartCoroutine(ImmunityDealy());
             startDecrease = true;
             waitBoost = false;
+            PlayerMovement.instance.currentSpeed = 12;
         
         }
         if(startDecrease)
