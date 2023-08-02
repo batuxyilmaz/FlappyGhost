@@ -220,7 +220,11 @@ public class PlayerMovement : MonoBehaviour
                     isFalling = true;
 
                 }
-                currentSpeed = 12f;
+                if (!GameManager.instance.playerEvents.speedActive)
+                {
+                    currentSpeed = 10f;
+                }
+               ;
                 screenBorder.transform.parent = null;
                 playerAnim.SetBool("Falling", true);
             }

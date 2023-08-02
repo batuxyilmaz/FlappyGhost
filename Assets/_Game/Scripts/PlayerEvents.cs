@@ -28,8 +28,8 @@ public class PlayerEvents : MonoBehaviour
     private bool startDecrease;
     public bool isTaken;
     public bool waitBoost;
-    
-    public ParticleSystem effect;
+
+    public GameObject lightningTrail;
     private int increaseValue;
     private void Awake()
     {
@@ -127,8 +127,9 @@ public class PlayerEvents : MonoBehaviour
             StartCoroutine(ImmunityDealy());
             startDecrease = true;
             waitBoost = false;
-            PlayerMovement.instance.currentSpeed = 12;
-        
+            PlayerMovement.instance.currentSpeed = 10;
+            lightningTrail.SetActive(false);
+
         }
         if(startDecrease)
         {
@@ -183,16 +184,16 @@ public class PlayerEvents : MonoBehaviour
         {
             if (UiManager.instance.speedbarImage.fillAmount >= 0.99f)
             {
+                speedActive = true;
                 waitBoost = true;
                 DOTween.Restart("BarFinish");
                 Debug.Log("dasd");
                 yield return new WaitForSeconds(1.5f);
                 UiManager.instance.speedbarImage.fillAmount = 0f;
-                effect.Play();
-                effect.gameObject.transform.parent = null;
+                lightningTrail.SetActive(true);
                 DOTween.Pause("BarFinish");
                 speedTimer = 0f;
-                speedActive = true;
+              
                 PlayerMovement.instance.oldSpeed = PlayerMovement.instance.currentSpeed;
                 GameManager.instance.playerEvents.immunity = true;
                 PlayerMovement.instance.currentSpeed = increaseValue;
