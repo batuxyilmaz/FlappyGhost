@@ -23,7 +23,7 @@ public class UiManager : MonoBehaviour
     public GameObject upgradePanel;
     public int buyValue;
     public TextMeshProUGUI buyText;
-   
+    public GameObject fadeText;
  
     private void Awake()
     {

@@ -32,7 +32,8 @@ public class GameManager : MonoBehaviour
     private bool tutPassed;
     public PlayerEvents playerEvents;
     public ParticleSystem magnetEffect;
-    
+    public AudioSource collectSound;
+    public AudioSource boostSound;
     private void Awake()
     {
         instance = this;

@@ -114,24 +114,11 @@ public class PlayerMovement : MonoBehaviour
             }
             if (heightCount % 200 == 0&& !onOff)
             {
-               
-                if (currentSpeed < 20f)
-                {
-                    
-                    currentSpeed += speedIncreaseValue;
-                    StartCoroutine(Delay());
-                   
-                }
-
-            }
-
-            if(heightCount % 40 == 0&& !onOff)
-            {
-              
                 generateScript.GeneratePowerUp();
                 StartCoroutine(Delay());
-           
+            
             }
+
             if (heightCount % 820 == 0 && !onOff)
             {
                 StartCoroutine(Delay());

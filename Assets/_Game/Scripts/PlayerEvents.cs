@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Net.Http;
 using UnityEngine;
-
+using UnityEngine.UI;
 
 public class PlayerEvents : MonoBehaviour
 {
@@ -33,6 +33,7 @@ public class PlayerEvents : MonoBehaviour
     public GameObject lightningTrail;
     private int increaseValue;
     public float barIncreaseValue;
+    public GameObject spawnPos;
     private void Awake()
     {
         magnetId = PlayerPrefs.GetInt("MagnetId");
@@ -109,7 +110,7 @@ public class PlayerEvents : MonoBehaviour
         if(speedActive)
         {
             speedTimer += Time.deltaTime;
-           
+            
         }
         if (speedTimer > 2.5f)
         {
@@ -131,6 +132,7 @@ public class PlayerEvents : MonoBehaviour
             waitBoost = false;
             PlayerMovement.instance.currentSpeed = 10;
             lightningTrail.SetActive(false);
+            GameManager.instance.boostSound.Stop();
 
         }
         if(startDecrease)
@@ -186,11 +188,16 @@ public class PlayerEvents : MonoBehaviour
         {
             if (UiManager.instance.speedbarImage.fillAmount >= 0.99f)
             {
-                barIncreaseValue -= 0.005f;
+                GameManager.instance.boostSound.Play();
+                UiManager.instance.fadeText.SetActive(true);
+                GameObject FadeText=Instantiate(UiManager.instance.fadeText, spawnPos.transform.position, Quaternion.identity);
+                FadeText.transform.parent = spawnPos.transform;
+                Destroy(FadeText, 2f);
+                //barIncreaseValue -= 0.005f;
                 speedActive = true;
                 waitBoost = true;
                 DOTween.Restart("BarFinish");
-                Debug.Log("dasd");
+              
                 yield return new WaitForSeconds(1.5f);
                 UiManager.instance.speedbarImage.fillAmount = 0f;
                 lightningTrail.SetActive(true);
@@ -206,25 +213,12 @@ public class PlayerEvents : MonoBehaviour
                 {
                     increaseValue = 60;
                 }
-
+               
 
             }
         }
-       
-       
+             
        
     }
-    //private void BarColorChange()
-    //{
-    //    if (UiManager.instance.speedbarImage.fillAmount >= 0.5f && UiManager.instance.speedbarImage.fillAmount < 0.69f)
-    //    {
-    //        DOTween.Restart("BarYellow");
-    //    }
-    //    if (UiManager.instance.speedbarImage.fillAmount >= 0.7f)
-    //    {
-    //        DOTween.Restart("BarGreen");
-    //    }
-
-    //}
     
 }

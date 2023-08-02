@@ -14,7 +14,7 @@ public class CoinCollision : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Gather"))
         {
-           
+            GameManager.instance.collectSound.Play();
             GameManager.instance.playerEvents.isTaken = true;
             GameManager.instance.point += 10;
             GameManager.instance.coinText.text = GameManager.instance.point.ToString();
