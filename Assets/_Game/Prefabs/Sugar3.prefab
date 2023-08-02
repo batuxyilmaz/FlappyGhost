@@ -15,9 +15,9 @@ GameObject:
   - component: {fileID: 4157272333486293042}
   - component: {fileID: 3507294685601050531}
   - component: {fileID: 5537180582438618450}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Sugar3
-  m_TagString: Untagged
+  m_TagString: Sugar
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30,8 +30,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2062349745231434792}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.00020185, y: -0.0071409, z: 0.0070911}
-  m_LocalScale: {x: 2.1932, y: 2.1932, z: 2.1932}
+  m_LocalPosition: {x: 0.00016578, y: -0.0058648, z: 0.0058239}
+  m_LocalScale: {x: 1.9799552, y: 1.9799552, z: 1.9799552}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5583925434703896866}
@@ -14841,7 +14841,7 @@ Transform:
   m_GameObject: {fileID: 8532851023016365012}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
   m_LocalPosition: {x: 0.00031694424, y: -0.00016955187, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_LocalScale: {x: 1.6838568, y: 1.6838568, z: 1.6838568}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7685561692468766363}
