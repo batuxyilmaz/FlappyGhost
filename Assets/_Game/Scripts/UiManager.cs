@@ -20,7 +20,7 @@ public class UiManager : MonoBehaviour
     public Image speedbarImage;
     public GameObject clickedObject;
     public GameObject startPanel;
-
+    public GameObject upgradePanel;
     public int buyValue;
     public TextMeshProUGUI buyText;
    

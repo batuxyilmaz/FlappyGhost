@@ -35,6 +35,7 @@ public class PlayerMovement : MonoBehaviour
     private float slidetimer;
     public int touchCount;
     private int heightCount;
+    private float holdTimer;
 
     public bool slideControl;
     public bool groundControl;
@@ -42,6 +43,7 @@ public class PlayerMovement : MonoBehaviour
     public bool isFalling;
     public bool stopped;
     public bool changed;
+    private bool holding;
     private bool onOff;
     private float speedIncreaseValue;
     public float newSpeed;
@@ -64,6 +66,20 @@ public class PlayerMovement : MonoBehaviour
     }
     private void Update()
     {
+        if (holding)
+        {
+            holdTimer += Time.deltaTime;
+            if(holdTimer > 0.5f)
+            {
+                holdTimer = 0f;
+                if (currentSpeed <= 25)
+                {
+                    currentSpeed += 0.4f;
+                }
+               
+            }
+        }
+
         if (GameManager.instance.playerEvents.speedActive)
         {
             transform.Translate(0, currentSpeed * Time.deltaTime, 0);
@@ -150,11 +166,11 @@ public class PlayerMovement : MonoBehaviour
             if (!GameManager.instance.playerEvents.speedActive)
             {
                 transform.Translate(0, -currentSpeed / 2 * Time.deltaTime, 0); //Decent
-                UiManager.instance.barImage.fillAmount -= Time.deltaTime / 20;
-                if (UiManager.instance.ghostImage.rectTransform.anchoredPosition.y >= -234f)
-                {
-                    UiManager.instance.ghostImage.rectTransform.Translate(-24 * Time.deltaTime, 0, 0);
-                }
+                //UiManager.instance.barImage.fillAmount -= Time.deltaTime / 20;
+                //if (UiManager.instance.ghostImage.rectTransform.anchoredPosition.y >= -234f)
+                //{
+                //    UiManager.instance.ghostImage.rectTransform.Translate(-24 * Time.deltaTime, 0, 0);
+                //}
           
             }
         }
@@ -195,6 +211,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if (GameManager.instance.gamestate == GameManager.GameState.start)
             {
+                holding = false;
                 slideControl = false;
                 slidetimer = 0f;
                 tap = false;
@@ -203,7 +220,7 @@ public class PlayerMovement : MonoBehaviour
                     isFalling = true;
 
                 }
-
+                currentSpeed = 12f;
                 screenBorder.transform.parent = null;
                 playerAnim.SetBool("Falling", true);
             }
@@ -215,26 +232,27 @@ public class PlayerMovement : MonoBehaviour
         
             if (GameManager.instance.gamestate==GameManager.GameState.start)
             {
+                holding = true;
                 slidetimer += Time.deltaTime;
-                if(GameManager.instance.playerEvents.speedActive)
-                {
-                    if (currentSpeed >= 20)
-                    {
-                        UiManager.instance.barImage.fillAmount += Time.deltaTime / 20 * 5;
-                        UiManager.instance.ghostImage.rectTransform.Translate(120 * Time.deltaTime, 0, 0);
-                    }
-                    else
-                    {
-                        UiManager.instance.barImage.fillAmount += Time.deltaTime / 20 * 3;
-                        UiManager.instance.ghostImage.rectTransform.Translate(72 * Time.deltaTime, 0, 0);
-                    }
+                //if(GameManager.instance.playerEvents.speedActive)
+                //{
+                //    if (currentSpeed >= 20)
+                //    {
+                //        UiManager.instance.barImage.fillAmount += Time.deltaTime / 20 * 5;
+                //        UiManager.instance.ghostImage.rectTransform.Translate(120 * Time.deltaTime, 0, 0);
+                //    }
+                //    else
+                //    {
+                //        UiManager.instance.barImage.fillAmount += Time.deltaTime / 20 * 3;
+                //        UiManager.instance.ghostImage.rectTransform.Translate(72 * Time.deltaTime, 0, 0);
+                //    }
                   
-                }
-                else
-                {
-                    UiManager.instance.barImage.fillAmount += Time.deltaTime / 20;
-                    UiManager.instance.ghostImage.rectTransform.Translate(24 * Time.deltaTime, 0, 0);
-                }
+                //}
+                //else
+                //{
+                //    UiManager.instance.barImage.fillAmount += Time.deltaTime / 20;
+                //    UiManager.instance.ghostImage.rectTransform.Translate(24 * Time.deltaTime, 0, 0);
+                //}
               
                 if (!isFalling)
                 {

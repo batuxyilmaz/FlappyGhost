@@ -94,6 +94,7 @@ public class UpgradeManager : MonoBehaviour
     private void OpenPanel()
     {
         UiManager.instance.startPanel.SetActive(true);
+        UiManager.instance.upgradePanel.SetActive(false);
     }
 
 }

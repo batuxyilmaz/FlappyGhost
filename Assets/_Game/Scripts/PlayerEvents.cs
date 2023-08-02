@@ -167,7 +167,7 @@ public class PlayerEvents : MonoBehaviour
   
     private IEnumerator ImmunityDealy()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(2f);
         immunity = false;
     }
     public IEnumerator BarFill()
