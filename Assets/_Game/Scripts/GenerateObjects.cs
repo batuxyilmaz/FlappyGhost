@@ -24,7 +24,7 @@ public class GenerateObjects : MonoBehaviour
     public int bgsCurrentCount;
     public List<GameObject> currentCoins;
     public int platformCount;
-
+    public int sugarCount;
     void Start()
     {
         currentPlatform = platforms[platformCount];
@@ -42,7 +42,7 @@ public class GenerateObjects : MonoBehaviour
             float randomPosX = Random.Range(randomMinX, randomMaxX);
             float randomPosY = Random.Range(randomMinY, randomMaxY);
             Platform = Instantiate(platforms[platformCount], new Vector3(randomPosX, currentPlatform.transform.position.y + randomPosY, platforms[platformCount].transform.position.z), transform.rotation);
-            GameObject Sugar = Instantiate(sugars[0], new Vector3(Platform.transform.position.x, Platform.transform.position.y + 5f, Platform.transform.position.z), transform.rotation);
+            GameObject Sugar = Instantiate(sugars[sugarCount], new Vector3(Platform.transform.position.x, Platform.transform.position.y + 5f, Platform.transform.position.z), transform.rotation);
             currentCoins.Add(Sugar);
             Sugar.GetComponent<MoveCoin>().speed += 0.2f;
          

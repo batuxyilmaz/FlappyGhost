@@ -28,6 +28,7 @@ public class PlayerEvents : MonoBehaviour
     public bool speedUpgraded;
     private bool startDecrease;
     public bool isTaken;
+    public bool waitBoost;
     
     public ParticleSystem effect;
     private int increaseValue;
@@ -126,6 +127,7 @@ public class PlayerEvents : MonoBehaviour
             speedTimer = 0f;
             StartCoroutine(ImmunityDealy());
             startDecrease = true;
+            waitBoost = false;
         
         }
         if(startDecrease)
@@ -177,26 +179,35 @@ public class PlayerEvents : MonoBehaviour
             
             yield return new WaitForSeconds(0.005f);
         }
-       // BarColorChange();
-        if (UiManager.instance.speedbarImage.fillAmount >= 0.99f)
+        if (!waitBoost)
         {
-            DOTween.Restart("BarFinish");
-            yield return new WaitForSeconds(1.5f);
-            effect.Play();
-            effect.gameObject.transform.parent = null;
-            DOTween.Kill("BarFinish");
-            speedTimer = 0f;
-            PlayerMovement.instance.oldSpeed = PlayerMovement.instance.currentSpeed;
-            GameManager.instance.playerEvents.immunity = true;
-            PlayerMovement.instance.currentSpeed = increaseValue;
-            PlayerMovement.instance.newSpeed = PlayerMovement.instance.currentSpeed;
-            if (PlayerMovement.instance.currentSpeed >= 20)
+            if (UiManager.instance.speedbarImage.fillAmount >= 0.99f)
             {
-                increaseValue = 60;
+                waitBoost = true;
+                DOTween.Restart("BarFinish");
+                Debug.Log("dasd");
+                yield return new WaitForSeconds(1.5f);
+                UiManager.instance.speedbarImage.fillAmount = 0f;
+                effect.Play();
+                effect.gameObject.transform.parent = null;
+                DOTween.Pause("BarFinish");
+                speedTimer = 0f;
+                speedActive = true;
+                PlayerMovement.instance.oldSpeed = PlayerMovement.instance.currentSpeed;
+                GameManager.instance.playerEvents.immunity = true;
+                PlayerMovement.instance.currentSpeed = increaseValue;
+                PlayerMovement.instance.newSpeed = PlayerMovement.instance.currentSpeed;
+
+                if (PlayerMovement.instance.currentSpeed >= 20)
+                {
+                    increaseValue = 60;
+                }
+
+
             }
-            speedActive = true;
-            UiManager.instance.speedbarImage.fillAmount= 0f;
         }
+       
+       
        
     }
     //private void BarColorChange()
@@ -209,7 +220,6 @@ public class PlayerEvents : MonoBehaviour
     //    {
     //        DOTween.Restart("BarGreen");
     //    }
-
 
     //}
     

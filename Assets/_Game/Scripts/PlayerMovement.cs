@@ -121,6 +121,7 @@ public class PlayerMovement : MonoBehaviour
                 StartCoroutine(Delay());
                 generateScript.bgsCurrentCount = 0;
                 generateScript.platformCount=0;
+                generateScript.sugarCount = 0;
 
             }
             if (heightCount % changeCount == 0 && !onOff)
@@ -129,6 +130,7 @@ public class PlayerMovement : MonoBehaviour
                 StartCoroutine(Delay());
                 generateScript.bgsCurrentCount++;
                 generateScript.platformCount++;
+                generateScript.sugarCount++;
                 changeCount += 260;
             
             }
