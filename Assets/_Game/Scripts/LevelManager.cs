@@ -9,6 +9,9 @@ public class LevelManager : MonoBehaviour
      public void RestartGame()
      {
         DOTween.Restart("Click");
+        GameManager.instance.startSound.Play();
+        DOTween.Clear();
+
         SceneManager.LoadScene(1);
      }
 }

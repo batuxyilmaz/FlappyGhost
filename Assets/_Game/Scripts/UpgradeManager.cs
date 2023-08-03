@@ -29,7 +29,9 @@ public class UpgradeManager : MonoBehaviour
         else
         {
             magnetLvl = 1;
+            magnetLvlText.text = magnetLvl.ToString();
             magnetCandyValue = 100;
+            magnetCointText.text = magnetCandyValue.ToString();
         }
         if (GameManager.instance.playerEvents.speedUpgraded)
         {
@@ -42,6 +44,8 @@ public class UpgradeManager : MonoBehaviour
         {
             speedCandyValue = 100;
             speedLvl = 1;
+            speedLvlText.text = speedLvl.ToString();
+            speedCointText.text = speedCandyValue.ToString();
         }
 
       
@@ -50,6 +54,7 @@ public class UpgradeManager : MonoBehaviour
     {
         if (GameManager.instance.point >=magnetCandyValue )
         {
+            GameManager.instance.startSound.Play();
             GameManager.instance.point -= magnetCandyValue;
             GameManager.instance.coinText.text = GameManager.instance.point.ToString();
             PlayerPrefs.SetInt("CandyPoint", GameManager.instance.point);
@@ -70,6 +75,7 @@ public class UpgradeManager : MonoBehaviour
     {
         if (GameManager.instance.point >=speedCandyValue )
         {
+            GameManager.instance.startSound.Play();
             GameManager.instance.point -= speedCandyValue;
             GameManager.instance.coinText.text = GameManager.instance.point.ToString();
             speedCandyValue += 100;
