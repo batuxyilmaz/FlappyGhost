@@ -50,6 +50,7 @@ public class PlayerMovement : MonoBehaviour
     public float oldSpeed;
     public float changeCount;
     private bool soundStart;
+    public Animator mainAnim;
    
     private void Awake()
     {
@@ -57,7 +58,7 @@ public class PlayerMovement : MonoBehaviour
     }
     private void Start()
     {
-        
+        mainAnim = GetComponent<Animator>();
         value = 30;
         level = 1;
         secondLevel = 1;
@@ -67,6 +68,7 @@ public class PlayerMovement : MonoBehaviour
     }
     private void Update()
     {
+        GameManager.instance.speedText.text = Mathf.RoundToInt(currentSpeed).ToString();
         DeathControl();
         if (holding)
         {
