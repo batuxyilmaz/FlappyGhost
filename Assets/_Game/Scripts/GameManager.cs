@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI endcoinText;
     public TextMeshProUGUI highScoreText;
     public TextMeshProUGUI mainHighScoreText;
-    
+    public TextMeshProUGUI speedText;
 
     public GameObject ingamePanel;
     public GameObject endgamePanel;
