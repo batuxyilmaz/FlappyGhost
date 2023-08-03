@@ -201,7 +201,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if (GameManager.instance.gamestate == GameManager.GameState.start)
             {
-                GameManager.instance.flySound.Stop();
+              
                 holding = false;
                 slideControl = false;
                 slidetimer = 0f;
@@ -224,9 +224,10 @@ public class PlayerMovement : MonoBehaviour
         }
         if (Input.GetMouseButton(0))
         {
-        
+          
             if (GameManager.instance.gamestate==GameManager.GameState.start)
             {
+                GameManager.instance.flySound.Play();
                 holding = true;
                 slidetimer += Time.deltaTime;
                 //if(GameManager.instance.playerEvents.speedActive)
@@ -254,7 +255,7 @@ public class PlayerMovement : MonoBehaviour
                     if (!GameManager.instance.playerEvents.speedActive)
                     {
                         transform.Translate(0, currentSpeed * Time.deltaTime, 0); //Ascend
-                        GameManager.instance.flySound.Play();
+                       
                     }
                 }
 
