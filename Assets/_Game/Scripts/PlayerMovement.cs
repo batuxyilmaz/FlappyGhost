@@ -136,13 +136,18 @@ public class PlayerMovement : MonoBehaviour
                 if (!onOff)
                 {
                     StartCoroutine(Delay());
-                    if (generateScript.bgsCurrentCount < 4)
+                    if (generateScript.platformCount < 4)
                     {
-                        generateScript.bgsCurrentCount++;
+                       
                         generateScript.platformCount++;
                         generateScript.sugarCount++;
                         generateScript.gifCount++;
-                        Debug.Log("Yenilendi");
+                        
+                       
+                    }
+                    if(generateScript.platformCount < 8)
+                    {
+                        generateScript.bgsCurrentCount++;
                         changeCount += 300;
                     }
                  

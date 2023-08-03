@@ -63,8 +63,17 @@ public class GenerateObjects : MonoBehaviour
     {
         if (spawnCount >= 2)
         {
-            GameObject BGs = Instantiate(bgs[bgsCurrentCount], new Vector3(bg.transform.position.x, bg.transform.position.y + spawnHeight, bg.transform.position.z), Quaternion.identity);
+            if (bgsCurrentCount == 1|| bgsCurrentCount == 3 || bgsCurrentCount == 5 || bgsCurrentCount == 7)
+            {
+                GameObject BGs = Instantiate(bgs[bgsCurrentCount], new Vector3(bg.transform.position.x, bg.transform.position.y + spawnHeight, bg.transform.position.z), Quaternion.identity);
+                bgsCurrentCount++;
+            }
+            else
+            {
+                GameObject BGs = Instantiate(bgs[bgsCurrentCount], new Vector3(bg.transform.position.x, bg.transform.position.y + spawnHeight, bg.transform.position.z), Quaternion.identity);
+            }
         }
+            
         else
         {
             GameObject BG = Instantiate(bg, new Vector3(bg.transform.position.x, bg.transform.position.y + spawnHeight, bg.transform.position.z), Quaternion.identity);
