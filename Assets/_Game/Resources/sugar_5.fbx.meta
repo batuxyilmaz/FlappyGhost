@@ -3,7 +3,17 @@ guid: d9de88eee85963d499daa486904bd803
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: sugar_4_white
+    second: {fileID: 2100000, guid: f4a46db09fdaea54ba409e970e9d5cad, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: sugar_4_yellow
+    second: {fileID: 2100000, guid: 3b5b7ced730cfcd40ac51dc52a15b945, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

@@ -3,7 +3,22 @@ guid: 532e4e36a5a74924b8329da70d0daf24
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: atlas_map
+    second: {fileID: 2100000, guid: 0b9155fa423b67245a92d66293706770, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pumpkin_1
+    second: {fileID: 2100000, guid: 262da3cad5d72bc43a918a0c1847e147, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pumpkin_black
+    second: {fileID: 2100000, guid: 535c77c626cf9c543ac19a0783615276, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

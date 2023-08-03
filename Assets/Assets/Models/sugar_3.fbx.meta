@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 5605181013d686645a41203b89910be2
+guid: 9ee0cddfd82bb894b847d18f311df8ed
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,13 +7,13 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: skull_1
-    second: {fileID: 2100000, guid: 2c4b7be67731fd8438821085cb455afd, type: 2}
+      name: sugar_3_1
+    second: {fileID: 2100000, guid: 5104f6b838ab9e344896470dfc645cc8, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: skull_2
-    second: {fileID: 2100000, guid: 13810c4751544954ea01dd394ebb7762, type: 2}
+      name: sugar_3_2
+    second: {fileID: 2100000, guid: 7001d34011347364a9442e48331585df, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
