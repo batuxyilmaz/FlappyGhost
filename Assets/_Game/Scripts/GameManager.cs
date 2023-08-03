@@ -38,6 +38,7 @@ public class GameManager : MonoBehaviour
     public AudioSource hitSound;
     public AudioSource failSound;
     public AudioSource speedUiSound;
+    public AudioSource flySound;
     private void Awake()
     {
         instance = this;
