@@ -7651,7 +7651,7 @@ MonoBehaviour:
   hitSound: {fileID: 980804683}
   failSound: {fileID: 470908722}
   speedUiSound: {fileID: 1275366967}
-  flySound: {fileID: 0}
+  flySound: {fileID: 1783215964}
 --- !u!114 &1192160751
 MonoBehaviour:
   m_ObjectHideFlags: 0
