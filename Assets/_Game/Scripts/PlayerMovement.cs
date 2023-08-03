@@ -140,7 +140,7 @@ public class PlayerMovement : MonoBehaviour
                 changeCount += 260;
             
             }
-            if (heightCount % 100 == 0 && !onOff)
+            if (heightCount % 50 == 0 && !onOff)
             {
                 StartCoroutine(Delay());
                 generateScript.GenerateGif();

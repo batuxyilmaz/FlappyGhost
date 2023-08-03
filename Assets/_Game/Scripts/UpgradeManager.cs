@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using DG.Tweening;
+using UnityEngine.UI;
 
 public class UpgradeManager : MonoBehaviour
 {
@@ -15,7 +16,7 @@ public class UpgradeManager : MonoBehaviour
     public int magnetLvl;
     public int speedCandyValue;
     public int speedLvl;
-
+    public Button upgradeButton;
 
     private void Start()
     {
@@ -96,6 +97,8 @@ public class UpgradeManager : MonoBehaviour
     {
         Invoke("OpenPanel",0.8f);
         DOTween.Restart("CloseUpgrade");
+        upgradeButton.interactable = false;
+        
     }
     private void OpenPanel()
     {

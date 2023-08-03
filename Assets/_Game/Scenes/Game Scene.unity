@@ -1354,6 +1354,7 @@ MonoBehaviour:
   magnetLvl: 0
   speedCandyValue: 0
   speedLvl: 0
+  upgradeButton: {fileID: 4194603714560660636}
 --- !u!4 &95235077
 Transform:
   m_ObjectHideFlags: 0
@@ -7649,6 +7650,7 @@ MonoBehaviour:
   startSound: {fileID: 308351623}
   hitSound: {fileID: 980804683}
   failSound: {fileID: 470908722}
+  speedUiSound: {fileID: 1275366967}
 --- !u!114 &1192160751
 MonoBehaviour:
   m_ObjectHideFlags: 0
