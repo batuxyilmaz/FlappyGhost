@@ -32,6 +32,7 @@ public class UiManager : MonoBehaviour
     public void StartGame()
     {
         DOTween.Restart("Click");
+        GameManager.instance.startSound.Play();
         GameManager.instance.gamestate = GameManager.GameState.start;
         startPanel.SetActive(false);
         if(GameManager.instance.tutId<=0)

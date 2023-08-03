@@ -12,7 +12,7 @@ public class GenerateObjects : MonoBehaviour
     public List<GameObject> bgs;
     public List<GameObject> sugars;
     public List<GameObject> powerUps;
-    public GameObject gif;
+    public List<GameObject> gifs;
  
     public float randomMinX;
     public float randomMaxX;
@@ -25,11 +25,15 @@ public class GenerateObjects : MonoBehaviour
     public List<GameObject> currentCoins;
     public int platformCount;
     public int sugarCount;
+    public int gifCount;
     void Start()
     {
         currentPlatform = platforms[platformCount];
         GeneratePlatform(platforms[platformCount]);
         bgsCurrentCount = 0;
+        gifCount = 0;
+        platformCount = 0;
+        sugarCount = 0;
       
     }
 
@@ -89,7 +93,7 @@ public class GenerateObjects : MonoBehaviour
 
     {
         float randomPosX = Random.Range(randomMinX, randomMaxX);
-        GameObject Gif = Instantiate(gif, new Vector3(randomPosX, GameManager.instance.player.transform.position.y + 20f, 0), Quaternion.identity);
+        GameObject Gif = Instantiate(gifs[gifCount], new Vector3(randomPosX, GameManager.instance.player.transform.position.y + 20f, 0), Quaternion.identity);
       
     }
    

@@ -34,6 +34,9 @@ public class GameManager : MonoBehaviour
     public ParticleSystem magnetEffect;
     public AudioSource collectSound;
     public AudioSource boostSound;
+    public AudioSource startSound;
+    public AudioSource hitSound;
+    public AudioSource failSound;
     private void Awake()
     {
         instance = this;
@@ -91,6 +94,7 @@ public class GameManager : MonoBehaviour
     {
         ingamePanel.SetActive(false);
         endgamePanel.SetActive(true);
+        failSound.Play();
     }
  
    

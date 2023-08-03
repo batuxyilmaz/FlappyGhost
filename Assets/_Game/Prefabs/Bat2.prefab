@@ -766,9 +766,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1146774279615874682}
   - component: {fileID: 7234322655082979132}
+  - component: {fileID: 6013949184290918006}
   m_Layer: 0
   m_Name: Bat2
-  m_TagString: Untagged
+  m_TagString: Gif
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -796,7 +797,7 @@ Transform:
   - {fileID: 4787826572119242996}
   - {fileID: 7546818934485900210}
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &7234322655082979132
 Animator:
@@ -819,6 +820,27 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!65 &6013949184290918006
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7540797969586215795}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 10.824214, y: 8.942047, z: 3.2723439}
+  m_Center: {x: -0.7869907, y: 0.5900142, z: 0.35647857}
 --- !u!1 &8615937100948469265
 GameObject:
   m_ObjectHideFlags: 0

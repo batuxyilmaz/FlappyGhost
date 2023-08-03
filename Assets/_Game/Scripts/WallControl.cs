@@ -26,6 +26,10 @@ public class WallControl : MonoBehaviour
         {
             Destroy(other.gameObject);
         }
+        if (other.gameObject.CompareTag("Gif"))
+        {
+            Destroy(other.gameObject);
+        }
     }
     IEnumerator EndDelay()
     {

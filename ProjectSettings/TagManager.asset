@@ -16,6 +16,7 @@ TagManager:
   - Sugar
   - Magnet
   - Gather
+  - Gif
   layers:
   - Default
   - TransparentFX

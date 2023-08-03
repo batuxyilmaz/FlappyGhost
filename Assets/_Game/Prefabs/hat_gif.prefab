@@ -430,9 +430,10 @@ GameObject:
   m_Component:
   - component: {fileID: 2012049860920471436}
   - component: {fileID: 7360794858430449574}
+  - component: {fileID: 8652218196675652700}
   m_Layer: 0
   m_Name: hat_gif
-  m_TagString: Untagged
+  m_TagString: Gif
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -478,3 +479,24 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!65 &8652218196675652700
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7841100448311831406}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 10.824214, y: 8.942047, z: 3.2723439}
+  m_Center: {x: -0.7869907, y: 0.5900142, z: 0.35647857}

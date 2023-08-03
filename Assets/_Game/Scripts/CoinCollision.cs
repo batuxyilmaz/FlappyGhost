@@ -9,7 +9,13 @@ public class CoinCollision : MonoBehaviour
 {
     public ParticleSystem coinEffect;
     private bool isTaken;
-   
+    float followSpeed;
+    private void Start()
+    {
+        followSpeed = 0.2f;
+    }
+
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Gather") &&!GameManager.instance.playerEvents.speedActive)
@@ -37,9 +43,15 @@ public class CoinCollision : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Magnet"))
         {
+          
            // transform.Translate(other.gameObject.transform.position*2f*Time.deltaTime);
             isTaken = true;
-            transform.DOMove(other.gameObject.transform.position, 0.2f).SetEase(Ease.Linear);
+            if (!GameManager.instance.playerEvents.speedActive)
+            {
+                transform.DOMove(other.gameObject.transform.position, followSpeed).SetEase(Ease.Linear);
+                followSpeed -= 0.005f;
+            }
+          
            
         }
     }
