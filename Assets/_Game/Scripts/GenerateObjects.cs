@@ -77,7 +77,7 @@ public class GenerateObjects : MonoBehaviour
     {
         int randomObject=Random.Range(0,2);
         float randomPosX = Random.Range(randomMinX, randomMaxX);
-        Debug.Log(randomObject);
+    
         switch (randomObject)
         {
             case 0:

@@ -291,6 +291,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 1.62
       objectReference: {fileID: 0}
+    - target: {fileID: 6492362001820183934, guid: b59c71a42b91dcf4090bcaa52f0f7ab1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -5.92
+      objectReference: {fileID: 0}
     - target: {fileID: 6597100778245371870, guid: b59c71a42b91dcf4090bcaa52f0f7ab1, type: 3}
       propertyPath: m_BlendShapeWeights.Array.data[3]
       value: 0
@@ -8107,6 +8111,7 @@ MonoBehaviour:
   - {fileID: 7899617395010220740, guid: a21d36d21c5edd44eb86494a6974f9bd, type: 3}
   - {fileID: 6420133212903126833, guid: 0cb86bfef0c3b8b44bcdc0208a966280, type: 3}
   - {fileID: 7899617395010220740, guid: 775acfbafc3640a4585dfb893208f778, type: 3}
+  - {fileID: 7899617395010220740, guid: e2b35c295b057bf47b3271454125e582, type: 3}
   bg: {fileID: 578351168}
   bgs:
   - {fileID: 4604173353591915192, guid: 8d92f22cdcb5c254a904299b2c7c605e, type: 3}

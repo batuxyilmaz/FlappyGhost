@@ -25,7 +25,7 @@ public class CoinCollision : MonoBehaviour
                 if (!UiManager.instance.hapticActive)
                 {
                     Haptic.LightTaptic();
-                    Debug.Log("Haptic");
+                  
                 }
                
                 GameManager.instance.collectSound.Play();

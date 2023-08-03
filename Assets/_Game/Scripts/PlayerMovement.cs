@@ -48,8 +48,9 @@ public class PlayerMovement : MonoBehaviour
     private float speedIncreaseValue;
     public float newSpeed;
     public float oldSpeed;
-    public int changeCount;
+    public float changeCount;
     private bool soundStart;
+   
     private void Awake()
     {
         instance = this;
@@ -61,8 +62,8 @@ public class PlayerMovement : MonoBehaviour
         level = 1;
         secondLevel = 1;
         speedIncreaseValue = 0.5f;
-        changeCount = 260;
-       
+        changeCount = 260f;
+
     }
     private void Update()
     {
@@ -120,24 +121,34 @@ public class PlayerMovement : MonoBehaviour
             
             }
 
-            if (heightCount % 2500 == 0 && !onOff)
+            if (transform.position.y>= 2500f && !onOff)
             {
                 StartCoroutine(Delay());
+                Debug.Log("BÝTT");
                 generateScript.bgsCurrentCount = 0;
                 generateScript.platformCount=0;
                 generateScript.sugarCount = 0;
                 generateScript.gifCount = 0;
 
             }
-            if (heightCount % changeCount == 0 && !onOff)
+            if (transform.position.y>= changeCount)
             {
-             
-                StartCoroutine(Delay());
-                generateScript.bgsCurrentCount++;
-                generateScript.platformCount++;
-                generateScript.sugarCount++;
-                generateScript.gifCount++;
-                changeCount += 260;
+                if (!onOff)
+                {
+                    StartCoroutine(Delay());
+                    if (generateScript.bgsCurrentCount <= 4)
+                    {
+                        generateScript.bgsCurrentCount++;
+                        generateScript.platformCount++;
+                        generateScript.sugarCount++;
+                        generateScript.gifCount++;
+                        Debug.Log("Yenilendi");
+                        changeCount += 300;
+                    }
+                 
+                   
+                }
+       
             
             }
             if (heightCount % 50 == 0 && !onOff)
