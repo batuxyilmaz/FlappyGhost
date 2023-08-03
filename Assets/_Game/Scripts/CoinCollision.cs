@@ -22,7 +22,12 @@ public class CoinCollision : MonoBehaviour
         {
             if(GameManager.instance.gamestate==GameManager.GameState.start)
             {
-                Haptic.LightTaptic();
+                if (!UiManager.instance.hapticActive)
+                {
+                    Haptic.LightTaptic();
+                    Debug.Log("Haptic");
+                }
+               
                 GameManager.instance.collectSound.Play();
                 GameManager.instance.playerEvents.isTaken = true;
                 GameManager.instance.point += 10;

@@ -98,6 +98,25 @@ public class GameManager : MonoBehaviour
         endgamePanel.SetActive(true);
         failSound.Play();
     }
- 
+    public void Mute()
+    {
+        flySound.mute = true;
+        collectSound.mute = true;
+        hitSound.mute = true;
+        boostSound.mute = true;
+        startSound.mute = true;
+        failSound.mute = true;
+        speedUiSound.mute = true;
+    }
+    public void Unmute()
+    {
+        flySound.mute = false;
+        collectSound.mute = false;
+        hitSound.mute = false;
+        boostSound.mute = false;
+        startSound.mute = false;
+        failSound.mute = false;
+        speedUiSound.mute = false;
+    }
    
 }

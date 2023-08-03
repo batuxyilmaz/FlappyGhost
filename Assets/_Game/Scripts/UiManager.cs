@@ -24,7 +24,14 @@ public class UiManager : MonoBehaviour
     public int buyValue;
     public TextMeshProUGUI buyText;
     public GameObject fadeText;
- 
+
+    public GameObject soundOn;
+    public GameObject soundOff;
+    public GameObject hapticOn;
+    public GameObject hapticOff;
+    private bool optionActive;
+    public bool soundActive;
+    public bool hapticActive;
     private void Awake()
     {
         instance = this;
@@ -85,7 +92,7 @@ public class UiManager : MonoBehaviour
     {
         if (GameManager.instance.point >= buyValue)
         {
-            Debug.Log("buyed");
+          
         }
     }
     IEnumerator TutorialOpen()
@@ -104,4 +111,59 @@ public class UiManager : MonoBehaviour
             StartCoroutine(TutorialOpen());
         }
     }
+    public void OpenOptions()
+    {
+       
+        if (!optionActive)
+        {
+          
+            DOTween.Restart("OpenOption");
+            optionActive = true;
+            return;
+        }
+        else
+        {
+          
+            DOTween.Restart("CloseOption");
+            optionActive = false;
+        }
+            
+    }
+    public void Sound()
+    {
+        if(!soundActive)
+        {
+            soundOff.SetActive(false);
+            soundOn.SetActive(true);
+            soundActive = true;
+            GameManager.instance.Mute();
+            return;
+        }
+        else
+        {
+            soundOff.SetActive(true);
+            soundOn.SetActive(false);
+            GameManager.instance.Unmute();
+            soundActive = false;
+        }
+    }
+    public void Haptic()
+    {
+        if (!hapticActive)
+        {
+            hapticOff.SetActive(false);
+            hapticOn.SetActive(true);
+            hapticActive = true;
+            return;
+        }
+        else
+        {
+            hapticOff.SetActive(true);
+            hapticOn.SetActive(false);
+            hapticActive = false;
+        }
+    }
+
+   
+
 }

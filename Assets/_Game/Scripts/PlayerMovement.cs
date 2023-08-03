@@ -233,7 +233,11 @@ public class PlayerMovement : MonoBehaviour
                 {
                     GameManager.instance.flySound.Play();
                     GameManager.instance.flySound.volume=1f;
-                    GameManager.instance.flySound.mute = false;
+                    if (!UiManager.instance.soundActive)
+                    {
+                        GameManager.instance.flySound.mute = false;
+                    }
+                  
 
                     soundStart = true;
                 }
@@ -366,7 +370,11 @@ public class PlayerMovement : MonoBehaviour
     IEnumerator VolumeChange()
     {
         yield return new WaitForSeconds(0.5f);
-        GameManager.instance.flySound.mute = true;
+        if (!UiManager.instance.soundActive)
+        {
+            GameManager.instance.flySound.mute = true;
+        }
+      
     }
    
 }
