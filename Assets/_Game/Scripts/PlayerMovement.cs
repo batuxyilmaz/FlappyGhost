@@ -57,7 +57,7 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
         
-        value = 50;
+        value = 30;
         level = 1;
         secondLevel = 1;
         speedIncreaseValue = 0.5f;

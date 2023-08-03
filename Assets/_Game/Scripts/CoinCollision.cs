@@ -20,6 +20,7 @@ public class CoinCollision : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Gather") &&!GameManager.instance.playerEvents.speedActive)
         {
+            Haptic.LightTaptic();
             GameManager.instance.collectSound.Play();
             GameManager.instance.playerEvents.isTaken = true;
             GameManager.instance.point += 10;
