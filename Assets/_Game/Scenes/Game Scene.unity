@@ -1921,7 +1921,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 8d491dcf581093c4cb8cd95e24aac75c, type: 3}
+  m_audioClip: {fileID: 8300000, guid: dc55d35b45a3a734fa4bf9c41ecd8bb5, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.2
   m_Pitch: 1
@@ -7651,6 +7651,7 @@ MonoBehaviour:
   hitSound: {fileID: 980804683}
   failSound: {fileID: 470908722}
   speedUiSound: {fileID: 1275366967}
+  flySound: {fileID: 0}
 --- !u!114 &1192160751
 MonoBehaviour:
   m_ObjectHideFlags: 0
