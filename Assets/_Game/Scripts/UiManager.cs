@@ -33,12 +33,7 @@ public class UiManager : MonoBehaviour
     {
         DOTween.Restart("Click");
         GameManager.instance.startSound.Play();
-        GameManager.instance.gamestate = GameManager.GameState.start;
-        startPanel.SetActive(false);
-        if(GameManager.instance.tutId<=0)
-        {
-            StartCoroutine(TutorialOpen());
-        }
+        StartCoroutine(StartButton());
       
     }
     public void SelectCharacter()
@@ -97,5 +92,16 @@ public class UiManager : MonoBehaviour
     {
         yield return new WaitForSeconds(0.5f);
         GameManager.instance.tutorial.SetActive(true);
+    }
+    IEnumerator StartButton()
+    {
+        yield return new WaitForSeconds(0.2f);
+        DOTween.Restart("Click");
+        GameManager.instance.gamestate = GameManager.GameState.start;
+        startPanel.SetActive(false);
+        if (GameManager.instance.tutId <= 0)
+        {
+            StartCoroutine(TutorialOpen());
+        }
     }
 }

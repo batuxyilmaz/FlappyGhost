@@ -20,15 +20,19 @@ public class CoinCollision : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Gather") &&!GameManager.instance.playerEvents.speedActive)
         {
-            Haptic.LightTaptic();
-            GameManager.instance.collectSound.Play();
-            GameManager.instance.playerEvents.isTaken = true;
-            GameManager.instance.point += 10;
-            GameManager.instance.coinText.text = GameManager.instance.point.ToString();
-            PlayerPrefs.SetInt("Point", GameManager.instance.point);
-            coinEffect.transform.parent = null;
-            coinEffect.Play();
-            transform.gameObject.SetActive(false);
+            if(GameManager.instance.gamestate==GameManager.GameState.start)
+            {
+                Haptic.LightTaptic();
+                GameManager.instance.collectSound.Play();
+                GameManager.instance.playerEvents.isTaken = true;
+                GameManager.instance.point += 10;
+                GameManager.instance.coinText.text = GameManager.instance.point.ToString();
+                PlayerPrefs.SetInt("Point", GameManager.instance.point);
+                coinEffect.transform.parent = null;
+                coinEffect.Play();
+                transform.gameObject.SetActive(false);
+            }
+            
         }
         if (other.gameObject.CompareTag("Platform"))
         {

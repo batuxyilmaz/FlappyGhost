@@ -8,10 +8,17 @@ public class LevelManager : MonoBehaviour
 {
      public void RestartGame()
      {
-        DOTween.Restart("Click");
+       
         GameManager.instance.startSound.Play();
-        DOTween.Clear();
+        DOTween.Restart("ClickRestart");
+        StartCoroutine(RestartButton());
 
+    }
+    IEnumerator RestartButton()
+    {
+        yield return new WaitForSeconds(0.2f);
+       
+        DOTween.Clear();
         SceneManager.LoadScene(1);
-     }
+    }
 }

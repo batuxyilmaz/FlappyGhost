@@ -94,7 +94,7 @@ public class UpgradeManager : MonoBehaviour
     }
     public void CloseUpgrade()
     {
-        Invoke("OpenPanel",0.5f);
+        Invoke("OpenPanel",0.8f);
         DOTween.Restart("CloseUpgrade");
     }
     private void OpenPanel()
