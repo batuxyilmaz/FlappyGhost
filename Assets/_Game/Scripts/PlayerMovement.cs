@@ -136,7 +136,7 @@ public class PlayerMovement : MonoBehaviour
                 if (!onOff)
                 {
                     StartCoroutine(Delay());
-                    if (generateScript.bgsCurrentCount <= 4)
+                    if (generateScript.bgsCurrentCount < 4)
                     {
                         generateScript.bgsCurrentCount++;
                         generateScript.platformCount++;
