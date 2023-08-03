@@ -49,7 +49,7 @@ public class PlayerMovement : MonoBehaviour
     public float newSpeed;
     public float oldSpeed;
     public int changeCount;
-    
+    private bool soundStart;
     private void Awake()
     {
         instance = this;
@@ -201,7 +201,9 @@ public class PlayerMovement : MonoBehaviour
         {
             if (GameManager.instance.gamestate == GameManager.GameState.start)
             {
-              
+                GameManager.instance.flySound.GetComponent<Animator>().SetTrigger("Off");
+                StartCoroutine(VolumeChange());
+                soundStart = false;
                 holding = false;
                 slideControl = false;
                 slidetimer = 0f;
@@ -227,7 +229,15 @@ public class PlayerMovement : MonoBehaviour
           
             if (GameManager.instance.gamestate==GameManager.GameState.start)
             {
-                GameManager.instance.flySound.Play();
+                if (!soundStart)
+                {
+                    GameManager.instance.flySound.Play();
+                    GameManager.instance.flySound.volume=1f;
+                    GameManager.instance.flySound.mute = false;
+
+                    soundStart = true;
+                }
+              
                 holding = true;
                 slidetimer += Time.deltaTime;
                 //if(GameManager.instance.playerEvents.speedActive)
@@ -353,6 +363,12 @@ public class PlayerMovement : MonoBehaviour
         yield return new WaitForSeconds(0.8f);
 
     }
+    IEnumerator VolumeChange()
+    {
+        yield return new WaitForSeconds(0.5f);
+        GameManager.instance.flySound.mute = true;
+    }
+   
 }
 
 

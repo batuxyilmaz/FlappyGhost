@@ -30420,6 +30420,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1783215963}
   - component: {fileID: 1783215964}
+  - component: {fileID: 1783215965}
   m_Layer: 0
   m_Name: FlySound
   m_TagString: Untagged
@@ -30452,9 +30453,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 87c0db305506a6b44bf99c6ae873a139, type: 3}
+  m_audioClip: {fileID: 8300000, guid: f28a04346262d0b4ab4643fcbbf5d17a, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.923
+  m_Volume: 1
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -30538,6 +30539,27 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &1783215965
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1783215962}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c769297a678fb2c4bb58eeed65c90621, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1796381050
 GameObject:
   m_ObjectHideFlags: 0
