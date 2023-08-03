@@ -68,7 +68,7 @@ public class PlayerMovement : MonoBehaviour
     }
     private void Update()
     {
-        GameManager.instance.speedText.text = Mathf.RoundToInt(currentSpeed).ToString();
+        //GameManager.instance.speedText.text = Mathf.RoundToInt(currentSpeed).ToString();
         DeathControl();
         if (holding)
         {
