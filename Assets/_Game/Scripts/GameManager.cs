@@ -95,7 +95,7 @@ public class GameManager : MonoBehaviour
     public void OpenEndGame()
     {
         ingamePanel.SetActive(false);
-        endgamePanel.SetActive(true);
+        UiManager.instance.leadPanel.SetActive(true);
         failSound.Play();
     }
     public void Mute()

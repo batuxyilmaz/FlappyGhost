@@ -15,6 +15,9 @@ public class UiManager : MonoBehaviour
     public List<GameObject> panels;
     public List<Button> buttons;
     public List<GameObject> clickedObjects;
+    public List<TextMeshProUGUI> leadTexts;
+    private int leadCount;
+
     public Image barImage;
     public Image ghostImage;
     public Image speedbarImage;
@@ -23,6 +26,7 @@ public class UiManager : MonoBehaviour
     public GameObject startPanel;
     public GameObject upgradePanel;
     public GameObject ingamePanel;
+    public GameObject leadPanel;
     public int buyValue;
     public TextMeshProUGUI buyText;
     public GameObject fadeText;
@@ -42,9 +46,14 @@ public class UiManager : MonoBehaviour
     {
         DOTween.Restart("Click");
         GameManager.instance.startSound.Play();
-        ingamePanel.SetActive(true);
         StartCoroutine(StartButton());
       
+    }
+    public void NextEnd()
+    {
+        DOTween.Restart("ClickNext");
+        GameManager.instance.startSound.Play();
+        StartCoroutine(NextButton());
     }
     public void SelectCharacter()
     {
@@ -106,13 +115,19 @@ public class UiManager : MonoBehaviour
     IEnumerator StartButton()
     {
         yield return new WaitForSeconds(0.2f);
-        DOTween.Restart("Click");
         GameManager.instance.gamestate = GameManager.GameState.start;
         startPanel.SetActive(false);
+        ingamePanel.SetActive(true);
         if (GameManager.instance.tutId <= 0)
         {
             StartCoroutine(TutorialOpen());
         }
+    }
+    IEnumerator NextButton()
+    {
+        yield return new WaitForSeconds(0.2f);
+        leadPanel.SetActive(false);
+        GameManager.instance.endgamePanel.SetActive(true);
     }
     public void OpenOptions()
     {

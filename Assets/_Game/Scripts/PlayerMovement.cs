@@ -51,6 +51,7 @@ public class PlayerMovement : MonoBehaviour
     public float changeCount;
     private bool soundStart;
     public Animator mainAnim;
+    private float speedLimit;
    
     private void Awake()
     {
@@ -64,13 +65,15 @@ public class PlayerMovement : MonoBehaviour
         secondLevel = 1;
         speedIncreaseValue = 0.5f;
         changeCount = 260f;
+        speedLimit = 0;
 
     }
     private void Update()
     {
         if(!GameManager.instance.playerEvents.speedActive)
         {
-            GameManager.instance.speedText.text = Mathf.RoundToInt(currentSpeed).ToString();
+            
+            GameManager.instance.speedText.text = Mathf.RoundToInt(speedLimit*4).ToString();
            
         }
    
@@ -84,6 +87,7 @@ public class PlayerMovement : MonoBehaviour
                 if (currentSpeed <= 25)
                 {
                     currentSpeed += 0.4f;
+                    speedLimit += 0.4f;
                 }
                
             }
@@ -179,12 +183,14 @@ public class PlayerMovement : MonoBehaviour
             if (!GameManager.instance.playerEvents.speedActive)
             {
                 transform.Translate(0, -currentSpeed / 2 * Time.deltaTime, 0); //Decent
-                if (currentSpeed > 10f)
+                if (currentSpeed >= 5f)
                 {
                     currentSpeed -= 4f * Time.deltaTime*2;
+                    speedLimit -= 4f * Time.deltaTime * 2;
                     if (UiManager.instance.speedImage.transform.rotation.z < 120f)
                     {
-                        UiManager.instance.speedImage.transform.Rotate(0, 0, +8f * Time.deltaTime);
+                        DOTween.Restart("RotateNormal");
+                       // UiManager.instance.speedImage.transform.Rotate(0, 0, +15f * Time.deltaTime*2);
                     }
                   
                 }
@@ -246,8 +252,7 @@ public class PlayerMovement : MonoBehaviour
                 if (!GameManager.instance.playerEvents.speedActive)
                 {
                     isFalling = true;
-                 
-                                
+                                  
                 }
                
                 screenBorder.transform.parent = null;

@@ -91,16 +91,16 @@ public class PlayerEvents : MonoBehaviour
             magnetTimer += Time.deltaTime;
            
         }
-        if (magnetTimer > 2.5f)
-        {
+        //if (magnetTimer > 2.5f)
+        //{
 
-            if (!fadeActive)
-            {
-                StartCoroutine(Fade());
-                fadeActive = true;
-            }
+        //    if (!fadeActive)
+        //    {
+        //        StartCoroutine(Fade());
+        //        fadeActive = true;
+        //    }
 
-        }
+        //}
         if (magnetTimer > 5f)
         {
             fadeActive = false; 
@@ -115,16 +115,16 @@ public class PlayerEvents : MonoBehaviour
             speedTimer += Time.deltaTime;
             
         }
-        if (speedTimer > 2.5f)
-        {
+        //if (speedTimer > 2.5f)
+        //{
           
-            if(!fadeActive)
-            {
-                StartCoroutine(Fade());
-                fadeActive = true;
-            }
+            //if(!fadeActive)
+            //{
+            //    StartCoroutine(Fade());
+            //    fadeActive = true;
+            //}
           
-        }
+       // }
         if(speedTimer > 5f)
         {
             fadeActive = false;
@@ -133,7 +133,7 @@ public class PlayerEvents : MonoBehaviour
             StartCoroutine(ImmunityDealy());
             startDecrease = true;
             waitBoost = false;
-            PlayerMovement.instance.currentSpeed = 10;
+            PlayerMovement.instance.currentSpeed = 5;
             DOTween.Restart("RotateSlow");
             lightningTrail.SetActive(false);
             GameManager.instance.boostSound.Stop();
@@ -155,26 +155,26 @@ public class PlayerEvents : MonoBehaviour
 
         }
     }
-    private IEnumerator Fade()
-    {
-        yield return new WaitForSeconds(0.4f);
-        transform.GetChild(0).GetChild(0).gameObject.SetActive(false);
-        yield return new WaitForSeconds(fadeValue);
-        transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
-        yield return new WaitForSeconds(fadeValue);
-        transform.GetChild(0).GetChild(0).gameObject.SetActive(false);
-        yield return new WaitForSeconds(fadeValue);
-        transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
-        yield return new WaitForSeconds(fadeValue);
-        transform.GetChild(0).GetChild(0).gameObject.SetActive(false);
-        yield return new WaitForSeconds(fadeValue);
-        transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
-        yield return new WaitForSeconds(fadeValue);
-        transform.GetChild(0).GetChild(0).gameObject.SetActive(false);
-        yield return new WaitForSeconds(fadeValue);
-        transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
+    //private IEnumerator Fade()
+    //{
+    //    yield return new WaitForSeconds(0.4f);
+    //    transform.GetChild(0).GetChild(0).gameObject.SetActive(false);
+    //    yield return new WaitForSeconds(fadeValue);
+    //    transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
+    //    yield return new WaitForSeconds(fadeValue);
+    //    transform.GetChild(0).GetChild(0).gameObject.SetActive(false);
+    //    yield return new WaitForSeconds(fadeValue);
+    //    transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
+    //    yield return new WaitForSeconds(fadeValue);
+    //    transform.GetChild(0).GetChild(0).gameObject.SetActive(false);
+    //    yield return new WaitForSeconds(fadeValue);
+    //    transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
+    //    yield return new WaitForSeconds(fadeValue);
+    //    transform.GetChild(0).GetChild(0).gameObject.SetActive(false);
+    //    yield return new WaitForSeconds(fadeValue);
+    //    transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
 
-    }
+    //}
   
     private IEnumerator ImmunityDealy()
     {
@@ -216,14 +216,9 @@ public class PlayerEvents : MonoBehaviour
                 GameManager.instance.playerEvents.immunity = true;
                 UiManager.instance.speedImage.transform.Rotate(0, 0, -10f * Time.deltaTime);
                 PlayerMovement.instance.currentSpeed = increaseValue;
-                GameManager.instance.speedText.text = Mathf.RoundToInt(PlayerMovement.instance.currentSpeed).ToString();
+                GameManager.instance.speedText.text = Mathf.RoundToInt(PlayerMovement.instance.currentSpeed*4).ToString();
                 PlayerMovement.instance.newSpeed = PlayerMovement.instance.currentSpeed;
 
-                if (PlayerMovement.instance.currentSpeed >= 20)
-                {
-                    increaseValue = 60;
-                }
-               
             }
         }
      
