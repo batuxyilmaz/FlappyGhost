@@ -17,6 +17,8 @@ public class UpgradeManager : MonoBehaviour
     public int speedCandyValue;
     public int speedLvl;
     public Button upgradeButton;
+    private bool upgradeActive;
+    public GameObject startButton;
 
     private void Start()
     {
@@ -93,17 +95,30 @@ public class UpgradeManager : MonoBehaviour
 
         }
     }
-    public void CloseUpgrade()
+  
+    public void OpenUpgdrade()
     {
-        Invoke("OpenPanel",0.8f);
-        DOTween.Restart("CloseUpgrade");
-        upgradeButton.interactable = false;
-        
+        if (!upgradeActive)
+        {
+            DOTween.Restart("OpenMagnet");
+            startButton.SetActive(false);
+            startButton.SetActive(false);
+            upgradeActive = true;
+           
+            return;
+        }
+        else
+        {
+            Invoke("StatButton", 1f);
+            DOTween.Restart("CloseUpgrade");
+            upgradeActive = false;
+        }
+       
     }
-    private void OpenPanel()
+    private void StatButton()
     {
-        UiManager.instance.startPanel.SetActive(true);
-        UiManager.instance.upgradePanel.SetActive(false);
+        startButton.SetActive(true);
     }
+
 
 }

@@ -154,6 +154,9 @@ public class PlayerMovement : MonoBehaviour
                         generateScript.sugarCount++;
                         generateScript.gifCount++;
                         
+                        generateScript.randomMinY -= 1f;
+                        generateScript.randomMaxY -= 1f;
+                        
                        
                     }
                     if(generateScript.bgsCurrentCount < 8)
