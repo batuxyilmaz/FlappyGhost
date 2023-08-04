@@ -38,6 +38,7 @@ public class UiManager : MonoBehaviour
     private bool optionActive;
     public bool soundActive;
     public bool hapticActive;
+    public Button upgradeButton;
     private void Awake()
     {
         instance = this;
@@ -136,6 +137,7 @@ public class UiManager : MonoBehaviour
         {
           
             DOTween.Restart("OpenOption");
+            upgradeButton.gameObject.SetActive(false);
             optionActive = true;
             return;
         }
@@ -143,6 +145,7 @@ public class UiManager : MonoBehaviour
         {
           
             DOTween.Restart("CloseOption");
+            Invoke("UpgradeButton", 0.4f);
             optionActive = false;
         }
             
@@ -181,7 +184,10 @@ public class UiManager : MonoBehaviour
             hapticActive = false;
         }
     }
-
+    private void UpgradeButton()
+    {
+        upgradeButton.gameObject.SetActive(true);
+    }
    
 
 }

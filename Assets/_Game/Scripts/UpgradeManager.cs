@@ -16,7 +16,6 @@ public class UpgradeManager : MonoBehaviour
     public int magnetLvl;
     public int speedCandyValue;
     public int speedLvl;
-    public Button upgradeButton;
     private bool upgradeActive;
     public GameObject startButton;
 
