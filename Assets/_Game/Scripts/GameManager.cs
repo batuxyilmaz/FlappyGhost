@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using System.Runtime.InteropServices;
+using UnityEngine.UI;
+using System;
+using Unity.VisualScripting;
 
 public class GameManager : MonoBehaviour
 {
@@ -39,6 +42,9 @@ public class GameManager : MonoBehaviour
     public AudioSource failSound;
     public AudioSource speedUiSound;
     public AudioSource flySound;
+
+    public InputField input;
+    [SerializeField] private int leadTextCount;
     private void Awake()
     {
         instance = this;
@@ -59,7 +65,8 @@ public class GameManager : MonoBehaviour
             tutorial.SetActive(false);
         }
     }
-    
+  
+
 
     public enum GameState
     {
@@ -95,7 +102,29 @@ public class GameManager : MonoBehaviour
     public void OpenEndGame()
     {
         ingamePanel.SetActive(false);
+        if (leadTextCount >= 10)
+        {
+            input.gameObject.SetActive(false);
+        }
+       
+        for (int i = 0; i < UiManager.instance.leadTexts.Count; i++)
+        {
+            if (!UiManager.instance.leadTexts[i].gameObject.activeSelf)
+            {
+                UiManager.instance.leadTexts[i].gameObject.SetActive(true);
+                UiManager.instance.leadTexts[i].text = input.text + " " + highScore;
+                
+                UiManager.instance.leadTexts[i].GetComponent<LeadControl>().filled = true;
+                UiManager.instance.leadTexts[i].GetComponent<LeadControl>().scoreCount = highScore;
+                leadTextCount++;
+                break;
+            }
+        }
+       
+
+
         UiManager.instance.leadPanel.SetActive(true);
+       
         TouchScreenKeyboard.Open(UiManager.instance.leadTexts[0].text);
         failSound.Play();
     }
@@ -119,5 +148,36 @@ public class GameManager : MonoBehaviour
         failSound.mute = false;
         speedUiSound.mute = false;
     }
-   
+   public void AddData()
+    {
+        
+        OpenEndGame();
+        UiManager.instance.namePanel.SetActive(false);
+       
+
+    }
+    private void Sort()
+    {
+        for (int i = 0; i < UiManager.instance.leadTexts.Count; i++)
+        {
+            if (UiManager.instance.leadTexts[i].gameObject.activeSelf)
+            {
+                for (int j = 0; j < i + 1; j++)
+                {
+                    if (UiManager.instance.leadTexts[j].gameObject.GetComponent<LeadControl>().scoreCount > UiManager.instance.leadTexts[i].gameObject.GetComponent<LeadControl>().scoreCount)
+                    {
+                        string temptex = UiManager.instance.leadTexts[i].text;
+
+                        UiManager.instance.leadTexts[i].text = UiManager.instance.leadTexts[j].text;
+                        UiManager.instance.leadTexts[j].text = temptex;
+                    }
+
+                }
+
+
+            }
+
+
+        }
+    }
 }

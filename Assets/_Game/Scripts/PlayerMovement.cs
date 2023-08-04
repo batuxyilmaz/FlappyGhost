@@ -132,14 +132,18 @@ public class PlayerMovement : MonoBehaviour
             
             }
 
-            if (transform.position.y>= 2500f && !onOff)
+            if (transform.position.y>= 2500f &&transform.position.y<=2550f)
             {
-                StartCoroutine(Delay());
-                Debug.Log("BÝTT");
-                generateScript.bgsCurrentCount = 0;
-                generateScript.platformCount=0;
-                generateScript.sugarCount = 0;
-                generateScript.gifCount = 0;
+                if(!onOff)
+                {
+                    StartCoroutine(Delay());
+                    Debug.Log("BÝTT");
+                    generateScript.bgsCurrentCount = 0;
+                    generateScript.platformCount = 0;
+                    generateScript.sugarCount = 0;
+                    generateScript.gifCount = 0;
+                }
+             
 
             }
             if (transform.position.y>= changeCount)

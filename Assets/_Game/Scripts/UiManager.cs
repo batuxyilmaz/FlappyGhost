@@ -27,6 +27,7 @@ public class UiManager : MonoBehaviour
     public GameObject upgradePanel;
     public GameObject ingamePanel;
     public GameObject leadPanel;
+    public GameObject namePanel;
     public int buyValue;
     public TextMeshProUGUI buyText;
     public GameObject fadeText;

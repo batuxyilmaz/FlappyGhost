@@ -34,7 +34,7 @@ public class Death : MonoBehaviour
     IEnumerator EndDelay()
     {
         yield return new WaitForSeconds(2);
-        GameManager.instance.OpenEndGame();
+        UiManager.instance.namePanel.SetActive(true);
     }
     IEnumerator FailDelay()
     {
