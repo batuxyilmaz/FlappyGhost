@@ -22,6 +22,7 @@ public class UiManager : MonoBehaviour
     public GameObject clickedObject;
     public GameObject startPanel;
     public GameObject upgradePanel;
+    public GameObject ingamePanel;
     public int buyValue;
     public TextMeshProUGUI buyText;
     public GameObject fadeText;
@@ -41,6 +42,7 @@ public class UiManager : MonoBehaviour
     {
         DOTween.Restart("Click");
         GameManager.instance.startSound.Play();
+        ingamePanel.SetActive(true);
         StartCoroutine(StartButton());
       
     }
