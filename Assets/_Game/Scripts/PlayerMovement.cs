@@ -51,7 +51,7 @@ public class PlayerMovement : MonoBehaviour
     public float changeCount;
     private bool soundStart;
     public Animator mainAnim;
-    private float speedLimit;
+    public float speedLimit;
    
     private void Awake()
     {

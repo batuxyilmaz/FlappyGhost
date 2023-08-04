@@ -134,6 +134,7 @@ public class PlayerEvents : MonoBehaviour
             startDecrease = true;
             waitBoost = false;
             PlayerMovement.instance.currentSpeed = 5;
+            PlayerMovement.instance.speedLimit = 0;
             DOTween.Restart("RotateSlow");
             lightningTrail.SetActive(false);
             GameManager.instance.boostSound.Stop();
