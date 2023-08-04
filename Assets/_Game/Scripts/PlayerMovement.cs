@@ -68,7 +68,12 @@ public class PlayerMovement : MonoBehaviour
     }
     private void Update()
     {
-        //GameManager.instance.speedText.text = Mathf.RoundToInt(currentSpeed).ToString();
+        if(!GameManager.instance.playerEvents.speedActive)
+        {
+            GameManager.instance.speedText.text = Mathf.RoundToInt(currentSpeed).ToString();
+           
+        }
+   
         DeathControl();
         if (holding)
         {
@@ -174,12 +179,23 @@ public class PlayerMovement : MonoBehaviour
             if (!GameManager.instance.playerEvents.speedActive)
             {
                 transform.Translate(0, -currentSpeed / 2 * Time.deltaTime, 0); //Decent
+                if (currentSpeed > 10f)
+                {
+                    currentSpeed -= 4f * Time.deltaTime*2;
+                    if (UiManager.instance.speedImage.transform.rotation.z < 120f)
+                    {
+                        UiManager.instance.speedImage.transform.Rotate(0, 0, +8f * Time.deltaTime);
+                    }
+                  
+                }
+
+
                 //UiManager.instance.barImage.fillAmount -= Time.deltaTime / 20;
                 //if (UiManager.instance.ghostImage.rectTransform.anchoredPosition.y >= -234f)
                 //{
                 //    UiManager.instance.ghostImage.rectTransform.Translate(-24 * Time.deltaTime, 0, 0);
                 //}
-          
+
             }
         }
 
@@ -226,16 +242,14 @@ public class PlayerMovement : MonoBehaviour
                 slideControl = false;
                 slidetimer = 0f;
                 tap = false;
+             
                 if (!GameManager.instance.playerEvents.speedActive)
                 {
                     isFalling = true;
-
+                 
+                                
                 }
-                if (!GameManager.instance.playerEvents.speedActive)
-                {
-                    currentSpeed = 10f;
-                }
-               ;
+               
                 screenBorder.transform.parent = null;
                 playerAnim.SetBool("Falling", true);
             }
@@ -287,7 +301,8 @@ public class PlayerMovement : MonoBehaviour
                     if (!GameManager.instance.playerEvents.speedActive)
                     {
                         transform.Translate(0, currentSpeed * Time.deltaTime, 0); //Ascend
-                       
+                        UiManager.instance.speedImage.transform.Rotate(0, 0, -4f * Time.deltaTime);
+
                     }
                 }
 

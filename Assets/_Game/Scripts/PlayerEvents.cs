@@ -134,6 +134,7 @@ public class PlayerEvents : MonoBehaviour
             startDecrease = true;
             waitBoost = false;
             PlayerMovement.instance.currentSpeed = 10;
+            DOTween.Restart("RotateSlow");
             lightningTrail.SetActive(false);
             GameManager.instance.boostSound.Stop();
           
@@ -143,7 +144,8 @@ public class PlayerEvents : MonoBehaviour
         {
             if (PlayerMovement.instance.currentSpeed > PlayerMovement.instance.oldSpeed)
             {
-                PlayerMovement.instance.currentSpeed -= Time.deltaTime * 10;
+                PlayerMovement.instance.currentSpeed -=4f*Time.deltaTime;
+                
             }
             else
             {
@@ -209,10 +211,12 @@ public class PlayerEvents : MonoBehaviour
                 lightningTrail.SetActive(true);
                 DOTween.Pause("BarFinish");
                 speedTimer = 0f;
-              
+                DOTween.Restart("RotateFast");
                 PlayerMovement.instance.oldSpeed = PlayerMovement.instance.currentSpeed;
                 GameManager.instance.playerEvents.immunity = true;
+                UiManager.instance.speedImage.transform.Rotate(0, 0, -10f * Time.deltaTime);
                 PlayerMovement.instance.currentSpeed = increaseValue;
+                GameManager.instance.speedText.text = Mathf.RoundToInt(PlayerMovement.instance.currentSpeed).ToString();
                 PlayerMovement.instance.newSpeed = PlayerMovement.instance.currentSpeed;
 
                 if (PlayerMovement.instance.currentSpeed >= 20)
