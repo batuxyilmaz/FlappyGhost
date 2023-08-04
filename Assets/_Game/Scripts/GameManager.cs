@@ -96,6 +96,7 @@ public class GameManager : MonoBehaviour
     {
         ingamePanel.SetActive(false);
         UiManager.instance.leadPanel.SetActive(true);
+        TouchScreenKeyboard.Open(UiManager.instance.leadTexts[0].text);
         failSound.Play();
     }
     public void Mute()

@@ -70,7 +70,7 @@ public class PlayerMovement : MonoBehaviour
     }
     private void Update()
     {
-        if(!GameManager.instance.playerEvents.speedActive)
+        if(!GameManager.instance.playerEvents.speedActive && GameManager.instance.gamestate==GameManager.GameState.start)
         {
             
             GameManager.instance.speedText.text = Mathf.RoundToInt(speedLimit*4).ToString();
@@ -156,7 +156,7 @@ public class PlayerMovement : MonoBehaviour
                         
                        
                     }
-                    if(generateScript.platformCount < 8)
+                    if(generateScript.bgsCurrentCount < 8)
                     {
                         generateScript.bgsCurrentCount++;
                         changeCount += 300;
@@ -180,14 +180,14 @@ public class PlayerMovement : MonoBehaviour
 
         if (isFalling)
         {
-            if (!GameManager.instance.playerEvents.speedActive)
+            if (!GameManager.instance.playerEvents.speedActive )
             {
                 transform.Translate(0, -currentSpeed / 2 * Time.deltaTime, 0); //Decent
                 if (currentSpeed >= 5f)
                 {
                     currentSpeed -= 4f * Time.deltaTime*2;
                     speedLimit -= 4f * Time.deltaTime * 2;
-                    if (UiManager.instance.speedImage.transform.rotation.z < 120f)
+                    if (UiManager.instance.speedImage.transform.rotation.z < 120f && GameManager.instance.gamestate == GameManager.GameState.start)
                     {
                         DOTween.Restart("RotateNormal");
                        // UiManager.instance.speedImage.transform.Rotate(0, 0, +15f * Time.deltaTime*2);

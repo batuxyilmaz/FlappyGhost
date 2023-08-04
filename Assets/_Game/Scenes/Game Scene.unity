@@ -35107,7 +35107,8 @@ MonoBehaviour:
   - {fileID: 1604470512}
   - {fileID: 1357046502}
   clickedObjects: []
-  leadTexts: []
+  leadTexts:
+  - {fileID: 499908220}
   barImage: {fileID: 576211148}
   ghostImage: {fileID: 1160769201}
   speedbarImage: {fileID: 383752043}
