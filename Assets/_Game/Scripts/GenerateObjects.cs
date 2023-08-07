@@ -79,7 +79,7 @@ public class GenerateObjects : MonoBehaviour
             GameObject BG = Instantiate(bg, new Vector3(bg.transform.position.x, bg.transform.position.y + spawnHeight, bg.transform.position.z), Quaternion.identity);
         }
         spawnCount++; 
-        spawnHeight += 59.2f;
+        spawnHeight += 59.38f;
         
     }
     public void GeneratePowerUp()
