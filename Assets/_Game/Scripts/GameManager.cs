@@ -6,6 +6,8 @@ using System.Runtime.InteropServices;
 using UnityEngine.UI;
 using System;
 using Unity.VisualScripting;
+using Unity.IO.LowLevel.Unsafe;
+using UnityEngine.EventSystems;
 
 public class GameManager : MonoBehaviour
 {
@@ -27,6 +29,7 @@ public class GameManager : MonoBehaviour
     public GameObject openObject;
     public List<int> scores;
     public List<string> texts;
+    public List<GameObject> savedObjects;
 
     public int tutId;
     public int highScore;
@@ -47,6 +50,11 @@ public class GameManager : MonoBehaviour
 
     public InputField input;
     [SerializeField] private int leadTextCount;
+
+    [SerializeField] string filename;
+
+    List<InputEntry> entries = new List<InputEntry>();
+
     private void Awake()
     {
         instance = this;
@@ -56,8 +64,8 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
-      
-      //  scores=new List<int>();
+        entries = SaveObjets.ReadListFromJSON<InputEntry>(filename);
+        //  scores=new List<int>();
         tutId = PlayerPrefs.GetInt("TutId");
         if (tutId >= 1)
         {
@@ -111,17 +119,19 @@ public class GameManager : MonoBehaviour
         {
             input.gameObject.SetActive(false);
         }
-      //  texts.Add(input.text);
-        //for (int i = 0; i < UiManager.instance.leadTexts.Count; i++)
-        //{
-        //    if (!UiManager.instance.leadTexts[i].gameObject.activeSelf)
-        //    {
-        //        UiManager.instance.leadTexts[i].gameObject.SetActive(true);            
-        //        UiManager.instance.leadTexts[i].GetComponent<LeadControl>().filled = true;            
-        //        leadTextCount++;
-        //        break;
-        //    }
-        //}
+        texts.Add(input.text);
+       
+       
+        for (int i = 0; i < UiManager.instance.leadTexts.Count; i++)
+        {
+            if (!UiManager.instance.leadTexts[i].gameObject.activeSelf)
+            {
+                UiManager.instance.leadTexts[i].gameObject.SetActive(true);
+                UiManager.instance.leadTexts[i].GetComponent<LeadControl>().filled = true;
+                leadTextCount++;
+                break;
+            }
+        }
 
 
 
@@ -154,8 +164,9 @@ public class GameManager : MonoBehaviour
     {
 
         OpenEndGame();
-       // scores.Add(highScore);
-        
+        scores.Add(highScore);
+        AddNameToList();
+
         Sort();
         UiManager.instance.namePanel.SetActive(false);
        
@@ -196,6 +207,12 @@ public class GameManager : MonoBehaviour
         }
       
     }
-    
-    
+    public void AddNameToList()
+    {
+        entries.Add(new InputEntry(input.text,highScore));
+        input.text = "";
+
+        SaveObjets.SaveToJSON<InputEntry>(entries, filename);
+    }
+
 }

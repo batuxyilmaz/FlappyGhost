@@ -91,16 +91,16 @@ public class PlayerEvents : MonoBehaviour
             magnetTimer += Time.deltaTime;
            
         }
-        //if (magnetTimer > 2.5f)
-        //{
+        if (magnetTimer > 2.5f)
+        {
 
-        //    if (!fadeActive)
-        //    {
-        //        StartCoroutine(Fade());
-        //        fadeActive = true;
-        //    }
+            if (!fadeActive)
+            {
+                StartCoroutine(Fade());
+                fadeActive = true;
+            }
 
-        //}
+        }
         if (magnetTimer > 5f)
         {
             fadeActive = false; 
@@ -115,17 +115,17 @@ public class PlayerEvents : MonoBehaviour
             speedTimer += Time.deltaTime;
             
         }
-        //if (speedTimer > 2.5f)
-        //{
-          
-            //if(!fadeActive)
-            //{
-            //    StartCoroutine(Fade());
-            //    fadeActive = true;
-            //}
-          
-       // }
-        if(speedTimer > 5f)
+        if (speedTimer > 2.5f)
+        {
+
+            if (!fadeActive)
+            {
+                StartCoroutine(Fade());
+                fadeActive = true;
+            }
+
+        }
+        if (speedTimer > 5f)
         {
             fadeActive = false;
             speedActive = false;
@@ -156,27 +156,27 @@ public class PlayerEvents : MonoBehaviour
 
         }
     }
-    //private IEnumerator Fade()
-    //{
-    //    yield return new WaitForSeconds(0.4f);
-    //    transform.GetChild(0).GetChild(0).gameObject.SetActive(false);
-    //    yield return new WaitForSeconds(fadeValue);
-    //    transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
-    //    yield return new WaitForSeconds(fadeValue);
-    //    transform.GetChild(0).GetChild(0).gameObject.SetActive(false);
-    //    yield return new WaitForSeconds(fadeValue);
-    //    transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
-    //    yield return new WaitForSeconds(fadeValue);
-    //    transform.GetChild(0).GetChild(0).gameObject.SetActive(false);
-    //    yield return new WaitForSeconds(fadeValue);
-    //    transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
-    //    yield return new WaitForSeconds(fadeValue);
-    //    transform.GetChild(0).GetChild(0).gameObject.SetActive(false);
-    //    yield return new WaitForSeconds(fadeValue);
-    //    transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
+    private IEnumerator Fade()
+    {
+        yield return new WaitForSeconds(0.4f);
+        transform.GetChild(0).GetChild(0).gameObject.SetActive(false);
+        yield return new WaitForSeconds(fadeValue);
+        transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
+        yield return new WaitForSeconds(fadeValue);
+        transform.GetChild(0).GetChild(0).gameObject.SetActive(false);
+        yield return new WaitForSeconds(fadeValue);
+        transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
+        yield return new WaitForSeconds(fadeValue);
+        transform.GetChild(0).GetChild(0).gameObject.SetActive(false);
+        yield return new WaitForSeconds(fadeValue);
+        transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
+        yield return new WaitForSeconds(fadeValue);
+        transform.GetChild(0).GetChild(0).gameObject.SetActive(false);
+        yield return new WaitForSeconds(fadeValue);
+        transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
 
-    //}
-  
+    }
+
     private IEnumerator ImmunityDealy()
     {
         yield return new WaitForSeconds(2f);
