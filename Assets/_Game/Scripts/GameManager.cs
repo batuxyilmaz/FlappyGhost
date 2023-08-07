@@ -25,6 +25,8 @@ public class GameManager : MonoBehaviour
     public GameObject tutorial;
     public List<GameObject> closedThings;
     public GameObject openObject;
+    public List<int> scores;
+    public List<string> texts;
 
     public int tutId;
     public int highScore;
@@ -54,7 +56,8 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
-       
+      
+      //  scores=new List<int>();
         tutId = PlayerPrefs.GetInt("TutId");
         if (tutId >= 1)
         {
@@ -76,9 +79,10 @@ public class GameManager : MonoBehaviour
     public void End()
     {
       
-        mainHighscore=PlayerPrefs.GetInt("MainHighScore");
+        mainHighscore =PlayerPrefs.GetInt("MainHighScore");
         blurPanel.SetActive(true);
         highScore = Mathf.RoundToInt(player.transform.position.y);
+        
         if (highScore > mainHighscore)
         {
             mainHighscore = highScore;
@@ -101,26 +105,24 @@ public class GameManager : MonoBehaviour
     }
     public void OpenEndGame()
     {
+       
         ingamePanel.SetActive(false);
         if (leadTextCount >= 10)
         {
             input.gameObject.SetActive(false);
         }
-       
-        for (int i = 0; i < UiManager.instance.leadTexts.Count; i++)
-        {
-            if (!UiManager.instance.leadTexts[i].gameObject.activeSelf)
-            {
-                UiManager.instance.leadTexts[i].gameObject.SetActive(true);
-                UiManager.instance.leadTexts[i].text = input.text + " " + highScore;
-                
-                UiManager.instance.leadTexts[i].GetComponent<LeadControl>().filled = true;
-                UiManager.instance.leadTexts[i].GetComponent<LeadControl>().scoreCount = highScore;
-                leadTextCount++;
-                break;
-            }
-        }
-       
+      //  texts.Add(input.text);
+        //for (int i = 0; i < UiManager.instance.leadTexts.Count; i++)
+        //{
+        //    if (!UiManager.instance.leadTexts[i].gameObject.activeSelf)
+        //    {
+        //        UiManager.instance.leadTexts[i].gameObject.SetActive(true);            
+        //        UiManager.instance.leadTexts[i].GetComponent<LeadControl>().filled = true;            
+        //        leadTextCount++;
+        //        break;
+        //    }
+        //}
+
 
 
         UiManager.instance.leadPanel.SetActive(true);
@@ -150,34 +152,50 @@ public class GameManager : MonoBehaviour
     }
    public void AddData()
     {
-        
+
         OpenEndGame();
+       // scores.Add(highScore);
+        
+        Sort();
         UiManager.instance.namePanel.SetActive(false);
        
 
     }
     private void Sort()
     {
-        for (int i = 0; i < UiManager.instance.leadTexts.Count; i++)
+      
+        for (int i = 0; i < scores.Count-1; i++)
         {
-            if (UiManager.instance.leadTexts[i].gameObject.activeSelf)
+            int min = i;
+            for (int j =i+1; j < scores.Count; j++)
             {
-                for (int j = 0; j < i + 1; j++)
+                if (scores[j] < scores[min])
                 {
-                    if (UiManager.instance.leadTexts[j].gameObject.GetComponent<LeadControl>().scoreCount > UiManager.instance.leadTexts[i].gameObject.GetComponent<LeadControl>().scoreCount)
-                    {
-                        string temptex = UiManager.instance.leadTexts[i].text;
-
-                        UiManager.instance.leadTexts[i].text = UiManager.instance.leadTexts[j].text;
-                        UiManager.instance.leadTexts[j].text = temptex;
-                    }
+                    min = j;
+                }
+                if (min != i)
+                {
+                    string tempS = texts[i];
+                    texts[i] = texts[min];
+                    texts[min] = tempS;
+                    int temp = scores[i];
+                    scores[i] = scores[min];
+                    scores[min] = temp;
+                    
 
                 }
-
-
             }
-
-
         }
+        for (int i = 0; i < UiManager.instance.leadTexts.Count; i++)
+        {
+            if (UiManager.instance.leadTexts[i].GetComponent<LeadControl>().filled)
+            {
+                UiManager.instance.leadTexts[i].text =texts[i]+" "+scores[i].ToString();
+              
+            }
+        }
+      
     }
+    
+    
 }
