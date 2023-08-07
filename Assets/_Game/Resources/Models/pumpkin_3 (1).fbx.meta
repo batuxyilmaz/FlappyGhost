@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e49e922a33a1b18458fdb974ec7d747e
+guid: e1de1f3a327ca6a47911cecdc6c4f8da
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -8,17 +8,17 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: green
-    second: {fileID: 2100000, guid: 51bed3848c130f14c9bb6e37bccaadf1, type: 2}
+    second: {fileID: 2100000, guid: 34c88ab17f392394da208775edfd6e1b, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: pumpkin_2
-    second: {fileID: 2100000, guid: 65853c67e52c88f46bd02a7313fdd90c, type: 2}
+    second: {fileID: 2100000, guid: 26eece32953f7ad44adf5c63132e213f, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: pumpkin_o
-    second: {fileID: 2100000, guid: 115452c54917d7440a2e59800620a97a, type: 2}
+      name: pumpkin_3
+    second: {fileID: 2100000, guid: aa7aaae2ee81df84e95b26f0e4986763, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -47,7 +47,7 @@ ModelImporter:
     extraExposedTransformPaths: []
     extraUserProperties: []
     clipAnimations: []
-    isReadable: 1
+    isReadable: 0
   meshes:
     lODScreenPercentages: []
     globalScale: 1

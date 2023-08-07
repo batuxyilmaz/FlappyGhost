@@ -207,7 +207,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4104166055506557538
 Transform:
   m_ObjectHideFlags: 0
@@ -283,7 +283,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7625063593254969079}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 9a1a7114921eadd429eea06320ceb13b, type: 2}
   m_CullingMode: 0
@@ -468,6 +468,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 3857f9eeaf2482845ad22f49a64624e0, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8054645392387608522}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 3857f9eeaf2482845ad22f49a64624e0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3929865982409181253}
   m_SourcePrefab: {fileID: 100100000, guid: 3857f9eeaf2482845ad22f49a64624e0, type: 3}
 --- !u!1 &2499719660698720491 stripped
 GameObject:
@@ -2334,6 +2337,27 @@ MonoBehaviour:
     - {x: 0.26887438, y: 0.9570429, z: -0.108515024}
     - {x: -0.3494477, y: 0.9188718, z: -0.18319629}
     - {x: -0.17305669, y: 0.9665419, z: -0.18933612}
+--- !u!95 &3929865982409181253
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2499719660698720491}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d2dbb48e0547e784182dd2cd33545ef0, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!4 &3025039496638988881 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 3857f9eeaf2482845ad22f49a64624e0, type: 3}

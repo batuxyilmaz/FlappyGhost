@@ -5031,6 +5031,7 @@ GameObject:
   - component: {fileID: 86157894525219837}
   - component: {fileID: 7525047424240488388}
   - component: {fileID: 2328612584692198397}
+  - component: {fileID: 5848520519511536029}
   m_Layer: 0
   m_Name: Mesh
   m_TagString: Untagged
@@ -5219,7 +5220,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1887822252903944744}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
   m_Name: 
@@ -7072,6 +7073,27 @@ MonoBehaviour:
     - {x: 0.26887438, y: 0.9570429, z: -0.108515024}
     - {x: -0.3494477, y: 0.9188718, z: -0.18319629}
     - {x: -0.17305669, y: 0.9665419, z: -0.18933612}
+--- !u!95 &5848520519511536029
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1887822252903944744}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 80d28581f5e58fb40992da039c89549b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &4205402884426428655
 GameObject:
   m_ObjectHideFlags: 0
