@@ -118,7 +118,7 @@ public class PlayerMovement : MonoBehaviour
        // ChangeLocation(offsetX, -6f, 6f);
         if (heightCount >= 1)
         {
-            if (heightCount % 30 == 0 && !onOff)
+            if (heightCount % 25 == 0 && !onOff)
             {
              
                 generateScript.GenerateBg();
