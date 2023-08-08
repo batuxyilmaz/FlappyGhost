@@ -19773,6 +19773,7 @@ MonoBehaviour:
   newSpeed: 0
   oldSpeed: 0
   changeCount: 0
+  platformchangeCount: 0
   mainAnim: {fileID: 0}
   speedLimit: 0
 --- !u!114 &1889660257308862046
@@ -40294,7 +40295,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7008714443409075069
 Transform:
   m_ObjectHideFlags: 0
