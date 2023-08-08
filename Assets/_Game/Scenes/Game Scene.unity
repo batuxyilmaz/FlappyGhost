@@ -11129,8 +11129,8 @@ MonoBehaviour:
   - {fileID: 7722838458963085057, guid: e17f0c96fdb4c394eb3fcdc907301dbe, type: 3}
   randomMinX: -6.7
   randomMaxX: 6.7
-  randomMinY: 9
-  randomMaxY: 10
+  randomMinY: 10
+  randomMaxY: 11
   spawnCount: 0
   bgsCurrentCount: 0
   currentCoins: []
