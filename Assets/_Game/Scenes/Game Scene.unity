@@ -3880,7 +3880,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &389612318
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4846,7 +4846,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &499908219
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6067,7 +6067,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &612506249
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7323,7 +7323,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &721698696
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10261,7 +10261,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1142081911
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11082,7 +11082,6 @@ MonoBehaviour:
   flySound: {fileID: 1783215964}
   input: {fileID: 437406637}
   leadTextCount: 0
-  filename: 
 --- !u!114 &1192160751
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11155,7 +11154,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1206107575
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12223,7 +12222,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1307384092
 RectTransform:
   m_ObjectHideFlags: 0
@@ -35081,7 +35080,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1736536413
 RectTransform:
   m_ObjectHideFlags: 0
@@ -37682,7 +37681,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2031033065
 RectTransform:
   m_ObjectHideFlags: 0

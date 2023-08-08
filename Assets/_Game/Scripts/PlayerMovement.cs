@@ -64,7 +64,7 @@ public class PlayerMovement : MonoBehaviour
         level = 1;
         secondLevel = 1;
         speedIncreaseValue = 0.5f;
-        changeCount = 260f;
+        changeCount = 240f;
         speedLimit = 0;
 
     }
@@ -166,7 +166,7 @@ public class PlayerMovement : MonoBehaviour
                     if(generateScript.bgsCurrentCount < 8)
                     {
                         generateScript.bgsCurrentCount++;
-                        changeCount += 300;
+                        changeCount += 285;
                     }
                  
                    
