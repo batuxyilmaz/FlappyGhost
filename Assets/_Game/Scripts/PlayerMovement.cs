@@ -122,12 +122,6 @@ public class PlayerMovement : MonoBehaviour
             {
              
                 generateScript.GenerateBg();
-              
-                StartCoroutine(Delay());
-            }
-            if (heightCount % 50 == 0 && !onOff)
-            {
-
                 generateScript.GeneratePlatform(generateScript.platforms[generateScript.platformCount]);
                 StartCoroutine(Delay());
             }

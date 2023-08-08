@@ -34,23 +34,24 @@ public class Death : MonoBehaviour
     IEnumerator EndDelay()
     {
         yield return new WaitForSeconds(2);
-        if (GameManager.instance.scores.Count >= 9)
-        {
-            GameManager.instance.OpenEndGame();
-            UiManager.instance.leadPanel.SetActive(false);
-            for (int i = 0; i < UiManager.instance.leadTexts.Count; i++)
-            {
-                if (GameManager.instance.highScore > GameManager.instance.scores[i])
-                {
-                    UiManager.instance.namePanel.SetActive(true);
-                }
-            }
-        }
-        else
-        {
-            UiManager.instance.namePanel.SetActive(true);
-        }
-      
+        //if (GameManager.instance.scores.Count >= 9)
+        //{
+        //    GameManager.instance.OpenEndGame();
+        //    UiManager.instance.leadPanel.SetActive(false);
+        //    for (int i = 0; i < UiManager.instance.leadTexts.Count; i++)
+        //    {
+        //        if (GameManager.instance.highScore > GameManager.instance.scores[i])
+        //        {
+        //            UiManager.instance.namePanel.SetActive(true);
+        //        }
+        //    }
+        //}
+        //else
+        //{
+        //    UiManager.instance.namePanel.SetActive(true);
+        //}
+        GameManager.instance.OpenEndGame();
+       
     }
     IEnumerator FailDelay()
     {

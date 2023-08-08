@@ -123,43 +123,43 @@ public class GameManager : MonoBehaviour
        
         ingamePanel.SetActive(false);
       
-        if (scores.Count >= 9)
-        {
-            for (int i = 0; i < UiManager.instance.leadTexts.Count; i++)
-            {
-                if (highScore > scores[i])
-                {
-                    scores[i] = highScore;
-                    PlayerPrefsExtra.SetList("LeadScores", scores);
-                    texts[i]=input.text;
-                    PlayerPrefsExtra.SetList("LeadTexts", texts);
-                }
-            }
-            Sort();
-        }
-        else
-        {
-            texts.Add(input.text);
-            PlayerPrefsExtra.SetList("LeadTexts", texts);
-        }
+        //if (scores.Count >= 9)
+        //{
+        //    for (int i = 0; i < UiManager.instance.leadTexts.Count; i++)
+        //    {
+        //        if (highScore > scores[i])
+        //        {
+        //            scores[i] = highScore;
+        //            PlayerPrefsExtra.SetList("LeadScores", scores);
+        //            texts[i]=input.text;
+        //            PlayerPrefsExtra.SetList("LeadTexts", texts);
+        //        }
+        //    }
+        //    //Sort();
+        //}
+        //else
+        //{
+        //    texts.Add(input.text);
+        //    PlayerPrefsExtra.SetList("LeadTexts", texts);
+        //}
        
        
-        for (int i = 0; i < UiManager.instance.leadTexts.Count; i++)
-        {
-            if (!UiManager.instance.leadTexts[i].gameObject.activeSelf)
-            {
-                UiManager.instance.leadTexts[i].gameObject.SetActive(true);
-                UiManager.instance.leadTexts[i].GetComponent<LeadControl>().filled = true;
-                leadTextCount++;
-                break;
-            }
-        }
+        //for (int i = 0; i < UiManager.instance.leadTexts.Count; i++)
+        //{
+        //    if (!UiManager.instance.leadTexts[i].gameObject.activeSelf)
+        //    {
+        //        UiManager.instance.leadTexts[i].gameObject.SetActive(true);
+        //        UiManager.instance.leadTexts[i].GetComponent<LeadControl>().filled = true;
+        //        leadTextCount++;
+        //        break;
+        //    }
+        //}
 
 
 
-        UiManager.instance.leadPanel.SetActive(true);
+        endgamePanel.SetActive(true);
        
-        TouchScreenKeyboard.Open(UiManager.instance.leadTexts[0].text);
+       // TouchScreenKeyboard.Open(UiManager.instance.leadTexts[0].text);
         failSound.Play();
     }
     public void Mute()
@@ -182,52 +182,52 @@ public class GameManager : MonoBehaviour
         failSound.mute = false;
         speedUiSound.mute = false;
     }
-   public void AddData()
-   {
+   //public void AddData()
+   //{
       
-        OpenEndGame();
-        scores.Add(highScore);
-        PlayerPrefsExtra.SetList("LeadScores", scores);
-        Sort();
-        UiManager.instance.namePanel.SetActive(false);
+   //     OpenEndGame();
+   //     scores.Add(highScore);
+   //     PlayerPrefsExtra.SetList("LeadScores", scores);
+   //     Sort();
+   //     UiManager.instance.namePanel.SetActive(false);
        
 
-   }
-    private void Sort()
-    {
+   //}
+    //private void Sort()
+    //{
       
-        for (int i = 0; i < scores.Count-1; i++)
-        {
-            int min = i;
-            for (int j =i+1; j < scores.Count; j++)
-            {
-                if (scores[j] < scores[min])
-                {
-                    min = j;
-                }
-                if (min != i)
-                {
-                    string tempS = texts[i];
-                    texts[i] = texts[min];
-                    texts[min] = tempS;
-                    int temp = scores[i];
-                    scores[i] = scores[min];
-                    scores[min] = temp;
+    //    for (int i = 0; i < scores.Count-1; i++)
+    //    {
+    //        int min = i;
+    //        for (int j =i+1; j < scores.Count; j++)
+    //        {
+    //            if (scores[j] < scores[min])
+    //            {
+    //                min = j;
+    //            }
+    //            if (min != i)
+    //            {
+    //                string tempS = texts[i];
+    //                texts[i] = texts[min];
+    //                texts[min] = tempS;
+    //                int temp = scores[i];
+    //                scores[i] = scores[min];
+    //                scores[min] = temp;
                     
 
-                }
-            }
-        }
-        for (int i = 0; i < UiManager.instance.leadTexts.Count; i++)
-        {
-            if (UiManager.instance.leadTexts[i].GetComponent<LeadControl>().filled)
-            {
-                UiManager.instance.leadTexts[i].text =texts[i]+" "+scores[i].ToString();
+    //            }
+    //        }
+    //    }
+    //    for (int i = 0; i < UiManager.instance.leadTexts.Count; i++)
+    //    {
+    //        if (UiManager.instance.leadTexts[i].GetComponent<LeadControl>().filled)
+    //        {
+    //            UiManager.instance.leadTexts[i].text =texts[i]+" "+scores[i].ToString();
               
-            }
-        }
+    //        }
+    //    }
       
-    }
+    //}
   
 
 }
