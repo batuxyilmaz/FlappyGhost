@@ -49,7 +49,7 @@ public class GameManager : MonoBehaviour
     public AudioSource speedUiSound;
     public AudioSource flySound;
     
-    public InputField input;
+    public TMP_InputField input;
     [SerializeField] private int leadTextCount;
 
     
