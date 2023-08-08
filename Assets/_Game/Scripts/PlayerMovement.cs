@@ -49,6 +49,7 @@ public class PlayerMovement : MonoBehaviour
     public float newSpeed;
     public float oldSpeed;
     public float changeCount;
+    public float platformchangeCount;
     private bool soundStart;
     public Animator mainAnim;
     public float speedLimit;
@@ -64,8 +65,9 @@ public class PlayerMovement : MonoBehaviour
         level = 1;
         secondLevel = 1;
         speedIncreaseValue = 0.5f;
-        changeCount = 240f;
+        changeCount = 220f;
         speedLimit = 0;
+        platformchangeCount = 120f;
 
     }
     private void Update()
@@ -125,6 +127,7 @@ public class PlayerMovement : MonoBehaviour
                 generateScript.GeneratePlatform(generateScript.platforms[generateScript.platformCount]);
                 StartCoroutine(Delay());
             }
+   
             if (heightCount % 200 == 0&& !onOff)
             {
                 generateScript.GeneratePowerUp();
@@ -151,28 +154,39 @@ public class PlayerMovement : MonoBehaviour
                 if (!onOff)
                 {
                     StartCoroutine(Delay());
-                    if (generateScript.platformCount < 4)
-                    {
-                       
-                        generateScript.platformCount++;
-                        generateScript.sugarCount++;
-                        generateScript.gifCount++;
-                        
-                        generateScript.randomMinY -= 1f;
-                        generateScript.randomMaxY -= 1f;
-                        
-                       
-                    }
+                
                     if(generateScript.bgsCurrentCount < 8)
                     {
                         generateScript.bgsCurrentCount++;
-                        changeCount += 285;
+                        changeCount += 270;
                     }
                  
                    
                 }
        
             
+            }
+            if (transform.position.y >= platformchangeCount)
+            {
+                if (!onOff)
+                {
+                    StartCoroutine(Delay());
+                    if (generateScript.platformCount < 4)
+                    {
+
+                        generateScript.platformCount++;
+                        generateScript.sugarCount++;
+                        generateScript.gifCount++;
+
+                        generateScript.randomMinY -= 1f;
+                        generateScript.randomMaxY -= 1f;
+                        platformchangeCount += 120f;
+
+                    }
+              
+                }
+
+
             }
             if (heightCount % 50 == 0 && !onOff)
             {
