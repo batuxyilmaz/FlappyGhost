@@ -61,8 +61,11 @@ public class CoinCollision : MonoBehaviour
                 transform.DOMove(other.gameObject.transform.position, followSpeed).SetEase(Ease.Linear);
                 followSpeed -= 0.005f;
             }
-          
-           
+            if (!isTaken)
+            {
+                transform.position = new Vector3(transform.position.x, transform.position.y - 3f, transform.position.z);
+            }
+
         }
     }
    

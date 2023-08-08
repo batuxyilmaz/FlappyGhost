@@ -21,11 +21,11 @@ public class CamFollowplayer : MonoBehaviour
             {
                 if(GameManager.instance.playerEvents.speedActive)
                 {
-                    transform.position = Vector3.Lerp(new Vector3(transform.position.x, transform.position.y, transform.position.z), new Vector3(startPos.x, followObject.transform.position.y + 2.7f, startPos.z), 15f * Time.deltaTime);
+                    transform.position = Vector3.Lerp(new Vector3(transform.position.x, transform.position.y, transform.position.z), new Vector3(startPos.x, followObject.transform.position.y +5f, startPos.z), 15f * Time.deltaTime);
                 }
                 else
                 {
-                    transform.position = Vector3.Lerp(new Vector3(transform.position.x, transform.position.y, transform.position.z), new Vector3(startPos.x, followObject.transform.position.y + 2.7f, startPos.z), 5f * Time.deltaTime);
+                    transform.position = Vector3.Lerp(new Vector3(transform.position.x, transform.position.y, transform.position.z), new Vector3(startPos.x, followObject.transform.position.y+5f, startPos.z), 5f * Time.deltaTime);
                 }
                
             }

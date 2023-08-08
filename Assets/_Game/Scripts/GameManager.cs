@@ -9,6 +9,7 @@ using Unity.VisualScripting;
 using Unity.IO.LowLevel.Unsafe;
 using UnityEngine.EventSystems;
 
+
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
@@ -47,13 +48,13 @@ public class GameManager : MonoBehaviour
     public AudioSource failSound;
     public AudioSource speedUiSound;
     public AudioSource flySound;
-
+    
     public InputField input;
     [SerializeField] private int leadTextCount;
 
-    [SerializeField] string filename;
+    
 
-    List<InputEntry> entries = new List<InputEntry>();
+   
 
     private void Awake()
     {
@@ -64,8 +65,14 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
-        entries = SaveObjets.ReadListFromJSON<InputEntry>(filename);
-        //  scores=new List<int>();
+        
+        texts = PlayerPrefsExtra.GetList<string>("LeadTexts", new List<string>());
+        scores = PlayerPrefsExtra.GetList<int>("LeadScores", new List<int>());
+        for (int i = 0; i < scores.Count; i++)
+        {
+            UiManager.instance.leadTexts[i].gameObject.SetActive(true);
+            UiManager.instance.leadTexts[i].GetComponent<LeadControl>().filled = true;
+        }
         tutId = PlayerPrefs.GetInt("TutId");
         if (tutId >= 1)
         {
@@ -115,11 +122,26 @@ public class GameManager : MonoBehaviour
     {
        
         ingamePanel.SetActive(false);
-        if (leadTextCount >= 10)
+      
+        if (scores.Count >= 9)
         {
-            input.gameObject.SetActive(false);
+            for (int i = 0; i < UiManager.instance.leadTexts.Count; i++)
+            {
+                if (highScore > scores[i])
+                {
+                    scores[i] = highScore;
+                    PlayerPrefsExtra.SetList("LeadScores", scores);
+                    texts[i]=input.text;
+                    PlayerPrefsExtra.SetList("LeadTexts", texts);
+                }
+            }
+            Sort();
         }
-        texts.Add(input.text);
+        else
+        {
+            texts.Add(input.text);
+            PlayerPrefsExtra.SetList("LeadTexts", texts);
+        }
        
        
         for (int i = 0; i < UiManager.instance.leadTexts.Count; i++)
@@ -161,17 +183,16 @@ public class GameManager : MonoBehaviour
         speedUiSound.mute = false;
     }
    public void AddData()
-    {
-
+   {
+      
         OpenEndGame();
         scores.Add(highScore);
-        AddNameToList();
-
+        PlayerPrefsExtra.SetList("LeadScores", scores);
         Sort();
         UiManager.instance.namePanel.SetActive(false);
        
 
-    }
+   }
     private void Sort()
     {
       
@@ -207,12 +228,6 @@ public class GameManager : MonoBehaviour
         }
       
     }
-    public void AddNameToList()
-    {
-        entries.Add(new InputEntry(input.text,highScore));
-        input.text = "";
-
-        SaveObjets.SaveToJSON<InputEntry>(entries, filename);
-    }
+  
 
 }

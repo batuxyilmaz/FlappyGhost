@@ -84,7 +84,7 @@ public class PlayerMovement : MonoBehaviour
             if(holdTimer > 0.5f)
             {
                 holdTimer = 0f;
-                if (currentSpeed <= 25)
+                if (currentSpeed <= 40)
                 {
                     currentSpeed += 0.4f;
                     speedLimit += 0.4f;
