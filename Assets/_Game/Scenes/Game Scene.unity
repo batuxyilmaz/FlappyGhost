@@ -11065,6 +11065,7 @@ MonoBehaviour:
   openObject: {fileID: 43216925}
   scores: 
   texts: []
+  savedObjects: []
   tutId: 0
   highScore: 0
   point: 0
@@ -11081,6 +11082,7 @@ MonoBehaviour:
   flySound: {fileID: 1783215964}
   input: {fileID: 437406637}
   leadTextCount: 0
+  filename: 
 --- !u!114 &1192160751
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11127,8 +11129,8 @@ MonoBehaviour:
   - {fileID: 7722838458963085057, guid: e17f0c96fdb4c394eb3fcdc907301dbe, type: 3}
   randomMinX: -6.7
   randomMaxX: 6.7
-  randomMinY: 9
-  randomMaxY: 10
+  randomMinY: 10
+  randomMaxY: 11
   spawnCount: 0
   bgsCurrentCount: 0
   currentCoins: []
@@ -13848,7 +13850,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 9ab69d9d9859d9541a4ff406ea538ae9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d95ac2432eb67ea44a5af37142200016, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
