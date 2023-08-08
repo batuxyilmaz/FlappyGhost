@@ -35,6 +35,7 @@ public class CoinCollision : MonoBehaviour
                 PlayerPrefs.SetInt("Point", GameManager.instance.point);
                 coinEffect.transform.parent = null;
                 coinEffect.Play();
+                Destroy( coinEffect,1.5f);
                 transform.gameObject.SetActive(false);
             }
             

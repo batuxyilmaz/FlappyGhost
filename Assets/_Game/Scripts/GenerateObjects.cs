@@ -99,14 +99,14 @@ public class GenerateObjects : MonoBehaviour
         }
       
     }
-    public void GenerateGif() 
+    public void GenerateGif()
 
     {
         float randomPosX = Random.Range(randomMinX, randomMaxX);
         GameObject Gif = Instantiate(gifs[gifCount], new Vector3(randomPosX, GameManager.instance.player.transform.position.y + 20f, 0), Quaternion.identity);
-      
+
     }
-   
-  
+
+
 }
 
