@@ -65,9 +65,9 @@ public class PlayerMovement : MonoBehaviour
         level = 1;
         secondLevel = 1;
         speedIncreaseValue = 0.5f;
-        changeCount = 225f;
+        changeCount = 170f;
         speedLimit = 0;
-        platformchangeCount = 120f;
+        platformchangeCount = 80f;
 
     }
     private void Update()
@@ -121,7 +121,7 @@ public class PlayerMovement : MonoBehaviour
        // ChangeLocation(offsetX, -6f, 6f);
         if (heightCount >= 1)
         {
-            if (heightCount % 25 == 0 && !onOff)
+            if (heightCount % 20 == 0 && !onOff)
             {
              
                 generateScript.GenerateBg();
@@ -159,7 +159,15 @@ public class PlayerMovement : MonoBehaviour
                     if(generateScript.bgsCurrentCount < 8)
                     {
                         generateScript.bgsCurrentCount++;
-                        changeCount += 270;
+                        if (generateScript.bgsCurrentCount >= 2)
+                        {
+                            changeCount += 240;
+                        }
+                        else
+                        {
+                            changeCount += 185;
+                        }
+                      
                     }
                  
                    
@@ -181,7 +189,15 @@ public class PlayerMovement : MonoBehaviour
 
                         generateScript.randomMinY -= 1f;
                         generateScript.randomMaxY -= 1f;
-                        platformchangeCount += 155f;
+                        if (generateScript.platformCount >= 2)
+                        {
+                            platformchangeCount += 140f;
+                        }
+                        else
+                        {
+                            platformchangeCount += 100f;
+                        }
+                       
 
                     }
               

@@ -146,7 +146,7 @@ public class UiManager : MonoBehaviour
         GameManager.instance.gamestate = GameManager.GameState.start;
         startPanel.SetActive(false);
         ingamePanel.SetActive(true);
-        GameManager.instance.eyeObject.SetActive(true);
+        //GameManager.instance.eyeObject.SetActive(true);
         if (GameManager.instance.tutId <= 0)
         {
             StartCoroutine(TutorialOpen());

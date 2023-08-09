@@ -49,12 +49,7 @@ public class GenerateObjects : MonoBehaviour
             Platform = Instantiate(platforms[platformCount], new Vector3(randomPosX, currentPlatform.transform.position.y + randomPosY, platforms[platformCount].transform.position.z), transform.rotation);
             GameObject Sugar = Instantiate(sugars[sugarCount], new Vector3(randomSugarPosX, Platform.transform.position.y + 5f, Platform.transform.position.z), transform.rotation);
             currentCoins.Add(Sugar);
-            Sugar.GetComponent<MoveCoin>().speed += 0.2f;
-         
-       
-           
-
-            Platform.GetComponent<PlatformMove>().speed += 0.2f;
+        
             currentPlatform = Platform;
 
         }
