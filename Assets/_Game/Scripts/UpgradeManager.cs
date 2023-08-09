@@ -121,6 +121,7 @@ public class UpgradeManager : MonoBehaviour
             Invoke("StatButton", 1f);
             DOTween.Restart("CloseUpgrade");
             upgradeActive = false;
+            UiManager.instance.startButton.GetComponent<Animator>().enabled = true;
             UiManager.instance.tut.SetActive(false);
             UiManager.instance.tutId = 1;
             PlayerPrefs.SetInt("TutIdUp", UiManager.instance.tutId);

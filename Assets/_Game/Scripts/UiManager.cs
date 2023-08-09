@@ -43,6 +43,7 @@ public class UiManager : MonoBehaviour
     public GameObject tut;
     public List<GameObject> tuts;
     public int tutId;
+    public GameObject startButton;
     private void Awake()
     {
         instance = this;
@@ -59,6 +60,7 @@ public class UiManager : MonoBehaviour
             if (GameManager.instance.firstPlayed)
             {
                 tut.SetActive(true);
+                startButton.GetComponent<Animator>().enabled = false;
             }
         }
       
@@ -67,6 +69,7 @@ public class UiManager : MonoBehaviour
     {
         if (!tut.activeSelf)
         {
+          
             DOTween.Restart("Click");
             GameManager.instance.startSound.Play();
             StartCoroutine(StartButton());
