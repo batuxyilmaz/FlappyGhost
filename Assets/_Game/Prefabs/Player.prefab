@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5145712593246683257}
   - component: {fileID: 7758154207768004598}
   m_Layer: 0
-  m_Name: ghost_body
+  m_Name: Cube.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24886,7 +24886,7 @@ GameObject:
   - component: {fileID: 7157622880088626665}
   - component: {fileID: 6473091652907082201}
   m_Layer: 0
-  m_Name: ghost_tounge
+  m_Name: Cube.006
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34942,7 +34942,7 @@ GameObject:
   - component: {fileID: 6650305799102517210}
   - component: {fileID: 2252295909792139516}
   m_Layer: 0
-  m_Name: ghost_eye_1
+  m_Name: Cube.004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -35032,7 +35032,7 @@ SkinnedMeshRenderer:
   - 0
   - 0
   - 0
-  - 100
+  - 0
   m_RootBone: {fileID: 2298793444941878654}
   m_AABB:
     m_Center: {x: -0.0030604396, y: 0.005135374, z: 0.00641418}
@@ -35329,7 +35329,7 @@ GameObject:
   - component: {fileID: 2297309456454407098}
   - component: {fileID: 4178958795701781904}
   m_Layer: 0
-  m_Name: ghost_eye_2
+  m_Name: Cube.005
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -40295,7 +40295,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7008714443409075069
 Transform:
   m_ObjectHideFlags: 0
