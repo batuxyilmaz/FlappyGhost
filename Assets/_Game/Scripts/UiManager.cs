@@ -40,15 +40,38 @@ public class UiManager : MonoBehaviour
     public bool soundActive;
     public bool hapticActive;
     public Button upgradeButton;
+    public GameObject tut;
+    public List<GameObject> tuts;
+    public int tutId;
     private void Awake()
     {
         instance = this;
     }
+    private void Start()
+    {
+        tutId = PlayerPrefs.GetInt("TutIdUp");
+        if (tutId >= 1)
+        {
+            tut.SetActive(false);
+        }
+        else
+        {
+            if (GameManager.instance.firstPlayed)
+            {
+                tut.SetActive(true);
+            }
+        }
+      
+    }
     public void StartGame()
     {
-        DOTween.Restart("Click");
-        GameManager.instance.startSound.Play();
-        StartCoroutine(StartButton());
+        if (!tut.activeSelf)
+        {
+            DOTween.Restart("Click");
+            GameManager.instance.startSound.Play();
+            StartCoroutine(StartButton());
+        }
+     
       
     }
     public void NextEnd()
@@ -188,6 +211,7 @@ public class UiManager : MonoBehaviour
     private void UpgradeButton()
     {
         upgradeButton.gameObject.SetActive(true);
+    
     }
    
 

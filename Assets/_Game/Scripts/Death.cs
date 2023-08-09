@@ -18,7 +18,8 @@ public class Death : MonoBehaviour
                 PlayerMovement.instance.hitEffect.Play();
                 PlayerMovement.instance.hitEffect.transform.parent = null;
                 GameManager.instance.End();
-                //collision.transform.parent.transform.GetChild(0).transform.DOScaleY(0.11f, 0.2f).SetEase(Ease.OutSine);
+                GameManager.instance.firstId = 1;
+                PlayerPrefs.SetInt("FirstId", GameManager.instance.firstId);
                 PlayerMovement.instance.isFalling = true;
                 for (int i = 0; i < GameManager.instance.closedThings.Count; i++)
                 {

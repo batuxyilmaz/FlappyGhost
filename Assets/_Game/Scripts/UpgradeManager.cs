@@ -54,6 +54,11 @@ public class UpgradeManager : MonoBehaviour
     }
     public void UpgradeMagnet()
     {
+        if (GameManager.instance.firstPlayed)
+        {
+            UiManager.instance.tuts[1].SetActive(false);
+            UiManager.instance.tuts[2].SetActive(true);
+        }
         if (GameManager.instance.point >=magnetCandyValue )
         {
             GameManager.instance.startSound.Play();
@@ -103,7 +108,12 @@ public class UpgradeManager : MonoBehaviour
             startButton.SetActive(false);
             startButton.SetActive(false);
             upgradeActive = true;
-           
+            if (GameManager.instance.firstPlayed)
+            {
+                UiManager.instance.tuts[0].SetActive(false);
+                Invoke("TutButton", 0.8f);
+            }
+          
             return;
         }
         else
@@ -111,12 +121,21 @@ public class UpgradeManager : MonoBehaviour
             Invoke("StatButton", 1f);
             DOTween.Restart("CloseUpgrade");
             upgradeActive = false;
+            UiManager.instance.tut.SetActive(false);
+            UiManager.instance.tutId = 1;
+            PlayerPrefs.SetInt("TutIdUp", UiManager.instance.tutId);
         }
        
     }
     private void StatButton()
     {
         startButton.SetActive(true);
+    }
+    private void TutButton()
+    {
+        
+        UiManager.instance.tuts[1].SetActive(true);
+       
     }
 
 

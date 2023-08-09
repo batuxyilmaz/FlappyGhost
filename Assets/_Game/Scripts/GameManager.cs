@@ -51,7 +51,8 @@ public class GameManager : MonoBehaviour
     
     public TMP_InputField input;
     [SerializeField] private int leadTextCount;
-
+    public bool firstPlayed;
+    public int firstId;
     
 
    
@@ -65,7 +66,11 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
-        
+        firstId = PlayerPrefs.GetInt("FirstId");
+        if (firstId >= 1)
+        {
+            firstPlayed = true;
+        }
         texts = PlayerPrefsExtra.GetList<string>("LeadTexts", new List<string>());
         scores = PlayerPrefsExtra.GetList<int>("LeadScores", new List<int>());
         for (int i = 0; i < scores.Count; i++)
