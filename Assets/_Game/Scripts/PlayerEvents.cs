@@ -135,6 +135,8 @@ public class PlayerEvents : MonoBehaviour
             waitBoost = false;
             PlayerMovement.instance.currentSpeed = 5;
             PlayerMovement.instance.speedLimit = 0;
+            GameManager.instance.eyeAnim.SetTrigger("SpeedDown");
+            Invoke("AnimClose", 0.5f);
             DOTween.Restart("RotateSlow");
             lightningTrail.SetActive(false);
             GameManager.instance.boostSound.Stop();
@@ -213,6 +215,8 @@ public class PlayerEvents : MonoBehaviour
                 DOTween.Pause("BarFinish");
                 speedTimer = 0f;
                 DOTween.Restart("RotateFast");
+                GameManager.instance.eyeAnim.enabled = true;
+                GameManager.instance.eyeAnim.SetTrigger("SpeedUp");
                 PlayerMovement.instance.oldSpeed = PlayerMovement.instance.currentSpeed;
                 GameManager.instance.playerEvents.immunity = true;
                 UiManager.instance.speedImage.transform.Rotate(0, 0, -10f * Time.deltaTime);
@@ -224,6 +228,10 @@ public class PlayerEvents : MonoBehaviour
         }
      
        
+    }
+    private void AnimClose()
+    {
+        GameManager.instance.eyeAnim.enabled = false;
     }
     
 }

@@ -53,7 +53,7 @@ public class PlayerMovement : MonoBehaviour
     private bool soundStart;
     public Animator mainAnim;
     public float speedLimit;
-   
+    private float eyechangeValue;
     private void Awake()
     {
         instance = this;
@@ -65,7 +65,7 @@ public class PlayerMovement : MonoBehaviour
         level = 1;
         secondLevel = 1;
         speedIncreaseValue = 0.5f;
-        changeCount = 220f;
+        changeCount = 225f;
         speedLimit = 0;
         platformchangeCount = 120f;
 
@@ -90,6 +90,7 @@ public class PlayerMovement : MonoBehaviour
                 {
                     currentSpeed += 0.4f;
                     speedLimit += 0.4f;
+                    //eyechangeValue += 2;
                 }
                
             }
@@ -140,7 +141,7 @@ public class PlayerMovement : MonoBehaviour
                 if(!onOff)
                 {
                     StartCoroutine(Delay());
-                    Debug.Log("BÝTT");
+                  
                     generateScript.bgsCurrentCount = 0;
                     generateScript.platformCount = 0;
                     generateScript.sugarCount = 0;
@@ -180,7 +181,7 @@ public class PlayerMovement : MonoBehaviour
 
                         generateScript.randomMinY -= 1f;
                         generateScript.randomMaxY -= 1f;
-                        platformchangeCount += 120f;
+                        platformchangeCount += 155f;
 
                     }
               
@@ -208,6 +209,16 @@ public class PlayerMovement : MonoBehaviour
                 {
                     currentSpeed -= 4f * Time.deltaTime*2;
                     speedLimit -= 4f * Time.deltaTime * 2;
+                    GameManager.instance.eyeTop.SetBlendShapeWeight(0, eyechangeValue);
+                    GameManager.instance.eyeTop.SetBlendShapeWeight(1, eyechangeValue);
+                    GameManager.instance.eyeBottom.SetBlendShapeWeight(0, eyechangeValue);
+                    GameManager.instance.eyeBottom.SetBlendShapeWeight(1, eyechangeValue);
+                    GameManager.instance.eyeMain.SetBlendShapeWeight(0, eyechangeValue);
+                    if (GameManager.instance.eyeBottom.GetBlendShapeWeight(0)>= 0)
+                    {
+                        eyechangeValue -= 0.5f;
+                    }
+               
                     if (UiManager.instance.speedImage.transform.rotation.z < 120f && GameManager.instance.gamestate == GameManager.GameState.start)
                     {
                         DOTween.Restart("RotateNormal");
@@ -326,8 +337,19 @@ public class PlayerMovement : MonoBehaviour
                 {
                     if (!GameManager.instance.playerEvents.speedActive)
                     {
+                     
                         transform.Translate(0, currentSpeed * Time.deltaTime, 0); //Ascend
                         UiManager.instance.speedImage.transform.Rotate(0, 0, -4f * Time.deltaTime);
+                        GameManager.instance.eyeTop.SetBlendShapeWeight(0, eyechangeValue);
+                        GameManager.instance.eyeTop.SetBlendShapeWeight(1, eyechangeValue);
+                        GameManager.instance.eyeBottom.SetBlendShapeWeight(0, eyechangeValue);
+                        GameManager.instance.eyeBottom.SetBlendShapeWeight(1, eyechangeValue);
+                        GameManager.instance.eyeMain.SetBlendShapeWeight(0, eyechangeValue);
+                        if (GameManager.instance.eyeTop.GetBlendShapeWeight(0) <= 100)
+                        {
+                            eyechangeValue += 0.01f;
+                        }
+
 
                     }
                 }

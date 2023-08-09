@@ -69,7 +69,7 @@ public class UiManager : MonoBehaviour
     {
         if (!tut.activeSelf)
         {
-          
+            
             DOTween.Restart("Click");
             GameManager.instance.startSound.Play();
             StartCoroutine(StartButton());
@@ -146,6 +146,7 @@ public class UiManager : MonoBehaviour
         GameManager.instance.gamestate = GameManager.GameState.start;
         startPanel.SetActive(false);
         ingamePanel.SetActive(true);
+        GameManager.instance.eyeObject.SetActive(true);
         if (GameManager.instance.tutId <= 0)
         {
             StartCoroutine(TutorialOpen());

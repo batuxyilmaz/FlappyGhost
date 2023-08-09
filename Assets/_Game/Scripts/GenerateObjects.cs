@@ -41,7 +41,7 @@ public class GenerateObjects : MonoBehaviour
     public void GeneratePlatform(GameObject Platform)
     {
 
-        for (int i = 0; i < 10; i++)
+        for (int i = 0; i < 11; i++)
         {
             float randomPosX = Random.Range(randomMinX, randomMaxX);
             float randomSugarPosX = Random.Range(randomMinX, randomMaxX);
