@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour
     public GameObject blurPanel;
     public GameObject tutorial;
     public List<GameObject> closedThings;
+    public List<GameObject> trophyUi;
     public GameObject openObject;
     public List<int> scores;
     public List<string> texts;
@@ -53,8 +54,12 @@ public class GameManager : MonoBehaviour
     [SerializeField] private int leadTextCount;
     public bool firstPlayed;
     public int firstId;
-    
 
+    public int firstPlace;
+    public int secondPlace;
+    public int thirdPlace;
+    public int fourthPlace;
+    public int fifthPlace;
    
 
     private void Awake()
@@ -90,7 +95,6 @@ public class GameManager : MonoBehaviour
     }
   
 
-
     public enum GameState
     {
         start,
@@ -125,9 +129,33 @@ public class GameManager : MonoBehaviour
     }
     public void OpenEndGame()
     {
-       
+        
         ingamePanel.SetActive(false);
-      
+        if (highScore <= fifthPlace)
+        {
+            trophyUi[4].SetActive(true);
+            //ui 5.;
+        }
+        else if(highScore>fifthPlace && highScore <= fourthPlace)
+        {
+            //ui 4.
+            trophyUi[3].SetActive(true);
+        }
+        else if (highScore > fourthPlace && highScore <= thirdPlace)
+        {
+            //ui 3.
+            trophyUi[2].SetActive(true);
+        }
+        else if (highScore > thirdPlace && highScore <= secondPlace)
+        {
+            //ui 2.
+            trophyUi[1].SetActive(true);
+        }
+        else
+        {
+            trophyUi[0].SetActive(true);
+        }
+
         //if (scores.Count >= 9)
         //{
         //    for (int i = 0; i < UiManager.instance.leadTexts.Count; i++)
@@ -147,8 +175,8 @@ public class GameManager : MonoBehaviour
         //    texts.Add(input.text);
         //    PlayerPrefsExtra.SetList("LeadTexts", texts);
         //}
-       
-       
+
+
         //for (int i = 0; i < UiManager.instance.leadTexts.Count; i++)
         //{
         //    if (!UiManager.instance.leadTexts[i].gameObject.activeSelf)
