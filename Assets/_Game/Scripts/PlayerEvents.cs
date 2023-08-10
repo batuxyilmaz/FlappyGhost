@@ -266,7 +266,7 @@ public class PlayerEvents : MonoBehaviour
                 GameManager.instance.playerEvents.immunity = true;
               
                 PlayerMovement.instance.currentSpeed = increaseValue;
-                GameManager.instance.speedText.text = Mathf.RoundToInt(PlayerMovement.instance.currentSpeed*4).ToString();
+                GameManager.instance.speedText.text = Mathf.RoundToInt(PlayerMovement.instance.currentSpeed*4).ToString()+" "+"km";
                 PlayerMovement.instance.newSpeed = PlayerMovement.instance.currentSpeed;
 
             }

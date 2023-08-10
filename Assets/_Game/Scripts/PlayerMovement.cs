@@ -77,7 +77,7 @@ public class PlayerMovement : MonoBehaviour
         if(!GameManager.instance.playerEvents.speedActive && GameManager.instance.gamestate==GameManager.GameState.start)
         {
             
-            GameManager.instance.speedText.text = Mathf.RoundToInt(speedLimit*4).ToString();
+            GameManager.instance.speedText.text = Mathf.RoundToInt(speedLimit*4).ToString()+" "+"km";
            
         }
    
