@@ -35,6 +35,7 @@ public class PlayerEvents : MonoBehaviour
     public float barIncreaseValue;
     public GameObject spawnPos;
     private Collider playerCol;
+    public GameObject clothes;
     private void Awake()
     {
      
@@ -135,7 +136,7 @@ public class PlayerEvents : MonoBehaviour
             waitBoost = false;
             PlayerMovement.instance.currentSpeed = 5;
             PlayerMovement.instance.speedLimit = 0;
-            gameObject.transform.GetChild(9).gameObject.SetActive(false);
+            clothes.SetActive(false);
             StartCoroutine(SpeedDown());
         
             lightningTrail.SetActive(false);
@@ -162,20 +163,28 @@ public class PlayerEvents : MonoBehaviour
     {
         yield return new WaitForSeconds(0.4f);
         transform.GetChild(0).GetChild(0).gameObject.SetActive(false);
+        clothes.SetActive(false);
         yield return new WaitForSeconds(fadeValue);
         transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
+        clothes.SetActive(true);
         yield return new WaitForSeconds(fadeValue);
         transform.GetChild(0).GetChild(0).gameObject.SetActive(false);
+        clothes.SetActive(false);
         yield return new WaitForSeconds(fadeValue);
         transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
+        clothes.SetActive(true);
         yield return new WaitForSeconds(fadeValue);
         transform.GetChild(0).GetChild(0).gameObject.SetActive(false);
+        clothes.SetActive(false);
         yield return new WaitForSeconds(fadeValue);
         transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
+        clothes.SetActive(true);
         yield return new WaitForSeconds(fadeValue);
         transform.GetChild(0).GetChild(0).gameObject.SetActive(false);
+        clothes.SetActive(false);
         yield return new WaitForSeconds(fadeValue);
         transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
+        clothes.SetActive(true);
 
     }
 
@@ -198,7 +207,7 @@ public class PlayerEvents : MonoBehaviour
         {
             if (UiManager.instance.speedbarImage.fillAmount >= 0.99f)
             {
-                gameObject.transform.GetChild(9).gameObject.SetActive(true);
+                clothes.SetActive(true);
                 GameManager.instance.speedUiSound.Play();
                 playerCol.enabled = false;
                 UiManager.instance.fadeText.SetActive(true);
