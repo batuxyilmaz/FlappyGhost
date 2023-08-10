@@ -53,7 +53,9 @@ public class PlayerMovement : MonoBehaviour
     private bool soundStart;
     public Animator mainAnim;
     public float speedLimit;
-    private float eyechangeValue;
+    private float eyechangeTimer;
+    public int eyeChangeValue;
+    
     private void Awake()
     {
         instance = this;
@@ -90,7 +92,6 @@ public class PlayerMovement : MonoBehaviour
                 {
                     currentSpeed += 0.4f;
                     speedLimit += 0.4f;
-                    //eyechangeValue += 2;
                 }
                
             }
@@ -118,14 +119,14 @@ public class PlayerMovement : MonoBehaviour
             changeValue.text = level.ToString();
            
         }
-       // ChangeLocation(offsetX, -6f, 6f);
+   
         if (heightCount >= 1)
         {
             if (heightCount % 30 == 0 && !onOff)
             {
              
                 generateScript.GenerateBg();
-               // generateScript.GeneratePlatform(generateScript.platforms[generateScript.platformCount]);
+          
                 StartCoroutine(Delay());
             }
    
@@ -143,9 +144,7 @@ public class PlayerMovement : MonoBehaviour
                     StartCoroutine(Delay());
                   
                     generateScript.bgsCurrentCount = 0;
-                    //generateScript.platformCount = 0;
-                    //generateScript.sugarCount = 0;
-                    //generateScript.gifCount = 0;
+                 
                 }
              
 
@@ -164,10 +163,7 @@ public class PlayerMovement : MonoBehaviour
                         {
                            
                         }
-                        //else
-                        //{
-                        //    changeCount += 185;
-                        //}
+                       
                       
                     }
                  
@@ -176,43 +172,7 @@ public class PlayerMovement : MonoBehaviour
        
             
             }
-            //if (transform.position.y >= platformchangeCount)
-            //{
-            //    if (!onOff)
-            //    {
-            //        StartCoroutine(Delay());
-            //        if (generateScript.platformCount < 4)
-            //        {
-
-            //            generateScript.platformCount++;
-            //            generateScript.sugarCount++;
-            //            generateScript.gifCount++;
-
-            //            generateScript.randomMinY -= 1f;
-            //            generateScript.randomMaxY -= 1f;
-            //            if (generateScript.platformCount >= 2)
-            //            {
-            //                platformchangeCount += 140f;
-            //            }
-            //            else
-            //            {
-            //                platformchangeCount += 100f;
-            //            }
-                       
-
-            //        }
-              
-            //    }
-
-
-            //}
-            //if (heightCount % 50 == 0 && !onOff)
-            //{
-            //    StartCoroutine(Delay());
-            //    generateScript.GenerateGif();
-             
-
-            //}
+          
 
 
         }
@@ -222,34 +182,31 @@ public class PlayerMovement : MonoBehaviour
             if (!GameManager.instance.playerEvents.speedActive )
             {
                 transform.Translate(0, -currentSpeed / 2 * Time.deltaTime, 0); //Decent
+                eyechangeTimer += Time.deltaTime;
+                if (eyechangeTimer >= 0.25f)
+                {
+                    GameManager.instance.eyeObject.transform.GetChild(eyeChangeValue).gameObject.SetActive(false);
+                    if (eyeChangeValue > 0)
+                    {
+                        eyeChangeValue--;
+                    }
+                 
+                    GameManager.instance.eyeObject.transform.GetChild(eyeChangeValue).gameObject.SetActive(true);
+                    eyechangeTimer = 0;
+                }
                 if (currentSpeed >= 5f)
                 {
                     currentSpeed -= 4f * Time.deltaTime*2;
                     speedLimit -= 4f * Time.deltaTime * 2;
-                    GameManager.instance.eyeTop.SetBlendShapeWeight(0, eyechangeValue);
-                    GameManager.instance.eyeTop.SetBlendShapeWeight(1, eyechangeValue);
-                    GameManager.instance.eyeBottom.SetBlendShapeWeight(0, eyechangeValue);
-                    GameManager.instance.eyeBottom.SetBlendShapeWeight(1, eyechangeValue);
-                    GameManager.instance.eyeMain.SetBlendShapeWeight(0, eyechangeValue);
-                    if (GameManager.instance.eyeBottom.GetBlendShapeWeight(0)>= 0)
-                    {
-                        eyechangeValue -= 0.5f;
-                    }
+                    
+                    
                
-                    if (UiManager.instance.speedImage.transform.rotation.z < 120f && GameManager.instance.gamestate == GameManager.GameState.start)
-                    {
-                        DOTween.Restart("RotateNormal");
-                       // UiManager.instance.speedImage.transform.Rotate(0, 0, +15f * Time.deltaTime*2);
-                    }
+                  
                   
                 }
 
 
-                //UiManager.instance.barImage.fillAmount -= Time.deltaTime / 20;
-                //if (UiManager.instance.ghostImage.rectTransform.anchoredPosition.y >= -234f)
-                //{
-                //    UiManager.instance.ghostImage.rectTransform.Translate(-24 * Time.deltaTime, 0, 0);
-                //}
+               
 
             }
         }
@@ -330,25 +287,8 @@ public class PlayerMovement : MonoBehaviour
               
                 holding = true;
                 slidetimer += Time.deltaTime;
-                //if(GameManager.instance.playerEvents.speedActive)
-                //{
-                //    if (currentSpeed >= 20)
-                //    {
-                //        UiManager.instance.barImage.fillAmount += Time.deltaTime / 20 * 5;
-                //        UiManager.instance.ghostImage.rectTransform.Translate(120 * Time.deltaTime, 0, 0);
-                //    }
-                //    else
-                //    {
-                //        UiManager.instance.barImage.fillAmount += Time.deltaTime / 20 * 3;
-                //        UiManager.instance.ghostImage.rectTransform.Translate(72 * Time.deltaTime, 0, 0);
-                //    }
-                  
-                //}
-                //else
-                //{
-                //    UiManager.instance.barImage.fillAmount += Time.deltaTime / 20;
-                //    UiManager.instance.ghostImage.rectTransform.Translate(24 * Time.deltaTime, 0, 0);
-                //}
+               
+
               
                 if (!isFalling)
                 {
@@ -356,17 +296,20 @@ public class PlayerMovement : MonoBehaviour
                     {
                      
                         transform.Translate(0, currentSpeed * Time.deltaTime, 0); //Ascend
-                        UiManager.instance.speedImage.transform.Rotate(0, 0, -4f * Time.deltaTime);
-                        GameManager.instance.eyeTop.SetBlendShapeWeight(0, eyechangeValue);
-                        GameManager.instance.eyeTop.SetBlendShapeWeight(1, eyechangeValue);
-                        GameManager.instance.eyeBottom.SetBlendShapeWeight(0, eyechangeValue);
-                        GameManager.instance.eyeBottom.SetBlendShapeWeight(1, eyechangeValue);
-                        GameManager.instance.eyeMain.SetBlendShapeWeight(0, eyechangeValue);
-                        if (GameManager.instance.eyeTop.GetBlendShapeWeight(0) <= 100)
-                        {
-                            eyechangeValue += 0.01f;
-                        }
+                        
 
+                        eyechangeTimer += Time.deltaTime;
+                        if (eyechangeTimer >= 1.6f)
+                        {
+                            GameManager.instance.eyeObject.transform.GetChild(eyeChangeValue).gameObject.SetActive(false);
+                            if (eyeChangeValue <= 28)
+                            {
+                                eyeChangeValue++;
+                            }
+                          
+                            GameManager.instance.eyeObject.transform.GetChild(eyeChangeValue).gameObject.SetActive(true);
+                            eyechangeTimer = 0;
+                        }
 
                     }
                 }
@@ -411,30 +354,7 @@ public class PlayerMovement : MonoBehaviour
         }
       
     }
-    //private void ChangeLocation(float positionX, float leftPos, float rightPos)
-    //{
-
-    //    positionX = transform.position.x;
-
-    //    if (positionX <= -9f)
-    //    {
-    //        StartCoroutine(ChangeChange());
-    //        transform.position = new Vector3(rightPos, transform.position.y, transform.position.z);
-    //    }
-    //    if (positionX >= 9f)
-    //    {
-    //        StartCoroutine(ChangeChange());
-    //        transform.position = new Vector3(leftPos, transform.position.y, transform.position.z);
-    //    }
-    //}
-    //IEnumerator ChangeChange()
-    //{
-    //    changed = true;
-    //    trail.GetComponent<ParticleSystem>().Stop();
-    //    yield return new WaitForSeconds(0.5f);
-    //    changed = false;
-    //    trail.GetComponent<ParticleSystem>().Play();
-    //}
+   
     IEnumerator Delay()
     {
         onOff = true;

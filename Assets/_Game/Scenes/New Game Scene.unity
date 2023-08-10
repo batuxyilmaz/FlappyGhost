@@ -139,7 +139,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &36484065
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9467,7 +9467,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &910253299
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11418,10 +11418,6 @@ MonoBehaviour:
   fourthPlace: 600
   fifthPlace: 300
   eyeObject: {fileID: 1392220137}
-  eyeAnim: {fileID: 1392220135}
-  eyeMain: {fileID: 0}
-  eyeTop: {fileID: 0}
-  eyeBottom: {fileID: 0}
 --- !u!114 &1192160751
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13497,17 +13493,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Eye_Animation
       objectReference: {fileID: 0}
+    - target: {fileID: 6931582177931673196, guid: 3de6d2cebffbc06499ee61541cc82682, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9207983038789166274, guid: 3de6d2cebffbc06499ee61541cc82682, type: 3}
       propertyPath: m_RootOrder
       value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 9207983038789166274, guid: 3de6d2cebffbc06499ee61541cc82682, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.03
+      value: 0.23
       objectReference: {fileID: 0}
     - target: {fileID: 9207983038789166274, guid: 3de6d2cebffbc06499ee61541cc82682, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.2199999
+      value: -10.84
       objectReference: {fileID: 0}
     - target: {fileID: 9207983038789166274, guid: 3de6d2cebffbc06499ee61541cc82682, type: 3}
       propertyPath: m_LocalPosition.z
@@ -13546,11 +13546,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3de6d2cebffbc06499ee61541cc82682, type: 3}
---- !u!95 &1392220135 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 7459669570563451681, guid: 3de6d2cebffbc06499ee61541cc82682, type: 3}
-  m_PrefabInstance: {fileID: 1392220134}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1392220136 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9207983038789166274, guid: 3de6d2cebffbc06499ee61541cc82682, type: 3}
@@ -37304,7 +37299,6 @@ MonoBehaviour:
   barImage: {fileID: 576211148}
   ghostImage: {fileID: 1160769201}
   speedbarImage: {fileID: 383752043}
-  speedImage: {fileID: 0}
   clickedObject: {fileID: 0}
   startPanel: {fileID: 910253298}
   upgradePanel: {fileID: 7004034436673142552}

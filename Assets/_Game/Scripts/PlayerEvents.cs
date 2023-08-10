@@ -135,9 +135,9 @@ public class PlayerEvents : MonoBehaviour
             waitBoost = false;
             PlayerMovement.instance.currentSpeed = 5;
             PlayerMovement.instance.speedLimit = 0;
-            GameManager.instance.eyeAnim.SetTrigger("SpeedDown");
-            Invoke("AnimClose", 0.5f);
-            DOTween.Restart("RotateSlow");
+            gameObject.transform.GetChild(9).gameObject.SetActive(false);
+            StartCoroutine(SpeedDown());
+        
             lightningTrail.SetActive(false);
             GameManager.instance.boostSound.Stop();
           
@@ -198,13 +198,14 @@ public class PlayerEvents : MonoBehaviour
         {
             if (UiManager.instance.speedbarImage.fillAmount >= 0.99f)
             {
+                gameObject.transform.GetChild(9).gameObject.SetActive(true);
                 GameManager.instance.speedUiSound.Play();
                 playerCol.enabled = false;
                 UiManager.instance.fadeText.SetActive(true);
                 GameObject FadeText=Instantiate(UiManager.instance.fadeText, spawnPos.transform.position, Quaternion.identity);
                 FadeText.transform.parent = spawnPos.transform;
                 Destroy(FadeText, 2f);
-                //barIncreaseValue -= 0.005f;
+              
                 speedActive = true;
                 waitBoost = true;
                 DOTween.Restart("BarFinish");
@@ -214,12 +215,22 @@ public class PlayerEvents : MonoBehaviour
                 lightningTrail.SetActive(true);
                 DOTween.Pause("BarFinish");
                 speedTimer = 0f;
-                DOTween.Restart("RotateFast");
-                GameManager.instance.eyeAnim.enabled = true;
-                GameManager.instance.eyeAnim.SetTrigger("SpeedUp");
+             
+                for (int i = 0; i < 10; i++)
+                {
+                    yield return new WaitForSeconds(0.1f);
+                    GameManager.instance.eyeObject.transform.GetChild(PlayerMovement.instance.eyeChangeValue).gameObject.SetActive(false);
+                    if (PlayerMovement.instance.eyeChangeValue <= 28)
+                    {
+                        PlayerMovement.instance.eyeChangeValue++;
+                    }
+                   
+                    GameManager.instance.eyeObject.transform.GetChild(PlayerMovement.instance.eyeChangeValue).gameObject.SetActive(true);
+                }
+
                 PlayerMovement.instance.oldSpeed = PlayerMovement.instance.currentSpeed;
                 GameManager.instance.playerEvents.immunity = true;
-                UiManager.instance.speedImage.transform.Rotate(0, 0, -10f * Time.deltaTime);
+              
                 PlayerMovement.instance.currentSpeed = increaseValue;
                 GameManager.instance.speedText.text = Mathf.RoundToInt(PlayerMovement.instance.currentSpeed*4).ToString();
                 PlayerMovement.instance.newSpeed = PlayerMovement.instance.currentSpeed;
@@ -229,9 +240,20 @@ public class PlayerEvents : MonoBehaviour
      
        
     }
-    private void AnimClose()
+    public IEnumerator SpeedDown()
     {
-        GameManager.instance.eyeAnim.enabled = false;
+        for (int i = 0; i < 30; i++)
+        {
+            yield return new WaitForSeconds(0.05f);
+            GameManager.instance.eyeObject.transform.GetChild(PlayerMovement.instance.eyeChangeValue).gameObject.SetActive(false);
+            if (PlayerMovement.instance.eyeChangeValue > 0)
+            {
+                PlayerMovement.instance.eyeChangeValue--;
+            }
+
+            GameManager.instance.eyeObject.transform.GetChild(PlayerMovement.instance.eyeChangeValue).gameObject.SetActive(true);
+        }
     }
+ 
     
 }

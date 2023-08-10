@@ -21,7 +21,6 @@ public class UiManager : MonoBehaviour
     public Image barImage;
     public Image ghostImage;
     public Image speedbarImage;
-    public GameObject speedImage;
     public GameObject clickedObject;
     public GameObject startPanel;
     public GameObject upgradePanel;

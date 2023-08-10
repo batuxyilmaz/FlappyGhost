@@ -61,10 +61,7 @@ public class GameManager : MonoBehaviour
     public int fourthPlace;
     public int fifthPlace;
     public GameObject eyeObject;
-    public Animator eyeAnim;
-    public SkinnedMeshRenderer eyeMain;
-    public SkinnedMeshRenderer eyeTop;
-    public SkinnedMeshRenderer eyeBottom;
+  
 
     private void Awake()
     {
@@ -75,10 +72,7 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
-        eyeMain = eyeObject.transform.GetChild(0).GetComponent<SkinnedMeshRenderer>();
-        eyeTop = eyeObject.transform.GetChild(1).GetComponent<SkinnedMeshRenderer>();
-        eyeBottom = eyeObject.transform.GetChild(2).GetComponent<SkinnedMeshRenderer>();
-        eyeAnim = eyeObject.GetComponent<Animator>();
+     
         firstId = PlayerPrefs.GetInt("FirstId");
         if (firstId >= 1)
         {
