@@ -57,22 +57,29 @@ public class GenerateObjects : MonoBehaviour
     //}
     public void GenerateBg()
     {
+        int randomChild = Random.Range(0, 3);
         if (spawnCount >= 2)
         {
+
             if (bgsCurrentCount == 1|| bgsCurrentCount == 3 || bgsCurrentCount == 5 || bgsCurrentCount == 7)
             {
                 GameObject BGs = Instantiate(bgs[bgsCurrentCount], new Vector3(bg.transform.position.x, bg.transform.position.y + spawnHeight, bg.transform.position.z), Quaternion.identity);
                 bgsCurrentCount++;
+                
             }
             else
             {
                 GameObject BGs = Instantiate(bgs[bgsCurrentCount], new Vector3(bg.transform.position.x, bg.transform.position.y + spawnHeight, bg.transform.position.z), Quaternion.identity);
+                BGs.transform.GetChild(0).gameObject.SetActive(false);
+                BGs.transform.GetChild(randomChild).gameObject.SetActive(true);
             }
         }
             
         else
         {
             GameObject BG = Instantiate(bg, new Vector3(bg.transform.position.x, bg.transform.position.y + spawnHeight, bg.transform.position.z), Quaternion.identity);
+            BG.transform.GetChild(0).gameObject.SetActive(false);
+            BG.transform.GetChild(randomChild).gameObject.SetActive(true);
         }
         spawnCount++; 
         spawnHeight += 59.38f;
