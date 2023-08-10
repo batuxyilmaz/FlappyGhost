@@ -69,10 +69,10 @@ public class UiManager : MonoBehaviour
     {
         if (!tut.activeSelf)
         {
-            
             DOTween.Restart("Click");
             GameManager.instance.startSound.Play();
             StartCoroutine(StartButton());
+            GameManager.instance.eyeObject.SetActive(true);
         }
      
       
