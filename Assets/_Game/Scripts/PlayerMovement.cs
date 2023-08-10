@@ -125,7 +125,7 @@ public class PlayerMovement : MonoBehaviour
             {
              
                 generateScript.GenerateBg();
-                generateScript.GeneratePlatform(generateScript.platforms[generateScript.platformCount]);
+               // generateScript.GeneratePlatform(generateScript.platforms[generateScript.platformCount]);
                 StartCoroutine(Delay());
             }
    
@@ -143,9 +143,9 @@ public class PlayerMovement : MonoBehaviour
                     StartCoroutine(Delay());
                   
                     generateScript.bgsCurrentCount = 0;
-                    generateScript.platformCount = 0;
-                    generateScript.sugarCount = 0;
-                    generateScript.gifCount = 0;
+                    //generateScript.platformCount = 0;
+                    //generateScript.sugarCount = 0;
+                    //generateScript.gifCount = 0;
                 }
              
 
@@ -175,43 +175,43 @@ public class PlayerMovement : MonoBehaviour
        
             
             }
-            if (transform.position.y >= platformchangeCount)
-            {
-                if (!onOff)
-                {
-                    StartCoroutine(Delay());
-                    if (generateScript.platformCount < 4)
-                    {
+            //if (transform.position.y >= platformchangeCount)
+            //{
+            //    if (!onOff)
+            //    {
+            //        StartCoroutine(Delay());
+            //        if (generateScript.platformCount < 4)
+            //        {
 
-                        generateScript.platformCount++;
-                        generateScript.sugarCount++;
-                        generateScript.gifCount++;
+            //            generateScript.platformCount++;
+            //            generateScript.sugarCount++;
+            //            generateScript.gifCount++;
 
-                        generateScript.randomMinY -= 1f;
-                        generateScript.randomMaxY -= 1f;
-                        if (generateScript.platformCount >= 2)
-                        {
-                            platformchangeCount += 140f;
-                        }
-                        else
-                        {
-                            platformchangeCount += 100f;
-                        }
+            //            generateScript.randomMinY -= 1f;
+            //            generateScript.randomMaxY -= 1f;
+            //            if (generateScript.platformCount >= 2)
+            //            {
+            //                platformchangeCount += 140f;
+            //            }
+            //            else
+            //            {
+            //                platformchangeCount += 100f;
+            //            }
                        
 
-                    }
+            //        }
               
-                }
+            //    }
 
 
-            }
-            if (heightCount % 50 == 0 && !onOff)
-            {
-                StartCoroutine(Delay());
-                generateScript.GenerateGif();
+            //}
+            //if (heightCount % 50 == 0 && !onOff)
+            //{
+            //    StartCoroutine(Delay());
+            //    generateScript.GenerateGif();
              
 
-            }
+            //}
 
 
         }
