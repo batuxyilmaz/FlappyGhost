@@ -163,28 +163,53 @@ public class PlayerEvents : MonoBehaviour
     {
         yield return new WaitForSeconds(0.4f);
         transform.GetChild(0).GetChild(0).gameObject.SetActive(false);
-        clothes.SetActive(false);
+        if(speedActive)
+        {
+            clothes.SetActive(false);
+        }
+      
         yield return new WaitForSeconds(fadeValue);
         transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
-        clothes.SetActive(true);
+        if (speedActive)
+        {
+            clothes.SetActive(true);
+        }
         yield return new WaitForSeconds(fadeValue);
         transform.GetChild(0).GetChild(0).gameObject.SetActive(false);
-        clothes.SetActive(false);
+        if (speedActive)
+        {
+            clothes.SetActive(false);
+        }
         yield return new WaitForSeconds(fadeValue);
         transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
-        clothes.SetActive(true);
+        if (speedActive)
+        {
+            clothes.SetActive(true);
+        }
         yield return new WaitForSeconds(fadeValue);
         transform.GetChild(0).GetChild(0).gameObject.SetActive(false);
-        clothes.SetActive(false);
+        if (speedActive)
+        {
+            clothes.SetActive(false);
+        }
         yield return new WaitForSeconds(fadeValue);
         transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
-        clothes.SetActive(true);
+        if (speedActive)
+        {
+            clothes.SetActive(true);
+        }
         yield return new WaitForSeconds(fadeValue);
         transform.GetChild(0).GetChild(0).gameObject.SetActive(false);
-        clothes.SetActive(false);
+        if (speedActive)
+        {
+            clothes.SetActive(false);
+        }
         yield return new WaitForSeconds(fadeValue);
         transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
-        clothes.SetActive(true);
+        if (speedActive)
+        {
+            clothes.SetActive(true);
+        }
 
     }
 
