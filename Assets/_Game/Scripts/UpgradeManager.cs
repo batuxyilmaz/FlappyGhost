@@ -61,6 +61,7 @@ public class UpgradeManager : MonoBehaviour
         }
         if (GameManager.instance.point >=magnetCandyValue )
         {
+            DOTween.Restart("MagnetBuy");
             GameManager.instance.startSound.Play();
             GameManager.instance.point -= magnetCandyValue;
             GameManager.instance.coinText.text = GameManager.instance.point.ToString();
@@ -82,6 +83,7 @@ public class UpgradeManager : MonoBehaviour
     {
         if (GameManager.instance.point >=speedCandyValue )
         {
+            DOTween.Restart("SpeedBuy");
             GameManager.instance.startSound.Play();
             GameManager.instance.point -= speedCandyValue;
             GameManager.instance.coinText.text = GameManager.instance.point.ToString();

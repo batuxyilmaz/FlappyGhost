@@ -67,8 +67,8 @@ public class GameManager : MonoBehaviour
     {
         instance = this;
         playerEvents = GameObject.FindWithTag("Player").GetComponent<PlayerEvents>();
-        point = PlayerPrefs.GetInt("Point");
-        coinText.text = point.ToString();
+       
+       
     }
     private void Start()
     {
@@ -77,6 +77,17 @@ public class GameManager : MonoBehaviour
         if (firstId >= 1)
         {
             firstPlayed = true;
+        }
+        if (firstPlayed)
+        {
+            point = PlayerPrefs.GetInt("Point");
+            coinText.text = point.ToString();
+        }
+        else
+        {
+            point = 100;
+            PlayerPrefs.SetInt("Point",point);
+            coinText.text = point.ToString();
         }
         texts = PlayerPrefsExtra.GetList<string>("LeadTexts", new List<string>());
         scores = PlayerPrefsExtra.GetList<int>("LeadScores", new List<int>());
@@ -104,7 +115,8 @@ public class GameManager : MonoBehaviour
     }
     public void End()
     {
-        GameManager.instance.eyeObject.SetActive(false);
+        UiManager.instance.candyBar.SetActive(false);
+        eyeObject.SetActive(false);
         mainHighscore =PlayerPrefs.GetInt("MainHighScore");
         blurPanel.SetActive(true);
         highScore = Mathf.RoundToInt(player.transform.position.y);

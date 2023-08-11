@@ -21,6 +21,7 @@ public class UiManager : MonoBehaviour
     public Image barImage;
     public Image ghostImage;
     public Image speedbarImage;
+    public GameObject candyBar;
     public GameObject clickedObject;
     public GameObject startPanel;
     public GameObject upgradePanel;
@@ -67,11 +68,11 @@ public class UiManager : MonoBehaviour
     public void StartGame()
     {
         if (!tut.activeSelf)
-        {
+        {        
             DOTween.Restart("Click");
             GameManager.instance.startSound.Play();
             StartCoroutine(StartButton());
-            GameManager.instance.eyeObject.SetActive(true);
+            
         }
      
       
