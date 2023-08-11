@@ -55,7 +55,8 @@ public class PlayerMovement : MonoBehaviour
     public float speedLimit;
     private float eyechangeTimer;
     public int eyeChangeValue;
-    
+    private float startCount;
+    private int multiply;
     private void Awake()
     {
         instance = this;
@@ -67,10 +68,11 @@ public class PlayerMovement : MonoBehaviour
         level = 1;
         secondLevel = 1;
         speedIncreaseValue = 0.5f;
-        changeCount = 240f;
+        changeCount = 230f;
         speedLimit = 0;
         platformchangeCount = 80f;
-
+        startCount = 6000;
+        multiply = 2;
     }
     private void Update()
     {
@@ -137,17 +139,18 @@ public class PlayerMovement : MonoBehaviour
             
             }
 
-            if (transform.position.y>= 2500f &&transform.position.y<=2550f)
+            if (transform.position.y>= startCount)
             {
                 if(!onOff)
                 {
                     StartCoroutine(Delay());
                   
                     generateScript.bgsCurrentCount = 0;
-                 
+                    
+                    startCount += startCount;
+                   
                 }
              
-
             }
             if (transform.position.y>= changeCount)
             {
@@ -158,23 +161,26 @@ public class PlayerMovement : MonoBehaviour
                     if(generateScript.bgsCurrentCount < 8)
                     {
                         generateScript.bgsCurrentCount++;
-                        changeCount += 240;
+                        if (generateScript.bgsCurrentCount > 1)
+                        {
+                            changeCount += 250*multiply;
+                            multiply += 3;
+                        }
+                        else
+                        {
+                            changeCount += 230;
+                        }
                         if (generateScript.bgsCurrentCount >= 2)
                         {
                            
                         }
-                       
-                      
+                           
                     }
-                 
-                   
+                           
                 }
-       
-            
+      
             }
-          
-
-
+         
         }
 
         if (isFalling)

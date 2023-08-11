@@ -6,13 +6,12 @@ using UnityEngine.Lumin;
 
 public class GenerateObjects : MonoBehaviour
 {
-    public List<GameObject> platforms;
+  
     private GameObject currentPlatform;
     public GameObject bg;
     public List<GameObject> bgs;
-    public List<GameObject> sugars;
     public List<GameObject> powerUps;
-    public List<GameObject> gifs;
+   
  
     public float randomMinX;
     public float randomMaxX;
@@ -28,33 +27,14 @@ public class GenerateObjects : MonoBehaviour
     public int gifCount;
     void Start()
     {
-        currentPlatform = platforms[platformCount];
-       // GeneratePlatform(platforms[platformCount]);
+        
+      
         bgsCurrentCount = 0;
         spawnHeight = 59.38f;
-        //   gifCount = 0;
-        //  platformCount = 0;
-        // sugarCount = 0;
-
+     
     }
 
     
-    //public void GeneratePlatform(GameObject Platform)
-    //{
-
-    //    for (int i = 0; i < 11; i++)
-    //    {
-    //        float randomPosX = Random.Range(randomMinX, randomMaxX);
-    //        float randomSugarPosX = Random.Range(randomMinX, randomMaxX);
-    //        float randomPosY = Random.Range(randomMinY, randomMaxY);
-    //        Platform = Instantiate(platforms[platformCount], new Vector3(randomPosX, currentPlatform.transform.position.y + randomPosY, platforms[platformCount].transform.position.z), transform.rotation);
-    //        GameObject Sugar = Instantiate(sugars[sugarCount], new Vector3(randomSugarPosX, Platform.transform.position.y + 5f, Platform.transform.position.z), transform.rotation);
-    //        currentCoins.Add(Sugar);
-    //        currentPlatform = Platform;
-
-    //    }
-           
-    //}
     public void GenerateBg()
     {
         int randomChild = Random.Range(0, 3);
@@ -101,14 +81,7 @@ public class GenerateObjects : MonoBehaviour
         }
       
     }
-    //public void GenerateGif()
-
-    //{
-    //    float randomPosX = Random.Range(randomMinX, randomMaxX);
-    //    GameObject Gif = Instantiate(gifs[gifCount], new Vector3(randomPosX, GameManager.instance.player.transform.position.y + 20f, 0), Quaternion.identity);
-
-    //}
-
+   
 
 }
 
