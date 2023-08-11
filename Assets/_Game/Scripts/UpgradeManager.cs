@@ -81,6 +81,11 @@ public class UpgradeManager : MonoBehaviour
     }
     public void UpgradeSpeed()
     {
+        if (GameManager.instance.firstPlayed)
+        {
+            UiManager.instance.tuts[1].SetActive(false);
+            UiManager.instance.tuts[2].SetActive(true);
+        }
         if (GameManager.instance.point >=speedCandyValue )
         {
             DOTween.Restart("SpeedBuy");
