@@ -6514,6 +6514,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: BG Platforms
       objectReference: {fileID: 0}
+    - target: {fileID: 7745766038181162573, guid: a1b5a995d8e91dc4288ae2ad195b5f9e, type: 3}
+      propertyPath: m_Color.b
+      value: 0.023529414
+      objectReference: {fileID: 0}
+    - target: {fileID: 7745766038181162573, guid: a1b5a995d8e91dc4288ae2ad195b5f9e, type: 3}
+      propertyPath: m_Color.g
+      value: 0.1137255
+      objectReference: {fileID: 0}
+    - target: {fileID: 7745766038181162573, guid: a1b5a995d8e91dc4288ae2ad195b5f9e, type: 3}
+      propertyPath: m_Color.r
+      value: 0.23529413
+      objectReference: {fileID: 0}
     - target: {fileID: 8908167206914751837, guid: a1b5a995d8e91dc4288ae2ad195b5f9e, type: 3}
       propertyPath: m_RootOrder
       value: 17
@@ -14546,7 +14558,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.58572793, g: 0.41798684, b: 0.8773585, a: 1}
+  m_Color: {r: 0.8045628, g: 0.7585142, b: 0.8867924, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
