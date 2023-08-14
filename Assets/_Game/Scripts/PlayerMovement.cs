@@ -76,7 +76,7 @@ public class PlayerMovement : MonoBehaviour
         startCount = 6000;
         multiply = 2;
         spawnHeight = 30f;
-        eyeChangeValue = 7;
+        eyeChangeValue = 5;
     }
     private void Update()
     {
