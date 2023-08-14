@@ -76,7 +76,7 @@ public class PlayerMovement : MonoBehaviour
         startCount = 6000;
         multiply = 2;
         spawnHeight = 30f;
-        
+        eyeChangeValue = 7;
     }
     private void Update()
     {
@@ -166,7 +166,7 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        if (GameManager.instance.playerEvents.speedActive)
+        if (GameManager.instance.playerEvents.speedActive||UiManager.instance.speedLocked)
         {
             transform.Translate(0, currentSpeed * Time.deltaTime, 0);
         }
@@ -193,7 +193,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (isFalling)
         {
-            if (!GameManager.instance.playerEvents.speedActive )
+            if (!GameManager.instance.playerEvents.speedActive)
             {
                 transform.Translate(0, -currentSpeed / 2 * Time.deltaTime, 0); //Decent
                 eyechangeTimer += Time.deltaTime;
@@ -237,7 +237,7 @@ public class PlayerMovement : MonoBehaviour
         }
       
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && !tap)
         {
             if(GameManager.instance.gamestate==GameManager.GameState.start)
             {
@@ -271,9 +271,13 @@ public class PlayerMovement : MonoBehaviour
              
                 if (!GameManager.instance.playerEvents.speedActive)
                 {
-                    isFalling = true;
-                    screenBorder.transform.parent = null;
-                    playerAnim.SetBool("Falling", true);
+                    if(!UiManager.instance.speedLocked)
+                    {
+                        isFalling = true;
+                        screenBorder.transform.parent = null;
+                        playerAnim.SetBool("Falling", true);
+                    }
+                
                 }
               
             
@@ -309,22 +313,25 @@ public class PlayerMovement : MonoBehaviour
                 {
                     if (!GameManager.instance.playerEvents.speedActive)
                     {
-                     
-                        transform.Translate(0, currentSpeed * Time.deltaTime, 0); //Ascend
-                        
-
-                        eyechangeTimer += Time.deltaTime;
-                        if (eyechangeTimer >= 1.6f)
+                        if (!UiManager.instance.speedLocked)
                         {
-                            GameManager.instance.eyeObject.transform.GetChild(eyeChangeValue).gameObject.SetActive(false);
-                            if (eyeChangeValue <= 28)
+                            transform.Translate(0, currentSpeed * Time.deltaTime, 0); //Ascend
+
+
+                            eyechangeTimer += Time.deltaTime;
+                            if (eyechangeTimer >= 1.6f)
                             {
-                                eyeChangeValue++;
+                                GameManager.instance.eyeObject.transform.GetChild(eyeChangeValue).gameObject.SetActive(false);
+                                if (eyeChangeValue <= 28)
+                                {
+                                    eyeChangeValue++;
+                                }
+
+                                GameManager.instance.eyeObject.transform.GetChild(eyeChangeValue).gameObject.SetActive(true);
+                                eyechangeTimer = 0;
                             }
-                          
-                            GameManager.instance.eyeObject.transform.GetChild(eyeChangeValue).gameObject.SetActive(true);
-                            eyechangeTimer = 0;
                         }
+                       
 
                     }
                 }

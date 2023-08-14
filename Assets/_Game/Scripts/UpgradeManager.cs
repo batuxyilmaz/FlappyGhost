@@ -54,11 +54,7 @@ public class UpgradeManager : MonoBehaviour
     }
     public void UpgradeMagnet()
     {
-        if (GameManager.instance.firstPlayed)
-        {
-            UiManager.instance.tuts[1].SetActive(false);
-            UiManager.instance.tuts[2].SetActive(true);
-        }
+       
         if (GameManager.instance.point >=magnetCandyValue )
         {
             DOTween.Restart("MagnetBuy");
@@ -81,11 +77,7 @@ public class UpgradeManager : MonoBehaviour
     }
     public void UpgradeSpeed()
     {
-        if (GameManager.instance.firstPlayed)
-        {
-            UiManager.instance.tuts[1].SetActive(false);
-            UiManager.instance.tuts[2].SetActive(true);
-        }
+     
         if (GameManager.instance.point >=speedCandyValue )
         {
             DOTween.Restart("SpeedBuy");
@@ -115,11 +107,7 @@ public class UpgradeManager : MonoBehaviour
             startButton.SetActive(false);
             startButton.SetActive(false);
             upgradeActive = true;
-            if (GameManager.instance.firstPlayed)
-            {
-                UiManager.instance.tuts[0].SetActive(false);
-                Invoke("TutButton", 0.8f);
-            }
+        
           
             return;
         }
@@ -130,8 +118,7 @@ public class UpgradeManager : MonoBehaviour
             upgradeActive = false;
             UiManager.instance.startButton.GetComponent<Animator>().enabled = true;
             UiManager.instance.tut.SetActive(false);
-            UiManager.instance.tutId = 1;
-            PlayerPrefs.SetInt("TutIdUp", UiManager.instance.tutId);
+         
         }
        
     }
@@ -139,12 +126,7 @@ public class UpgradeManager : MonoBehaviour
     {
         startButton.SetActive(true);
     }
-    private void TutButton()
-    {
-        
-        UiManager.instance.tuts[1].SetActive(true);
-       
-    }
+ 
 
 
 }

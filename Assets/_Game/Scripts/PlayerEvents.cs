@@ -141,7 +141,7 @@ public class PlayerEvents : MonoBehaviour
             PlayerMovement.instance.multiplier = 15f;
             lightningTrail.SetActive(false);
             GameManager.instance.boostSound.Stop();
-          
+            UiManager.instance.speedLocked = false;
 
         }
         if(startDecrease)

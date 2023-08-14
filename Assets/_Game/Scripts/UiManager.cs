@@ -41,42 +41,19 @@ public class UiManager : MonoBehaviour
     public bool hapticActive;
     public Button upgradeButton;
     public GameObject tut;
-    public List<GameObject> tuts;
-    public int tutId;
+
     public GameObject startButton;
     public bool speedLocked;
     private void Awake()
     {
         instance = this;
     }
-    private void Start()
-    {
-        tutId = PlayerPrefs.GetInt("TutIdUp");
-        if (tutId >= 1)
-        {
-            tut.SetActive(false);
-        }
-        else
-        {
-            if (GameManager.instance.firstPlayed)
-            {
-                tut.SetActive(true);
-                startButton.GetComponent<Animator>().enabled = false;
-            }
-        }
-      
-    }
+  
     public void StartGame()
     {
-        if (!tut.activeSelf)
-        {        
-            DOTween.Restart("Click");
-            GameManager.instance.startSound.Play();
-            StartCoroutine(StartButton());
-            
-        }
-     
-      
+        DOTween.Restart("Click");
+        GameManager.instance.startSound.Play();
+        StartCoroutine(StartButton());
     }
     public void NextEnd()
     {

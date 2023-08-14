@@ -17,6 +17,7 @@ public class Death : MonoBehaviour
                 GameManager.instance.gamestate = GameManager.GameState.pause;
                 PlayerMovement.instance.hitEffect.Play();
                 PlayerMovement.instance.hitEffect.transform.parent = null;
+                UiManager.instance.speedLocked = false;
                 GameManager.instance.End();
                 GameManager.instance.firstId = 1;
                 PlayerPrefs.SetInt("FirstId", GameManager.instance.firstId);
