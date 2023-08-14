@@ -17,6 +17,7 @@ TagManager:
   - Magnet
   - Gather
   - Gif
+  - Bg
   layers:
   - Default
   - TransparentFX

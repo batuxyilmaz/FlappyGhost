@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class WallControl : MonoBehaviour
 {
-
+    private int hitCount;
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
@@ -24,18 +24,21 @@ public class WallControl : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Platform"))
+        //if (other.gameObject.CompareTag("Platform"))
+        //{
+        //    Destroy(other.gameObject);
+        //}
+        if (other.gameObject.CompareTag("Bg"))
         {
-            Destroy(other.gameObject);
+         
+            if(hitCount>0) 
+            {
+                Destroy(other.transform.parent.gameObject, 0.2f);
+            }
+         
+            hitCount++;
         }
-        if (other.gameObject.CompareTag("Sugar"))
-        {
-            Destroy(other.gameObject);
-        }
-        if (other.gameObject.CompareTag("Gif"))
-        {
-            Destroy(other.gameObject);
-        }
+       
     }
         IEnumerator EndDelay()
     {

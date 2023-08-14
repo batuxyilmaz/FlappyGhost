@@ -11,7 +11,7 @@ public class GenerateObjects : MonoBehaviour
     public GameObject bg;
     public List<GameObject> bgs;
     public List<GameObject> powerUps;
-   
+ 
  
     public float randomMinX;
     public float randomMaxX;
@@ -45,6 +45,7 @@ public class GenerateObjects : MonoBehaviour
             {
                 GameObject BGs = Instantiate(bgs[bgsCurrentCount], new Vector3(bg.transform.position.x, bg.transform.position.y + spawnHeight, bg.transform.position.z), Quaternion.identity);
                 bgsCurrentCount++;
+            
                 
             }
             else
@@ -52,6 +53,7 @@ public class GenerateObjects : MonoBehaviour
                 GameObject BGs = Instantiate(bgs[bgsCurrentCount], new Vector3(bg.transform.position.x, bg.transform.position.y + spawnHeight, bg.transform.position.z), Quaternion.identity);
                 BGs.transform.GetChild(0).gameObject.SetActive(false);
                 BGs.transform.GetChild(randomChild).gameObject.SetActive(true);
+             
             }
         }
             
@@ -60,6 +62,7 @@ public class GenerateObjects : MonoBehaviour
             GameObject BG = Instantiate(bg, new Vector3(bg.transform.position.x, bg.transform.position.y + spawnHeight, bg.transform.position.z), Quaternion.identity);
             BG.transform.GetChild(0).gameObject.SetActive(false);
             BG.transform.GetChild(randomChild).gameObject.SetActive(true);
+          
         }
         spawnCount++; 
         spawnHeight += 59.38f;
