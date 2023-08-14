@@ -57,6 +57,7 @@ public class PlayerMovement : MonoBehaviour
     public int eyeChangeValue;
     private float startCount;
     private int multiply;
+    private float spawnHeight;
     private void Awake()
     {
         instance = this;
@@ -73,6 +74,8 @@ public class PlayerMovement : MonoBehaviour
         platformchangeCount = 80f;
         startCount = 6000;
         multiply = 2;
+        spawnHeight = 30f;
+        
     }
     private void Update()
     {
@@ -129,14 +132,18 @@ public class PlayerMovement : MonoBehaviour
    
         if (heightCount >= 1)
         {
-            if (heightCount % 30 == 0 && !onOff)
+            //if (heightCount % spawnHeight == 0 && !onOff)
+            //{
+
+            //    generateScript.GenerateBg();
+            //    spawnHeight += 50f;
+            //    StartCoroutine(Delay());
+            //}
+            if (generateScript.spawnedPrefabsCount < 5)
             {
-             
                 generateScript.GenerateBg();
-          
-                StartCoroutine(Delay());
+                generateScript.spawnedPrefabsCount++;
             }
-   
             if (heightCount % 200 == 0&& !onOff)
             {
                 generateScript.GeneratePowerUp();
@@ -168,12 +175,12 @@ public class PlayerMovement : MonoBehaviour
                         generateScript.bgsCurrentCount++;
                         if (generateScript.bgsCurrentCount > 1)
                         {
-                            changeCount += 250*multiply;
+                            changeCount += 500*multiply;
                             multiply += 3;
                         }
                         else
                         {
-                            changeCount += 230;
+                            changeCount += 500;
                         }
                         if (generateScript.bgsCurrentCount >= 2)
                         {

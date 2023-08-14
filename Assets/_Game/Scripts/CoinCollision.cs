@@ -33,10 +33,10 @@ public class CoinCollision : MonoBehaviour
                 GameManager.instance.point += 10;
                 GameManager.instance.coinText.text = GameManager.instance.point.ToString();
                 PlayerPrefs.SetInt("Point", GameManager.instance.point);
-                coinEffect.transform.parent = null;
+                Destroy(gameObject, 1f);
+                //coinEffect.transform.parent = null;
                 coinEffect.Play();
-                Destroy( coinEffect,1.5f);
-                transform.gameObject.SetActive(false);
+                transform.GetChild(1).gameObject.SetActive(false);
             }
             
         }

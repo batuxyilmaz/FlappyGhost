@@ -33,6 +33,7 @@ public class WallControl : MonoBehaviour
          
             if(hitCount>0) 
             {
+                PlayerMovement.instance.generateScript.spawnedPrefabsCount--;
                 Destroy(other.transform.parent.gameObject, 0.2f);
             }
          
