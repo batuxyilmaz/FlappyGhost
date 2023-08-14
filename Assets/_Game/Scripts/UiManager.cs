@@ -44,6 +44,7 @@ public class UiManager : MonoBehaviour
     public List<GameObject> tuts;
     public int tutId;
     public GameObject startButton;
+    public bool speedLocked;
     private void Awake()
     {
         instance = this;
@@ -217,6 +218,17 @@ public class UiManager : MonoBehaviour
         upgradeButton.gameObject.SetActive(true);
     
     }
-   
 
+    public void SpeedControl()
+    {
+        if (!speedLocked)
+        {
+            speedLocked = true;
+            return;
+        }
+        else
+        {        
+            speedLocked = false;
+        }
+    }
 }

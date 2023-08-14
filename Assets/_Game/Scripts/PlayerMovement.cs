@@ -58,6 +58,7 @@ public class PlayerMovement : MonoBehaviour
     private float startCount;
     private int multiply;
     private float spawnHeight;
+  
     private void Awake()
     {
         instance = this;
@@ -79,7 +80,65 @@ public class PlayerMovement : MonoBehaviour
     }
     private void Update()
     {
-        if(!GameManager.instance.playerEvents.speedActive && GameManager.instance.gamestate==GameManager.GameState.start)
+        if (heightCount >= 1)
+        {
+          
+            if (generateScript.spawnedPrefabsCount < 5)
+            {
+                generateScript.GenerateBg();
+                generateScript.spawnedPrefabsCount++;
+            }
+            if (heightCount % 200 == 0 && !onOff)
+            {
+                generateScript.GeneratePowerUp();
+                StartCoroutine(Delay());
+
+            }
+
+            if (transform.position.y >= startCount)
+            {
+                if (!onOff)
+                {
+                    StartCoroutine(Delay());
+
+                    generateScript.bgsCurrentCount = 0;
+
+                    startCount += startCount;
+
+                }
+
+            }
+            if (transform.position.y >= changeCount)
+            {
+                if (!onOff)
+                {
+                    StartCoroutine(Delay());
+
+                    if (generateScript.bgsCurrentCount < 8)
+                    {
+                        generateScript.bgsCurrentCount++;
+                        if (generateScript.bgsCurrentCount > 1)
+                        {
+                            changeCount += 500 * multiply;
+                            multiply += 3;
+                        }
+                        else
+                        {
+                            changeCount += 500;
+                        }
+                        if (generateScript.bgsCurrentCount >= 2)
+                        {
+
+                        }
+
+                    }
+
+                }
+
+            }
+
+        }
+        if (!GameManager.instance.playerEvents.speedActive && GameManager.instance.gamestate==GameManager.GameState.start)
         {
             
             GameManager.instance.speedText.text = Mathf.RoundToInt(speedLimit*4).ToString()+" "+"km";
@@ -93,7 +152,7 @@ public class PlayerMovement : MonoBehaviour
             if(holdTimer > 0.5f)
             {
                 holdTimer = 0f;
-                if (currentSpeed <= 40)
+                if (currentSpeed <= 40 && !UiManager.instance.speedLocked)
                 {
                     currentSpeed += 0.4f;
                     speedLimit += 0.4f;
@@ -130,70 +189,7 @@ public class PlayerMovement : MonoBehaviour
            
         }
    
-        if (heightCount >= 1)
-        {
-            //if (heightCount % spawnHeight == 0 && !onOff)
-            //{
-
-            //    generateScript.GenerateBg();
-            //    spawnHeight += 50f;
-            //    StartCoroutine(Delay());
-            //}
-            if (generateScript.spawnedPrefabsCount < 5)
-            {
-                generateScript.GenerateBg();
-                generateScript.spawnedPrefabsCount++;
-            }
-            if (heightCount % 200 == 0&& !onOff)
-            {
-                generateScript.GeneratePowerUp();
-                StartCoroutine(Delay());
-            
-            }
-
-            if (transform.position.y>= startCount)
-            {
-                if(!onOff)
-                {
-                    StartCoroutine(Delay());
-                  
-                    generateScript.bgsCurrentCount = 0;
-                    
-                    startCount += startCount;
-                   
-                }
-             
-            }
-            if (transform.position.y>= changeCount)
-            {
-                if (!onOff)
-                {
-                    StartCoroutine(Delay());
-                
-                    if(generateScript.bgsCurrentCount < 8)
-                    {
-                        generateScript.bgsCurrentCount++;
-                        if (generateScript.bgsCurrentCount > 1)
-                        {
-                            changeCount += 500*multiply;
-                            multiply += 3;
-                        }
-                        else
-                        {
-                            changeCount += 500;
-                        }
-                        if (generateScript.bgsCurrentCount >= 2)
-                        {
-                           
-                        }
-                           
-                    }
-                           
-                }
-      
-            }
-         
-        }
+       
 
         if (isFalling)
         {
@@ -251,6 +247,7 @@ public class PlayerMovement : MonoBehaviour
 
                 isFalling = false;
                 tap = true;
+
                 screenBorder.transform.parent = GameManager.instance.player.transform;
                 screenBorder.transform.localPosition = new Vector3(screenBorder.transform.localPosition.x,-9f, screenBorder.transform.localPosition.z);
 
@@ -275,11 +272,12 @@ public class PlayerMovement : MonoBehaviour
                 if (!GameManager.instance.playerEvents.speedActive)
                 {
                     isFalling = true;
-                                  
+                    screenBorder.transform.parent = null;
+                    playerAnim.SetBool("Falling", true);
                 }
-               
-                screenBorder.transform.parent = null;
-                playerAnim.SetBool("Falling", true);
+              
+            
+              
             }
             
 
