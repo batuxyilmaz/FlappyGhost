@@ -138,7 +138,7 @@ public class PlayerEvents : MonoBehaviour
             PlayerMovement.instance.speedLimit = 0;
             clothes.SetActive(false);
             StartCoroutine(SpeedDown());
-        
+            PlayerMovement.instance.multiplier = 15f;
             lightningTrail.SetActive(false);
             GameManager.instance.boostSound.Stop();
           
