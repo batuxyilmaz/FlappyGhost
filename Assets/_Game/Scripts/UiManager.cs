@@ -54,6 +54,7 @@ public class UiManager : MonoBehaviour
         DOTween.Restart("Click");
         GameManager.instance.startSound.Play();
         StartCoroutine(StartButton());
+       
     }
     public void NextEnd()
     {

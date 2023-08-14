@@ -239,8 +239,10 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0) && !tap)
         {
-            if(GameManager.instance.gamestate==GameManager.GameState.start)
+          
+            if (GameManager.instance.gamestate==GameManager.GameState.start)
             {
+                GameManager.instance.eyeObject.GetComponent<Animator>().enabled = false;
                 Vector3 firstPos = Camera.main.ScreenToViewportPoint(Input.mousePosition);
                 xValOffset = (firstPos.x - .5f) * multiplier - transform.position.x;
 
