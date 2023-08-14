@@ -58,7 +58,7 @@ public class PlayerMovement : MonoBehaviour
     private float startCount;
     private int multiply;
     private float spawnHeight;
-  
+    private bool eyeOpened;
     private void Awake()
     {
         instance = this;
@@ -242,6 +242,16 @@ public class PlayerMovement : MonoBehaviour
           
             if (GameManager.instance.gamestate==GameManager.GameState.start)
             {
+                if(!eyeOpened)
+                {
+                    for (int i = 0; i < GameManager.instance.eyeObject.transform.childCount; i++)
+                    {
+                        GameManager.instance.eyeObject.transform.GetChild(i).gameObject.SetActive(false);
+                    }
+                    GameManager.instance.eyeObject.transform.GetChild(5).gameObject.SetActive(true);
+                    eyeOpened = true;
+                }
+               
                 GameManager.instance.eyeObject.GetComponent<Animator>().enabled = false;
                 Vector3 firstPos = Camera.main.ScreenToViewportPoint(Input.mousePosition);
                 xValOffset = (firstPos.x - .5f) * multiplier - transform.position.x;
