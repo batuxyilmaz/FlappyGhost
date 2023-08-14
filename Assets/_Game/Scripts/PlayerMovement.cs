@@ -94,6 +94,11 @@ public class PlayerMovement : MonoBehaviour
                 {
                     currentSpeed += 0.4f;
                     speedLimit += 0.4f;
+                    if (multiplier < 25f)
+                    {
+                        multiplier += 0.2f;
+                    }
+                 
                 }
                
             }
@@ -200,19 +205,18 @@ public class PlayerMovement : MonoBehaviour
                     GameManager.instance.eyeObject.transform.GetChild(eyeChangeValue).gameObject.SetActive(true);
                     eyechangeTimer = 0;
                 }
+
                 if (currentSpeed >= 5f)
                 {
                     currentSpeed -= 4f * Time.deltaTime*2;
                     speedLimit -= 4f * Time.deltaTime * 2;
-                    
-                    
-               
-                  
-                  
+                    if (multiplier > 15)
+                    {
+                        multiplier -= 0.2f;
+                    }
+                
+                           
                 }
-
-
-               
 
             }
         }
