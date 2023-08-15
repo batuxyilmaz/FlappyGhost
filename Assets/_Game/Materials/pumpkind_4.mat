@@ -123,7 +123,7 @@ Material:
     - _OutlinePixelSizeType: 0
     - _OutlineTextureLOD: 5
     - _OutlineTextureType: 0
-    - _OutlineWidth: 7.96
+    - _OutlineWidth: 5.14
     - _Parallax: 0.02
     - _RampBands: 4
     - _RampBandsSmoothing: 0.1
@@ -165,7 +165,7 @@ Material:
     - _UseSpecular: 0
     - _ZWrite: 1
     m_Colors:
-    - _BaseColor: {r: 0.27058825, g: 0.043137256, b: 0, a: 1}
+    - _BaseColor: {r: 1, g: 0.4257492, b: 0.06132078, a: 1}
     - _Color: {r: 0.27188063, g: 0.04338801, b: 0, a: 1}
     - _EmissionColor: {r: 0.14150941, g: 0.0028950353, b: 0, a: 1}
     - _HColor: {r: 1, g: 1, b: 1, a: 1}
