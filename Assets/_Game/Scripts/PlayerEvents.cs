@@ -135,7 +135,7 @@ public class PlayerEvents : MonoBehaviour
             startDecrease = true;
             waitBoost = false;
             PlayerMovement.instance.currentSpeed = 5;
-            PlayerMovement.instance.speedLimit = 0;
+            PlayerMovement.instance.speedLimit = 5;
             clothes.SetActive(false);
             StartCoroutine(SpeedDown());
             PlayerMovement.instance.multiplier = 15f;

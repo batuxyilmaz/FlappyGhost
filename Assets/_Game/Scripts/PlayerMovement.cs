@@ -212,7 +212,15 @@ public class PlayerMovement : MonoBehaviour
                 if (currentSpeed >= 5f)
                 {
                     currentSpeed -= 4f * Time.deltaTime*2;
-                    speedLimit -= 4f * Time.deltaTime * 2;
+                    if (speedLimit < 0) 
+                    {
+                        GameManager.instance.speedText.text = 0.ToString() + " " + "km";
+                    }
+                    else
+                    {
+                        speedLimit -= 4f * Time.deltaTime * 2;
+                    }
+               
                     if (multiplier > 15)
                     {
                         multiplier -= 0.2f;

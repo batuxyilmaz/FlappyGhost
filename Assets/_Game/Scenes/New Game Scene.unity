@@ -321,6 +321,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4065907063978040873, guid: b59c71a42b91dcf4090bcaa52f0f7ab1, type: 3}
+      propertyPath: m_Size.x
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065907063978040873, guid: b59c71a42b91dcf4090bcaa52f0f7ab1, type: 3}
+      propertyPath: m_Size.y
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065907063978040873, guid: b59c71a42b91dcf4090bcaa52f0f7ab1, type: 3}
+      propertyPath: m_Size.z
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 5645583466534277370, guid: b59c71a42b91dcf4090bcaa52f0f7ab1, type: 3}
+      propertyPath: isGlobal
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5645583466534277370, guid: b59c71a42b91dcf4090bcaa52f0f7ab1, type: 3}
+      propertyPath: blendDistance
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5645583466534277370, guid: b59c71a42b91dcf4090bcaa52f0f7ab1, type: 3}
+      propertyPath: sharedProfile
+      value: 
+      objectReference: {fileID: 11400000, guid: 1be886c369353f846aaad85f6c7113a4, type: 2}
     - target: {fileID: 7435029955376803652, guid: b59c71a42b91dcf4090bcaa52f0f7ab1, type: 3}
       propertyPath: trail
       value: 
@@ -350,7 +374,8 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1550007169}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 7023682612019843743, guid: b59c71a42b91dcf4090bcaa52f0f7ab1, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b59c71a42b91dcf4090bcaa52f0f7ab1, type: 3}
