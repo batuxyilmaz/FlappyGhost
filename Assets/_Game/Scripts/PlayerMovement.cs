@@ -59,6 +59,9 @@ public class PlayerMovement : MonoBehaviour
     private int multiply;
     private float spawnHeight;
     private bool eyeOpened;
+    private int rateCount;
+    private bool windActive;
+    public ParticleSystem windEffect;
     private void Awake()
     {
         instance = this;
@@ -77,6 +80,7 @@ public class PlayerMovement : MonoBehaviour
         multiply = 2;
         spawnHeight = 30f;
         eyeChangeValue = 5;
+        rateCount = 5;
     }
     private void Update()
     {
@@ -138,6 +142,11 @@ public class PlayerMovement : MonoBehaviour
             }
 
         }
+        if (!GameManager.instance.playerEvents.speedActive && currentSpeed>=10f && !windActive)
+        {
+            windEffect.Play();
+            windActive = true;
+        }
         if (!GameManager.instance.playerEvents.speedActive && GameManager.instance.gamestate==GameManager.GameState.start)
         {
             
@@ -148,12 +157,25 @@ public class PlayerMovement : MonoBehaviour
         DeathControl();
         if (holding)
         {
+            var emission = windEffect.emission;
+        
+          
             holdTimer += Time.deltaTime;
             if(holdTimer > 0.5f)
             {
                 holdTimer = 0f;
                 if (currentSpeed <= 40 && !UiManager.instance.speedLocked)
                 {
+                    if (windActive)
+                    {
+                        emission.rateOverTime = (rateCount + 1);
+                        if (rateCount < 12 && !GameManager.instance.playerEvents.speedActive)
+                        {
+                            rateCount++;
+                        }
+                    }
+                  
+                 
                     currentSpeed += 0.4f;
                     speedLimit += 0.4f;
                     if (multiplier < 25f)
@@ -197,6 +219,13 @@ public class PlayerMovement : MonoBehaviour
             {
                 transform.Translate(0, -currentSpeed / 2 * Time.deltaTime, 0); //Decent
                 eyechangeTimer += Time.deltaTime;
+                if (windActive)
+                {
+                    windEffect.Stop();
+                    rateCount = 5;
+                    windActive = false;
+                }
+              
                 if (eyechangeTimer >= 0.25f)
                 {
                     GameManager.instance.eyeObject.transform.GetChild(eyeChangeValue).gameObject.SetActive(false);

@@ -36,6 +36,7 @@ public class PlayerEvents : MonoBehaviour
     public GameObject spawnPos;
     private Collider playerCol;
     public GameObject clothes;
+  
     private void Awake()
     {
      
@@ -142,6 +143,9 @@ public class PlayerEvents : MonoBehaviour
             lightningTrail.SetActive(false);
             GameManager.instance.boostSound.Stop();
             UiManager.instance.speedLocked = false;
+            var emission = PlayerMovement.instance.windEffect.emission;
+            emission.rateOverTime = 5;
+            PlayerMovement.instance.windEffect.Stop();
 
         }
         if(startDecrease)
@@ -249,7 +253,9 @@ public class PlayerEvents : MonoBehaviour
                 lightningTrail.SetActive(true);
                 DOTween.Pause("BarFinish");
                 speedTimer = 0f;
-             
+                PlayerMovement.instance.windEffect.Play();
+                var emission = PlayerMovement.instance.windEffect.emission;
+                emission.rateOverTime = 12;
                 for (int i = 0; i < 10; i++)
                 {
                     yield return new WaitForSeconds(0.1f);
