@@ -277,6 +277,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 2381822954218360708, guid: b59c71a42b91dcf4090bcaa52f0f7ab1, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: bd3e97c330ac6b14ab942d80ba902391, type: 2}
     - target: {fileID: 2704667037503876580, guid: b59c71a42b91dcf4090bcaa52f0f7ab1, type: 3}
       propertyPath: m_RootOrder
       value: 14
@@ -321,6 +325,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6355713614506346507, guid: b59c71a42b91dcf4090bcaa52f0f7ab1, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: c643dd8b5cdf1fd47834b5579b15adbf, type: 2}
     - target: {fileID: 7435029955376803652, guid: b59c71a42b91dcf4090bcaa52f0f7ab1, type: 3}
       propertyPath: trail
       value: 
