@@ -270,10 +270,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5116768567618155249}
     - target: {fileID: 1889660257308862046, guid: b59c71a42b91dcf4090bcaa52f0f7ab1, type: 3}
-      propertyPath: windEffect
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1889660257308862046, guid: b59c71a42b91dcf4090bcaa52f0f7ab1, type: 3}
       propertyPath: lightningTrail
       value: 
       objectReference: {fileID: 1571125782}
@@ -325,30 +321,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4065907063978040873, guid: b59c71a42b91dcf4090bcaa52f0f7ab1, type: 3}
-      propertyPath: m_Size.x
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 4065907063978040873, guid: b59c71a42b91dcf4090bcaa52f0f7ab1, type: 3}
-      propertyPath: m_Size.y
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 4065907063978040873, guid: b59c71a42b91dcf4090bcaa52f0f7ab1, type: 3}
-      propertyPath: m_Size.z
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 5645583466534277370, guid: b59c71a42b91dcf4090bcaa52f0f7ab1, type: 3}
-      propertyPath: isGlobal
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5645583466534277370, guid: b59c71a42b91dcf4090bcaa52f0f7ab1, type: 3}
-      propertyPath: blendDistance
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5645583466534277370, guid: b59c71a42b91dcf4090bcaa52f0f7ab1, type: 3}
-      propertyPath: sharedProfile
-      value: 
-      objectReference: {fileID: 11400000, guid: 1be886c369353f846aaad85f6c7113a4, type: 2}
     - target: {fileID: 7435029955376803652, guid: b59c71a42b91dcf4090bcaa52f0f7ab1, type: 3}
       propertyPath: trail
       value: 
@@ -357,14 +329,6 @@ PrefabInstance:
       propertyPath: ground
       value: 
       objectReference: {fileID: 1848473132}
-    - target: {fileID: 7435029955376803652, guid: b59c71a42b91dcf4090bcaa52f0f7ab1, type: 3}
-      propertyPath: multiplier
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 7435029955376803652, guid: b59c71a42b91dcf4090bcaa52f0f7ab1, type: 3}
-      propertyPath: windEffect
-      value: 
-      objectReference: {fileID: 1637322407}
     - target: {fileID: 7435029955376803652, guid: b59c71a42b91dcf4090bcaa52f0f7ab1, type: 3}
       propertyPath: changeValue
       value: 
@@ -382,8 +346,7 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1550007169}
     m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 7023682612019843743, guid: b59c71a42b91dcf4090bcaa52f0f7ab1, type: 3}
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b59c71a42b91dcf4090bcaa52f0f7ab1, type: 3}
@@ -35580,11 +35543,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1624400257}
   m_CullTransparentMesh: 1
---- !u!198 &1637322407 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 1987424309357580901, guid: b59c71a42b91dcf4090bcaa52f0f7ab1, type: 3}
-  m_PrefabInstance: {fileID: 43216922}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1651235036
 GameObject:
   m_ObjectHideFlags: 0
@@ -40341,6 +40299,10 @@ PrefabInstance:
     - target: {fileID: 5221055564135972715, guid: a43433ea965f6f84da196798c45a48b9, type: 3}
       propertyPath: m_Name
       value: EyeObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 5221055564135972715, guid: a43433ea965f6f84da196798c45a48b9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8843827914223919203, guid: a43433ea965f6f84da196798c45a48b9, type: 3}
       propertyPath: m_Pivot.x
