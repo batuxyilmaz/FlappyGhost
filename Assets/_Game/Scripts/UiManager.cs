@@ -209,4 +209,10 @@ public class UiManager : MonoBehaviour
             speedLocked = false;
         }
     }
+    public void Reward()
+    {
+        DOTween.Restart("ClickClaim");
+        AdManager.instance.rewardReady = true;
+      
+    }
 }

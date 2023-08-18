@@ -30,7 +30,7 @@ public class CoinCollision : MonoBehaviour
                
                 GameManager.instance.collectSound.Play();
                 GameManager.instance.playerEvents.isTaken = true;
-                GameManager.instance.point += 10;
+                GameManager.instance.point += 1;
                 GameManager.instance.coinText.text = GameManager.instance.point.ToString();
                 PlayerPrefs.SetInt("Point", GameManager.instance.point);
                 Destroy(gameObject, 1f);

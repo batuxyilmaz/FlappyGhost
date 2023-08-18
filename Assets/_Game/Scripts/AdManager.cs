@@ -13,6 +13,7 @@ public class AdManager : MonoBehaviour
     public static AdManager instance;
     public float adTimer;
     private RewardedAd reward;
+    public bool rewardReady;
     private void Awake()
     {
         instance = this;
@@ -23,7 +24,7 @@ public class AdManager : MonoBehaviour
     {
         MobileAds.Initialize(initStatus => { });
         RequestInterstitial();
-        
+        RequestRewarded();
         RequestBanner();
     }
 
@@ -45,6 +46,16 @@ public class AdManager : MonoBehaviour
                 adTimer = 0;
             }
           
+        }
+        if (rewardReady)
+        {
+            if (reward.IsLoaded())
+            {
+                reward.Show();
+                rewardReady = false;
+            }
+          
+
         }
     }
 
@@ -90,7 +101,7 @@ public class AdManager : MonoBehaviour
     }
     private void rewardPlayer(object sender, Reward e)
     {
-        //ödül
+      
         GameManager.instance.point += GameManager.instance.point;
         GameManager.instance.coinText.text = GameManager.instance.point.ToString();
         PlayerPrefs.SetInt("Point", GameManager.instance.point);
