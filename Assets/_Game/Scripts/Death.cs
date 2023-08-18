@@ -1,3 +1,4 @@
+using GoogleMobileAds.Api;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,6 +11,7 @@ public class Death : MonoBehaviour
         {
            if(!GameManager.instance.playerEvents.speedActive&&!GameManager.instance.playerEvents.immunity)
             {
+                AdManager.instance.adReady = true;
                 GameManager.instance.hitSound.Play();
                 GameManager.instance.flySound.Stop();
                 collision.gameObject.GetComponent<Collider>().enabled = false;
