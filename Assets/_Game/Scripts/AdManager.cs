@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using GoogleMobileAds.Api;
 using System.Drawing;
-using static UnityEditor.Timeline.TimelinePlaybackControls;
+
 
 public class AdManager : MonoBehaviour
 {
