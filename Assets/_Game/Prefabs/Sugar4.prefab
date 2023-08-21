@@ -38,7 +38,7 @@ Transform:
   - {fileID: 3663159706447365849}
   - {fileID: 2914374440293225673}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &7254964789274115965
 MeshFilter:
@@ -19493,11 +19493,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3a6f37cfa46626440b99b97487536c59, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3a6f37cfa46626440b99b97487536c59, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3a6f37cfa46626440b99b97487536c59, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -19626,7 +19626,7 @@ MonoBehaviour:
   animationType: 4
   targetType: 11
   forcedTargetType: 0
-  autoPlay: 0
+  autoPlay: 1
   useTargetAsV3: 0
   endValueFloat: 0
   endValueV3: {x: 0, y: 360, z: 0}
@@ -19661,7 +19661,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   outlineMode: 1
   outlineColor: {r: 0.25956404, g: 0.9056604, b: 0.10679956, a: 1}
-  outlineWidth: 4.83
+  outlineWidth: 2.06
   precomputeOutline: 1
   bakeKeys:
   - {fileID: -5495902117074765545, guid: 2da4112edefcb254ba0dad293de34037, type: 3}
