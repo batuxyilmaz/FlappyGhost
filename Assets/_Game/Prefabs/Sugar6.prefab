@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 8143717261632592585}
   - component: {fileID: 2353847911648601352}
   m_Layer: 9
-  m_Name: Sugar 6
+  m_Name: Sugar6
   m_TagString: Sugar
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -38,7 +38,7 @@ Transform:
   - {fileID: 1259095821955795090}
   - {fileID: 4787284394697263735}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &7254964789274115965
 MeshFilter:
@@ -5031,7 +5031,6 @@ GameObject:
   - component: {fileID: 86157894525219837}
   - component: {fileID: 7525047424240488388}
   - component: {fileID: 2328612584692198397}
-  - component: {fileID: 5848520519511536029}
   m_Layer: 0
   m_Name: Mesh
   m_TagString: Untagged
@@ -5220,14 +5219,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1887822252903944744}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   outlineMode: 1
   outlineColor: {r: 0.25956404, g: 0.9056604, b: 0.10679956, a: 1}
-  outlineWidth: 2.66
+  outlineWidth: 1.95
   precomputeOutline: 1
   bakeKeys:
   - {fileID: -5495902117074765545, guid: 2da4112edefcb254ba0dad293de34037, type: 3}
@@ -7073,27 +7072,6 @@ MonoBehaviour:
     - {x: 0.26887438, y: 0.9570429, z: -0.108515024}
     - {x: -0.3494477, y: 0.9188718, z: -0.18319629}
     - {x: -0.17305669, y: 0.9665419, z: -0.18933612}
---- !u!95 &5848520519511536029
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1887822252903944744}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 80d28581f5e58fb40992da039c89549b, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &4205402884426428655
 GameObject:
   m_ObjectHideFlags: 0

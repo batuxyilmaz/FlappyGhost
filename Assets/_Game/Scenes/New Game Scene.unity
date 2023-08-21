@@ -6674,6 +6674,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BG Platforms
       objectReference: {fileID: 0}
+    - target: {fileID: 1432722163587341445, guid: a1b5a995d8e91dc4288ae2ad195b5f9e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7745766038181162573, guid: a1b5a995d8e91dc4288ae2ad195b5f9e, type: 3}
       propertyPath: m_Color.b
       value: 0.023529414
@@ -12146,6 +12150,7 @@ MonoBehaviour:
   platformCount: 0
   sugarCount: 0
   gifCount: 0
+  childCount: 0
 --- !u!1 &1206107574
 GameObject:
   m_ObjectHideFlags: 0

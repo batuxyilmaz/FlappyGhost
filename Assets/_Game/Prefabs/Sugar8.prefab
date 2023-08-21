@@ -37,7 +37,7 @@ Transform:
   - {fileID: 7541995956419946884}
   - {fileID: 4633807977197409108}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &7248695731574767471
 MeshFilter:
@@ -19632,7 +19632,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   outlineMode: 1
   outlineColor: {r: 0.25956404, g: 0.9056604, b: 0.10679956, a: 1}
-  outlineWidth: 3.29
+  outlineWidth: 2.13
   precomputeOutline: 1
   bakeKeys:
   - {fileID: -5495902117074765545, guid: 2da4112edefcb254ba0dad293de34037, type: 3}
