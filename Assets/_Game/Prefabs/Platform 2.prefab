@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 550574811765762896}
   - component: {fileID: 7767524987692224455}
   - component: {fileID: 3857851767849329740}
+  - component: {fileID: 4311053385389057593}
   m_Layer: 6
   m_Name: Platform 2
   m_TagString: Platform
@@ -34,7 +35,7 @@ Transform:
   - {fileID: 7969872741770798712}
   - {fileID: 2157573663427402700}
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &7767524987692224455
 BoxCollider:
@@ -70,6 +71,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
+--- !u!114 &4311053385389057593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6420133212903126833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0295d5f50363d694fbad55402aaca3a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  difState: 0
+  ePosMin: 0
+  ePosMax: 0
+  mPosMin: 0
+  mPosMax: 0
+  hPosMin: 0
+  hPosMax: 0
 --- !u!1 &8167415708378440627
 GameObject:
   m_ObjectHideFlags: 0

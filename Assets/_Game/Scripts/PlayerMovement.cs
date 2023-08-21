@@ -317,20 +317,20 @@ public class PlayerMovement : MonoBehaviour
                 slideControl = false;
                 slidetimer = 0f;
                 tap = false;
-             
-                if (!GameManager.instance.playerEvents.speedActive)
-                {
-                    if(!UiManager.instance.speedLocked)
-                    {
-                        isFalling = true;
-                        screenBorder.transform.parent = null;
-                        playerAnim.SetBool("Falling", true);
-                    }
-                
-                }
-              
-            
-              
+                playerAnim.SetBool("Falling", true);
+                //if (!GameManager.instance.playerEvents.speedActive)
+                //{
+                //    if(!UiManager.instance.speedLocked)
+                //    {
+                //        isFalling = true;
+                //        screenBorder.transform.parent = null;
+                //      
+                //    }
+
+                //}
+
+
+
             }
             
 
