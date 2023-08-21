@@ -41,7 +41,7 @@ public class GenerateObjects : MonoBehaviour
         if (spawnCount >= 2)
         {
 
-            if (bgsCurrentCount == 1|| bgsCurrentCount == 3 || bgsCurrentCount == 5 || bgsCurrentCount == 7)
+            if (bgsCurrentCount == 1|| bgsCurrentCount == 3 || bgsCurrentCount == 5 || bgsCurrentCount == 7 || bgsCurrentCount == 9 || bgsCurrentCount == 11 || bgsCurrentCount == 13 || bgsCurrentCount == 15 || bgsCurrentCount == 17)
             {
                 GameObject BGs = Instantiate(bgs[bgsCurrentCount], new Vector3(bg.transform.position.x, bg.transform.position.y + spawnHeight, bg.transform.position.z), Quaternion.identity);
                 bgsCurrentCount++;
