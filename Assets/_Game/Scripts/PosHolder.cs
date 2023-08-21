@@ -13,4 +13,11 @@ public class PosHolder : MonoBehaviour
     public float hPosMin;
     public float hPosMax;
 
+    public Difficulty difState;
+    public enum Difficulty
+    {
+        easy,
+        medium,
+        hard
+    }
 }
