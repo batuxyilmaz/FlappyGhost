@@ -147,12 +147,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6969b1f05432ad4297bae83f26668ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ePosMin: 0
-  ePosMax: 0
+  ePosMin: -8
+  ePosMax: 8
   mPosMin: 0
   mPosMax: 0
   hPosMin: 0
   hPosMax: 0
+  difState: 0
 --- !u!1 &2119401326743669878
 GameObject:
   m_ObjectHideFlags: 0
@@ -381,12 +382,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6969b1f05432ad4297bae83f26668ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ePosMin: 0
-  ePosMax: 0
+  ePosMin: -6
+  ePosMax: 6
   mPosMin: 0
   mPosMax: 0
   hPosMin: 0
   hPosMax: 0
+  difState: 1
 --- !u!1 &5237440723481171099
 GameObject:
   m_ObjectHideFlags: 0
@@ -588,12 +590,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6969b1f05432ad4297bae83f26668ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ePosMin: 0
-  ePosMax: 0
+  ePosMin: -4
+  ePosMax: 4
   mPosMin: 0
   mPosMax: 0
   hPosMin: 0
   hPosMax: 0
+  difState: 2
 --- !u!1001 &22756362784009445
 PrefabInstance:
   m_ObjectHideFlags: 0
