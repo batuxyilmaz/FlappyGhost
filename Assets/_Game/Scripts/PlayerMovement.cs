@@ -107,6 +107,15 @@ public class PlayerMovement : MonoBehaviour
 
                     generateScript.bgsCurrentCount = 0;
 
+                    if (generateScript.childCount < 2)
+                    {
+                        generateScript.childCount++;
+                    }
+                    else
+                    {
+                        generateScript.childCount=0;
+                    }
+
                     startCount += startCount;
 
                 }
@@ -121,6 +130,7 @@ public class PlayerMovement : MonoBehaviour
                     if (generateScript.bgsCurrentCount < 18)
                     {
                         generateScript.bgsCurrentCount++;
+                      
                         if (generateScript.bgsCurrentCount > 1)
                         {
                             changeCount += 500 * multiply;

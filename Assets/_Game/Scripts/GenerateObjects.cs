@@ -25,19 +25,19 @@ public class GenerateObjects : MonoBehaviour
     public int platformCount;
     public int sugarCount;
     public int gifCount;
+    public int childCount;
     void Start()
     {
         
-      
         bgsCurrentCount = 0;
         spawnHeight = 59.38f;
-     
+        childCount = 0;
     }
 
     
     public void GenerateBg()
     {
-        int randomChild = Random.Range(0, 3);
+      
         if (spawnCount >= 2)
         {
 
@@ -52,7 +52,7 @@ public class GenerateObjects : MonoBehaviour
             {
                 GameObject BGs = Instantiate(bgs[bgsCurrentCount], new Vector3(bg.transform.position.x, bg.transform.position.y + spawnHeight, bg.transform.position.z), Quaternion.identity);
                 BGs.transform.GetChild(0).gameObject.SetActive(false);
-                BGs.transform.GetChild(randomChild).gameObject.SetActive(true);
+                BGs.transform.GetChild(childCount).gameObject.SetActive(true);
        
             }
         }
@@ -61,7 +61,7 @@ public class GenerateObjects : MonoBehaviour
         {
             GameObject BG = Instantiate(bg, new Vector3(bg.transform.position.x, bg.transform.position.y + spawnHeight, bg.transform.position.z), Quaternion.identity);
             BG.transform.GetChild(0).gameObject.SetActive(false);
-            BG.transform.GetChild(randomChild).gameObject.SetActive(true);
+            BG.transform.GetChild(childCount).gameObject.SetActive(true);
           
         }
         spawnCount++; 
