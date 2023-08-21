@@ -93,6 +93,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9162655801712148857}
+  - component: {fileID: 8187916879278501286}
   m_Layer: 0
   m_Name: 01
   m_TagString: Untagged
@@ -134,6 +135,24 @@ Transform:
   m_Father: {fileID: 4609200388754029562}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8187916879278501286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1738486086497048638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6969b1f05432ad4297bae83f26668ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ePosMin: 0
+  ePosMax: 0
+  mPosMin: 0
+  mPosMax: 0
+  hPosMin: 0
+  hPosMax: 0
 --- !u!1 &2119401326743669878
 GameObject:
   m_ObjectHideFlags: 0
@@ -311,6 +330,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4108623710385814793}
+  - component: {fileID: 6302027853294487059}
   m_Layer: 0
   m_Name: 02
   m_TagString: Untagged
@@ -349,6 +369,24 @@ Transform:
   m_Father: {fileID: 4609200388754029562}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6302027853294487059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3510107359032834817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6969b1f05432ad4297bae83f26668ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ePosMin: 0
+  ePosMax: 0
+  mPosMin: 0
+  mPosMax: 0
+  hPosMin: 0
+  hPosMax: 0
 --- !u!1 &5237440723481171099
 GameObject:
   m_ObjectHideFlags: 0
@@ -498,6 +536,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 808394278890343665}
+  - component: {fileID: 7830813876144428305}
   m_Layer: 0
   m_Name: 03
   m_TagString: Untagged
@@ -537,6 +576,24 @@ Transform:
   m_Father: {fileID: 4609200388754029562}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7830813876144428305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8872460897653642548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6969b1f05432ad4297bae83f26668ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ePosMin: 0
+  ePosMax: 0
+  mPosMin: 0
+  mPosMax: 0
+  hPosMin: 0
+  hPosMax: 0
 --- !u!1001 &22756362784009445
 PrefabInstance:
   m_ObjectHideFlags: 0
