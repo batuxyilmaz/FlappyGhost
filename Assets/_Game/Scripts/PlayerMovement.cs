@@ -328,6 +328,7 @@ public class PlayerMovement : MonoBehaviour
                 soundStart = false;
                 holding = false;
                 slideControl = false;
+                currentSpeed = 5;
                 slidetimer = 0f;
                 tap = false;
                 playerAnim.SetBool("Falling", true);
