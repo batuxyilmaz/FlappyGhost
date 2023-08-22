@@ -73,7 +73,7 @@ public class PowerUp : MonoBehaviour
         if (other.gameObject.CompareTag("Platform"))
         {
 
-            transform.position = new Vector3(transform.position.x, transform.position.y - 6f, transform.position.z);
+            transform.position = new Vector3(transform.position.x, transform.position.y - 8f, transform.position.z);
 
         }
     }

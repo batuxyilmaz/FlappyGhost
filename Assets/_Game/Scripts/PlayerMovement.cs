@@ -333,11 +333,14 @@ public class PlayerMovement : MonoBehaviour
                 soundStart = false;
                 holding = false;
                 slideControl = false;
-                isFalling = true;
+               
                 slidetimer = 0f;
                 tap = false;
                 playerAnim.SetBool("Falling", true);
-              
+                if (!GameManager.instance.playerEvents.speedActive)
+                {
+                    isFalling = true;
+                }
 
 
 
