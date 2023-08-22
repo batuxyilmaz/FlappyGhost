@@ -62,6 +62,7 @@ public class PlayerMovement : MonoBehaviour
     private int rateCount;
     private bool windActive;
     public ParticleSystem windEffect;
+    public bool Death;
     private void Awake()
     {
         instance = this;
@@ -230,31 +231,35 @@ public class PlayerMovement : MonoBehaviour
         {
             if (!GameManager.instance.playerEvents.speedActive)
             {
-                transform.Translate(0, -currentSpeed / 2 * Time.deltaTime, 0); //Decent
-                eyechangeTimer += Time.deltaTime;
+                if (Death)
+                {
+                    transform.Translate(0, -currentSpeed / 2 * Time.deltaTime, 0); //Decent
+                }
+
+                //eyechangeTimer += Time.deltaTime;
                 if (windActive)
                 {
                     windEffect.Stop();
                     rateCount = 5;
                     windActive = false;
                 }
-              
-                if (eyechangeTimer >= 0.25f)
-                {
-                    GameManager.instance.eyeObject.transform.GetChild(eyeChangeValue).gameObject.SetActive(false);
-                    if (eyeChangeValue > 0)
-                    {
-                        eyeChangeValue--;
-                    }
-                 
-                    GameManager.instance.eyeObject.transform.GetChild(eyeChangeValue).gameObject.SetActive(true);
-                    eyechangeTimer = 0;
-                }
+
+                //if (eyechangeTimer >= 0.25f)
+                //{
+                //    GameManager.instance.eyeObject.transform.GetChild(eyeChangeValue).gameObject.SetActive(false);
+                //    if (eyeChangeValue > 0)
+                //    {
+                //        eyeChangeValue--;
+                //    }
+
+                //    GameManager.instance.eyeObject.transform.GetChild(eyeChangeValue).gameObject.SetActive(true);
+                //    eyechangeTimer = 0;
+                //}
 
                 if (currentSpeed >= 5f)
                 {
-                    currentSpeed -= 4f * Time.deltaTime*2;
-                    if (speedLimit < 0) 
+                    currentSpeed -= 4f * Time.deltaTime * 2;
+                    if (speedLimit < 0)
                     {
                         GameManager.instance.speedText.text = 0.ToString() + " " + "km";
                     }
@@ -262,13 +267,13 @@ public class PlayerMovement : MonoBehaviour
                     {
                         speedLimit -= 4f * Time.deltaTime * 2;
                     }
-               
+
                     if (multiplier > 15)
                     {
                         multiplier -= 0.2f;
                     }
-                
-                           
+
+
                 }
 
             }
@@ -292,15 +297,15 @@ public class PlayerMovement : MonoBehaviour
           
             if (GameManager.instance.gamestate==GameManager.GameState.start)
             {
-                if(!eyeOpened)
-                {
-                    for (int i = 0; i < GameManager.instance.eyeObject.transform.childCount; i++)
-                    {
-                        GameManager.instance.eyeObject.transform.GetChild(i).gameObject.SetActive(false);
-                    }
-                    GameManager.instance.eyeObject.transform.GetChild(5).gameObject.SetActive(true);
-                    eyeOpened = true;
-                }
+                //if(!eyeOpened)
+                //{
+                //    for (int i = 0; i < GameManager.instance.eyeObject.transform.childCount; i++)
+                //    {
+                //        GameManager.instance.eyeObject.transform.GetChild(i).gameObject.SetActive(false);
+                //    }
+                //    GameManager.instance.eyeObject.transform.GetChild(5).gameObject.SetActive(true);
+                //    eyeOpened = true;
+                //}
                
                 GameManager.instance.eyeObject.GetComponent<Animator>().enabled = false;
                 Vector3 firstPos = Camera.main.ScreenToViewportPoint(Input.mousePosition);
@@ -328,20 +333,11 @@ public class PlayerMovement : MonoBehaviour
                 soundStart = false;
                 holding = false;
                 slideControl = false;
-                currentSpeed = 5;
+                isFalling = true;
                 slidetimer = 0f;
                 tap = false;
                 playerAnim.SetBool("Falling", true);
-                //if (!GameManager.instance.playerEvents.speedActive)
-                //{
-                //    if(!UiManager.instance.speedLocked)
-                //    {
-                //        isFalling = true;
-                //        screenBorder.transform.parent = null;
-                //      
-                //    }
-
-                //}
+              
 
 
 

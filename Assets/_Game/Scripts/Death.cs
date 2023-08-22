@@ -12,6 +12,7 @@ public class Death : MonoBehaviour
            if(!GameManager.instance.playerEvents.speedActive&&!GameManager.instance.playerEvents.immunity)
             {
                 AdManager.instance.adReady = true;
+                PlayerMovement.instance.Death = true;
                 GameManager.instance.hitSound.Play();
                 GameManager.instance.flySound.Stop();
                 collision.gameObject.GetComponent<Collider>().enabled = false;
