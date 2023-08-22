@@ -169,33 +169,36 @@ public class PlayerMovement : MonoBehaviour
         {
             var emission = windEffect.emission;
         
-          
-            holdTimer += Time.deltaTime;
-            if(holdTimer > 0.5f)
+            if(GameManager.instance.gamestate == GameManager.GameState.start)
             {
-                holdTimer = 0f;
-                if (currentSpeed <= 40 && !UiManager.instance.speedLocked)
+                holdTimer += Time.deltaTime;
+                if (holdTimer > 0.5f)
                 {
-                    if (windActive)
+                    holdTimer = 0f;
+                    if (currentSpeed <= 40 && !UiManager.instance.speedLocked)
                     {
-                        emission.rateOverTime = (rateCount + 1);
-                        if (rateCount < 12 && !GameManager.instance.playerEvents.speedActive)
+                        if (windActive)
                         {
-                            rateCount++;
+                            emission.rateOverTime = (rateCount + 1);
+                            if (rateCount < 12 && !GameManager.instance.playerEvents.speedActive)
+                            {
+                                rateCount++;
+                            }
                         }
+
+
+                        currentSpeed += 0.4f;
+                        speedLimit += 0.4f;
+                        if (multiplier < 25f)
+                        {
+                            multiplier += 0.2f;
+                        }
+
                     }
-                  
-                 
-                    currentSpeed += 0.4f;
-                    speedLimit += 0.4f;
-                    if (multiplier < 25f)
-                    {
-                        multiplier += 0.2f;
-                    }
-                 
+
                 }
-               
             }
+          
         }
 
         if (GameManager.instance.playerEvents.speedActive||UiManager.instance.speedLocked)
@@ -444,7 +447,7 @@ public class PlayerMovement : MonoBehaviour
     }
     private void DeathControl()
     {
-        if (transform.position.x >= 9.2f || transform.position.x<=-9.2f)
+        if (transform.position.x >= 10f || transform.position.x<=-10f)
         {
             GameManager.instance.End();
             StartCoroutine(EndDelay());

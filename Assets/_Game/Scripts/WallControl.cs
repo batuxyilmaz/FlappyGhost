@@ -9,25 +9,22 @@ public class WallControl : MonoBehaviour
     private int hitCount;
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            GameManager.instance.gamestate = GameManager.GameState.pause;
+        //if (other.gameObject.CompareTag("Player"))
+        //{
+        //    GameManager.instance.gamestate = GameManager.GameState.pause;
 
-            GameManager.instance.End();
-            other.gameObject.GetComponent<Collider>().enabled = false;
-            other.GetComponent<Collider>().enabled = false;
-            StartCoroutine(EndDelay());
+        //    GameManager.instance.End();
+        //    other.gameObject.GetComponent<Collider>().enabled = false;
+        //    other.GetComponent<Collider>().enabled = false;
+        //    StartCoroutine(EndDelay());
 
-        }
+        //}
       
       
     }
     private void OnTriggerEnter(Collider other)
     {
-        //if (other.gameObject.CompareTag("Platform"))
-        //{
-        //    Destroy(other.gameObject);
-        //}
+      
         if (other.gameObject.CompareTag("Bg"))
         {
          
