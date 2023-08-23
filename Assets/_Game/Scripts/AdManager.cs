@@ -19,7 +19,7 @@ public class AdManager : MonoBehaviour
         instance = this;
     }
 
-    [System.Obsolete]
+    
     void Start()
     {
         MobileAds.Initialize(initStatus => { });
@@ -29,7 +29,7 @@ public class AdManager : MonoBehaviour
     }
 
     // Update is called once per frame
-    [System.Obsolete]
+  
     void Update()
     {
 
@@ -59,7 +59,7 @@ public class AdManager : MonoBehaviour
         }
     }
 
-    [System.Obsolete]
+
     private void RequestInterstitial()
     {
 #if UNITY_ANDROID
@@ -72,6 +72,7 @@ public class AdManager : MonoBehaviour
         AdRequest request = new AdRequest.Builder().Build();
         this.interstitial.LoadAd(request);
     }
+    
     private void RequestBanner()
     {
 #if UNITY_ANDROID
@@ -85,7 +86,7 @@ public class AdManager : MonoBehaviour
         this.banner.LoadAd(request);
     }
 
-    [System.Obsolete]
+    
     private void RequestRewarded()
     {
 #if UNITY_ANDROID
