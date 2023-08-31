@@ -62,6 +62,7 @@ public class PlayerMovement : MonoBehaviour
     private int rateCount;
     private bool windActive;
     public ParticleSystem windEffect;
+    public ParticleSystem shieldEffect;
     public bool Death;
     private void Awake()
     {

@@ -142,6 +142,7 @@ public class PlayerEvents : MonoBehaviour
             PlayerMovement.instance.multiplier = 15f;
             lightningTrail.SetActive(false);
             GameManager.instance.boostSound.Stop();
+            PlayerMovement.instance.shieldEffect.Stop();
             UiManager.instance.speedLocked = false;
             var emission = PlayerMovement.instance.windEffect.emission;
             emission.rateOverTime = 5;
@@ -237,19 +238,21 @@ public class PlayerEvents : MonoBehaviour
             if (UiManager.instance.speedbarImage.fillAmount >= 0.99f)
             {
                 clothes.SetActive(true);
+                PlayerMovement.instance.shieldEffect.Play();
                 GameManager.instance.speedUiSound.Play();
                 playerCol.enabled = false;
                 UiManager.instance.fadeText.SetActive(true);
                 GameObject FadeText=Instantiate(UiManager.instance.fadeText, spawnPos.transform.position, Quaternion.identity);
                 FadeText.transform.parent = spawnPos.transform;
                 Destroy(FadeText, 2f);
-              
+                
                 speedActive = true;
                 waitBoost = true;
                 DOTween.Restart("BarFinish");
                 GameManager.instance.boostSound.Play();
                 yield return new WaitForSeconds(1.5f);
                 UiManager.instance.speedbarImage.fillAmount = 0f;
+                
                 lightningTrail.SetActive(true);
                 DOTween.Pause("BarFinish");
                 speedTimer = 0f;
