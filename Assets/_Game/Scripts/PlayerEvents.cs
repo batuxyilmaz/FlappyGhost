@@ -36,7 +36,7 @@ public class PlayerEvents : MonoBehaviour
     public GameObject spawnPos;
     private Collider playerCol;
     public GameObject clothes;
-  
+    public Animator starAnim;
     private void Awake()
     {
      
@@ -147,6 +147,7 @@ public class PlayerEvents : MonoBehaviour
             var emission = PlayerMovement.instance.windEffect.emission;
             emission.rateOverTime = 5;
             PlayerMovement.instance.windEffect.Stop();
+            starAnim.enabled = false;
 
         }
         if(startDecrease)
@@ -226,21 +227,36 @@ public class PlayerEvents : MonoBehaviour
     }
     public IEnumerator BarFill()
     {
-      
-        for (int i = 0; i < 5; i++)
+      if(!speedActive)
         {
-            UiManager.instance.speedbarImage.fillAmount += barIncreaseValue;
-            
-            yield return new WaitForSeconds(0.005f);
+            for (int i = 0; i < 5; i++)
+            {
+                UiManager.instance.speedbarImage.fillAmount += barIncreaseValue;
+
+                yield return new WaitForSeconds(0.005f);
+            }
         }
+        else
+        {
+            for (int i = 0; i < 1; i++)
+            {
+                UiManager.instance.speedbarImage.fillAmount += barIncreaseValue;
+
+                yield return new WaitForSeconds(0.005f);
+            }
+        }
+      
         if (!waitBoost)
         {
             if (UiManager.instance.speedbarImage.fillAmount >= 0.99f)
-            {    
+            {
                 //Effect animasyonu 
                 //küçülme animasyonu
+                DOTween.Restart("Big");
+                DOTween.Restart("Small");
+                starAnim.enabled = true;    
                 clothes.SetActive(true);
-                PlayerMovement.instance.shieldEffect.Play();
+             
                 GameManager.instance.speedUiSound.Play();
                 playerCol.enabled = false;
                 UiManager.instance.fadeText.SetActive(true);
@@ -253,6 +269,7 @@ public class PlayerEvents : MonoBehaviour
                 DOTween.Restart("BarFinish");
                 GameManager.instance.boostSound.Play();
                 yield return new WaitForSeconds(1.5f);
+                PlayerMovement.instance.shieldEffect.Play();
                 UiManager.instance.speedbarImage.fillAmount = 0f;
                 
                 lightningTrail.SetActive(true);

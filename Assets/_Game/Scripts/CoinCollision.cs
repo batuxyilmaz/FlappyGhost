@@ -18,7 +18,7 @@ public class CoinCollision : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Gather") &&!GameManager.instance.playerEvents.speedActive)
+        if (other.gameObject.CompareTag("Gather"))
         {
             if(GameManager.instance.gamestate==GameManager.GameState.start)
             {
