@@ -236,7 +236,9 @@ public class PlayerEvents : MonoBehaviour
         if (!waitBoost)
         {
             if (UiManager.instance.speedbarImage.fillAmount >= 0.99f)
-            {
+            {    
+                //Effect animasyonu 
+                //küçülme animasyonu
                 clothes.SetActive(true);
                 PlayerMovement.instance.shieldEffect.Play();
                 GameManager.instance.speedUiSound.Play();
