@@ -8,6 +8,8 @@ using EKTemplate;
 using TMPro;
 using ToonyColorsPro;
 using UnityEditor;
+using Unity.VisualScripting;
+using GoogleMobileAds.Api;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -64,6 +66,10 @@ public class PlayerMovement : MonoBehaviour
     public ParticleSystem windEffect;
     public ParticleSystem shieldEffect;
     public bool Death;
+    private float tempOffset;
+    private bool leftRight;
+    private bool left;
+    private bool right;
     private void Awake()
     {
         instance = this;
@@ -334,7 +340,22 @@ public class PlayerMovement : MonoBehaviour
                 soundStart = false;
                 holding = false;
                 slideControl = false;
-               
+                if (leftRight)
+                {
+                    playerAnim.SetBool("Hold", false);
+                    if (playerAnim.GetBool("Left"))
+                    {
+                        playerAnim.SetBool("Left", true);
+                    }
+                    else
+                    {
+
+                        playerAnim.SetBool("Left", false);
+                    }
+                    leftRight = false;
+                }
+          
+              
                 slidetimer = 0f;
                 tap = false;
                 playerAnim.SetBool("Falling", true);
@@ -415,6 +436,12 @@ public class PlayerMovement : MonoBehaviour
         }   
     }
     private float offsetX = 0f;
+    IEnumerator LastPos()
+    {
+        yield return new WaitForSeconds(0.1f);
+        tempOffset = offsetX;
+        
+    }
     private void SlideControl()
     {
         if(!changed)
@@ -424,6 +451,36 @@ public class PlayerMovement : MonoBehaviour
             Vector3 pos = transform.position;
             offsetX = Mathf.Clamp(pos.x, ground.bounds.min.x + 0.5f, ground.bounds.max.x - 0.5f);
             pos.x = offsetX;
+            StartCoroutine(LastPos());
+         
+           
+            if (Mathf.RoundToInt(tempOffset) > Mathf.RoundToInt(offsetX) )
+            {
+                //left
+                leftRight = true;
+                if (!playerAnim.GetBool("Left"))
+                {
+                    playerAnim.SetBool("Left", false);
+                    playerAnim.SetBool("Hold", true);
+                }
+                
+                playerAnim.SetBool("Left", true);
+
+
+            }
+            if(Mathf.RoundToInt(tempOffset) < Mathf.RoundToInt(offsetX))
+            {
+                if (playerAnim.GetBool("Left"))
+                {
+                    playerAnim.SetBool("Left", true);
+                    playerAnim.SetBool("Hold", true);
+                }
+
+                playerAnim.SetBool("Left", false);
+                leftRight = true;
+                //right
+
+            }
 
             if (GameManager.instance.tutorial.activeSelf)
             {
