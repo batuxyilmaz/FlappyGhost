@@ -37,6 +37,7 @@ public class PlayerEvents : MonoBehaviour
     private Collider playerCol;
     public GameObject clothes;
     public Animator starAnim;
+    private Animator barAnim;
     private void Awake()
     {
      
@@ -54,7 +55,7 @@ public class PlayerEvents : MonoBehaviour
     private void Start()
     {
         playerCol=GetComponent<Collider>();
-
+        barAnim = UiManager.instance.speedbarImage.transform.parent.GetComponent<Animator>();
         increaseValue = 40;
         if (magnetUpgraded)
         {
@@ -148,6 +149,7 @@ public class PlayerEvents : MonoBehaviour
             emission.rateOverTime = 5;
             PlayerMovement.instance.windEffect.Stop();
             starAnim.enabled = false;
+         
 
         }
         if(startDecrease)
@@ -252,11 +254,11 @@ public class PlayerEvents : MonoBehaviour
             {
                 //Effect animasyonu 
                 //küçülme animasyonu
-                DOTween.Restart("Big");
-                DOTween.Restart("Small");
+               
+                barAnim.enabled = true;
                 starAnim.enabled = true;    
                 clothes.SetActive(true);
-             
+                barAnim.enabled = true;
                 GameManager.instance.speedUiSound.Play();
                 playerCol.enabled = false;
                 UiManager.instance.fadeText.SetActive(true);
@@ -269,6 +271,9 @@ public class PlayerEvents : MonoBehaviour
                 DOTween.Restart("BarFinish");
                 GameManager.instance.boostSound.Play();
                 yield return new WaitForSeconds(1.5f);
+                barAnim.enabled = false;
+                DOTween.Restart("Big");
+                DOTween.Restart("Small");
                 PlayerMovement.instance.shieldEffect.Play();
                 UiManager.instance.speedbarImage.fillAmount = 0f;
                 
