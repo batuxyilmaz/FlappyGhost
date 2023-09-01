@@ -481,6 +481,23 @@ public class PlayerMovement : MonoBehaviour
                 //right
 
             }
+            if (tempOffset== offsetX)
+            {
+                if (leftRight)
+                {
+                    playerAnim.SetBool("Hold", false);
+                    if (playerAnim.GetBool("Left"))
+                    {
+                        playerAnim.SetBool("Left", true);
+                    }
+                    else
+                    {
+
+                        playerAnim.SetBool("Left", false);
+                    }
+                    leftRight = false;
+                }
+            }
 
             if (GameManager.instance.tutorial.activeSelf)
             {
