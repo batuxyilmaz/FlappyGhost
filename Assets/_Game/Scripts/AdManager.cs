@@ -23,9 +23,9 @@ public class AdManager : MonoBehaviour
     void Start()
     {
         MobileAds.Initialize(initStatus => { });
-        RequestInterstitial();
-        RequestRewarded();
-        RequestBanner();
+        this.RequestInterstitial();
+        this.RequestRewarded();
+        this.RequestBanner();
     }
 
     // Update is called once per frame
@@ -63,7 +63,7 @@ public class AdManager : MonoBehaviour
     private void RequestInterstitial()
     {
 #if UNITY_ANDROID
-        string AdID = "ca-app-pub-5543829207976032/6602861045";
+        string AdID = "ca-app-pub-5543829207976032/8725114003";
 #else
       string reklamID="Unexpected platform";
 #endif
@@ -76,7 +76,7 @@ public class AdManager : MonoBehaviour
     private void RequestBanner()
     {
 #if UNITY_ANDROID
-        string AdID = "ca-app-pub-5543829207976032/1525261356";
+        string AdID = "ca-app-pub-5543829207976032/2506393859";
 #else
       string reklamID="Unexpected platform";
 #endif
@@ -90,7 +90,7 @@ public class AdManager : MonoBehaviour
     private void RequestRewarded()
     {
 #if UNITY_ANDROID
-        string AdID = "ca-app-pub-5543829207976032/5660194906";
+        string AdID = "ca-app-pub-5543829207976032/7248380804";
 #else
       string reklamID="Unexpected platform";
 #endif
@@ -103,7 +103,7 @@ public class AdManager : MonoBehaviour
     private void rewardPlayer(object sender, Reward e)
     {
       
-        GameManager.instance.point += GameManager.instance.point;
+        GameManager.instance.point += GameManager.instance.currentMoney;
         GameManager.instance.coinText.text = GameManager.instance.point.ToString();
         PlayerPrefs.SetInt("Point", GameManager.instance.point);
     }

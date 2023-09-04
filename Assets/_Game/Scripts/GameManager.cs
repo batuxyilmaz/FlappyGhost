@@ -61,7 +61,7 @@ public class GameManager : MonoBehaviour
     public int fourthPlace;
     public int fifthPlace;
     public GameObject eyeObject;
-  
+    public int currentMoney;
 
     private void Awake()
     {
@@ -85,7 +85,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            point = 100;
+            point = 0;
             PlayerPrefs.SetInt("Point",point);
             coinText.text = point.ToString();
         }
@@ -116,6 +116,7 @@ public class GameManager : MonoBehaviour
     public void End()
     {
         UiManager.instance.candyBar.SetActive(false);
+        GameManager.instance.ingamePanel.SetActive(false);
         eyeObject.SetActive(false);
         mainHighscore =PlayerPrefs.GetInt("MainHighScore");
         blurPanel.SetActive(true);
@@ -138,7 +139,7 @@ public class GameManager : MonoBehaviour
             highScoreText.text = highScore.ToString();
         }
        
-        endcoinText.text=point.ToString();
+        endcoinText.text=currentMoney.ToString();
       
     }
     public void OpenEndGame()

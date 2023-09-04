@@ -13,6 +13,7 @@ public class Death : MonoBehaviour
             {
                 AdManager.instance.adReady = true;
                 PlayerMovement.instance.Death = true;
+             
                 GameManager.instance.hitSound.Play();
                 GameManager.instance.flySound.Stop();
                 collision.gameObject.GetComponent<Collider>().enabled = false;

@@ -41,9 +41,10 @@ public class UiManager : MonoBehaviour
     public bool hapticActive;
     public Button upgradeButton;
     public GameObject tut;
-
+    public Button claimButton;
     public GameObject startButton;
     public bool speedLocked;
+    public GameObject retryButton;
     private void Awake()
     {
         instance = this;
@@ -212,6 +213,8 @@ public class UiManager : MonoBehaviour
     public void Reward()
     {
         DOTween.Restart("ClickClaim");
+        retryButton.gameObject.SetActive(false);    
+        claimButton.transform.parent.gameObject.SetActive(false);
         AdManager.instance.rewardReady = true;
       
     }
